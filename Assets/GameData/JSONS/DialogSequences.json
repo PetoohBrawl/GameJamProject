@@ -1,0 +1,14 @@
+[
+  {
+    "Name": "test_dialog_1",
+    "DialogStages": "test_dialog_1_1,test_dialog_1_2"
+  },
+  {
+    "Name": "test_dialog_2_succes",
+    "DialogStages": "test_dialog_2_succes_1,test_dialog_2_succes_2"
+  },
+  {
+    "Name": "test_dialog_2_fail",
+    "DialogStages": "test_dialog_2_fail_1"
+  }
+]

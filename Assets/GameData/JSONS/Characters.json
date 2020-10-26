@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "test_char_1",
+    "StartReputation": 0,
+    "DialogSequences": "test_dialog_1"
+  },
+  {
+    "Name": "test_char_2",
+    "StartReputation": 0,
+    "DialogSequences": "test_dialog_2_succes,test_dialog_2_fail"
+  }
+]
