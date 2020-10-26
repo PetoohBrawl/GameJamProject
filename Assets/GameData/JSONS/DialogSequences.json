@@ -3,21 +3,24 @@
     "Name": "test_dialog_1",
     "DialogStages": "test_dialog_1_1\ntest_dialog_1_2",
     "FinalStage": "test_dialog_1_final",
-    "ConditionType": 0,
-    "ConditionValue": 0
+    "ConditionType": "",
+    "ConditionValue": "",
+    "ConditionTarget": ""
   },
   {
     "Name": "test_dialog_2_succes",
     "DialogStages": "test_dialog_2_succes_1\ntest_dialog_2_succes_2",
     "FinalStage": "",
-    "ConditionType": "",
-    "ConditionValue": ""
+    "ConditionType": 0,
+    "ConditionValue": 0,
+    "ConditionTarget": "test_char_2"
   },
   {
     "Name": "test_dialog_2_fail",
     "DialogStages": "test_dialog_2_fail_1",
     "FinalStage": "",
     "ConditionType": "",
-    "ConditionValue": ""
+    "ConditionValue": "",
+    "ConditionTarget": ""
   }
 ]

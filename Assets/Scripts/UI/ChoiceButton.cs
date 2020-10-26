@@ -5,8 +5,7 @@ using TMPro;
 
 public class ChoiceButton : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI _buttonText;
+    [SerializeField] private TextMeshProUGUI _buttonText;
 
     private DialogChoiceData _choiceData;
 
@@ -39,10 +38,13 @@ public class ChoiceButton : MonoBehaviour
             OnChoiceMade?.Invoke(null);
             return;
         }
-
-        if (_choiceData.ImpactType != ImpactType.None)
+        
+        // TODO: переделать на универсальный метод применения импакта
+        switch (_choiceData.ImpactType)
         {
-
+            case ImpactType.Reputation:
+                GameController.Instance.UpdateCharacterReputation(_choiceData.ImpactTargetName, _choiceData.ImpactValue);
+                break;
         }
 
         DialogStageData stageData = GameDataStorage.Instance.GetDialogStageData(_choiceData.StageName);

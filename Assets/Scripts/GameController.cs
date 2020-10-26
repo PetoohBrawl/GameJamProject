@@ -9,8 +9,7 @@ public class GameController : MonoBehaviour
     // TODO : UI надо переместить в отдельный менеджер, так как GameController не должен быть MonoBehaviour
     public DialogWindow DialogWindow;
 
-    [SerializeField]
-    private GameDataContainer _dataContainer;
+    [SerializeField] private GameDataContainer _dataContainer;
 
     private List<CharacterInfo> _characters = new List<CharacterInfo>();
 

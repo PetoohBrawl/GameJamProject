@@ -5,12 +5,9 @@ using TMPro;
 
 public class DialogWindow : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI _phraseText;
-    [SerializeField]
-    private RectTransform _buttonsParent;
-    [SerializeField]
-    private ChoiceButton _buttonPrefab;
+    [SerializeField] private TextMeshProUGUI _phraseText;
+    [SerializeField] private RectTransform _buttonsParent;
+    [SerializeField] private ChoiceButton _buttonPrefab;
 
     private DialogSequenceInfo _currentSequenceInfo;
     private List<DialogStageData> _currentStages;

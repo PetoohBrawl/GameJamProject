@@ -19,7 +19,19 @@ public class DialogSequenceInfo
             return false;
         }
 
-        // TODO: проверку condition
+        // TODO: переделать на универсальный метод проверки кондишна
+        switch (DialogSequenceData.ConditionType)
+        {
+            case ImpactType.Reputation:
+                CharacterInfo characterInfo = GameController.Instance.GetCharacterInfo(DialogSequenceData.ConditionTarget);
+
+                if (characterInfo.ReputationValue < DialogSequenceData.ConditionValue)
+                {
+                    return false;
+                }
+
+                break;
+        }
 
         return true;
     }

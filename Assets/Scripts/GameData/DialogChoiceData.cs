@@ -25,7 +25,8 @@ public class DialogChoiceData
         Name = (string)data["Name"];
         Text = (string)data["Text"];
         StageName = (string)data["StageName"];
-        ImpactType = data.GetEnum("ImpactType", ImpactType.None);
+        
+        ImpactType = data.GetEnum(data["ImpactType"].ToString(), ImpactType.None);
 
         if (ImpactType != ImpactType.None)
         {
