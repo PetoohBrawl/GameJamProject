@@ -7,14 +7,14 @@ public class CharacterInfo
     public int ReputationCounter;
     public List<DialogSequenceInfo> DialogSequences = new List<DialogSequenceInfo>();
 
-    private CharacterData charac_terData;
+    private CharacterData _characterData;
 
     public CharacterInfo(CharacterData data)
     {
-        charac_terData = data;
+        _characterData = data;
         ReputationCounter = 0;
 
-        foreach (DialogSequenceData dialogSequenceData in charac_terData.DialogSequenceDatas)
+        foreach (DialogSequenceData dialogSequenceData in _characterData.DialogSequenceDatas)
         {
             DialogSequences.Add(new DialogSequenceInfo(dialogSequenceData));
         }
