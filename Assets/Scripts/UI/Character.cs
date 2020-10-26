@@ -12,19 +12,21 @@ public class Character : MonoBehaviour
     {
         if (string.IsNullOrEmpty(CharacterName) == false)
         {
-            _characterInfo = new CharacterInfo(GameDataStorage.Instance.GetCharacterData(CharacterName));
+            _characterInfo = GameController.Instance.GetCharacterInfo(CharacterName);
         }
     }
 
     public void TryStartDialogSequence()
     {
-        for (int i = 0; i < _characterInfo.DialogSequences.Count; i++)
+        DialogSequenceInfo activeDialog = _characterInfo.ActiveDialog;
+
+        // TODO: обработать ситуацию, если игроку недоступен ни один из вариантов диалога с персонажем
+        if (activeDialog == null)
         {
-            if (_characterInfo.DialogSequences[i].CanStartSequence())
-            {
-                GameController.Instance.StartDialogSequence(_characterInfo.DialogSequences[i]);
-                break;
-            }
+            
+            return;
         }
+
+        GameController.Instance.StartDialogSequence(activeDialog);
     }
 }

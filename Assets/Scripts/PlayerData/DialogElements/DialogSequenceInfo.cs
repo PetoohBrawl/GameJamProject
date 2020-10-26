@@ -5,9 +5,8 @@ using UnityEngine;
 public class DialogSequenceInfo
 {
     public DialogSequenceData DialogSequenceData { get; private set; }
-
-    private bool _isCompleted;
-
+    public bool IsCompleted { get; private set; }
+    
     public DialogSequenceInfo(DialogSequenceData data)
     {
         DialogSequenceData = data;
@@ -15,7 +14,7 @@ public class DialogSequenceInfo
 
     public bool CanStartSequence()
     {
-        if (_isCompleted)
+        if (IsCompleted)
         {
             return false;
         }
@@ -27,6 +26,6 @@ public class DialogSequenceInfo
 
     public void SetCompleted()
     {
-        _isCompleted = true;
+        IsCompleted = true;
     }
 }

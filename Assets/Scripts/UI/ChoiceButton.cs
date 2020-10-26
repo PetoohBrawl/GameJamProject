@@ -40,7 +40,10 @@ public class ChoiceButton : MonoBehaviour
             return;
         }
 
-        // TODO: apply impacts
+        if (_choiceData.ImpactType != ImpactType.None)
+        {
+
+        }
 
         DialogStageData stageData = GameDataStorage.Instance.GetDialogStageData(_choiceData.StageName);
 

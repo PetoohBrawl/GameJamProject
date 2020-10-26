@@ -31,8 +31,16 @@ public class DialogWindow : MonoBehaviour
         gameObject.SetActive(true);
 
         _currentSequenceInfo = dialogSequenceInfo;
+        DialogStageData startStage = null;
 
-        DialogStageData startStage = _currentSequenceInfo.DialogSequenceData.DialogStages[0];
+        if (dialogSequenceInfo.IsCompleted == false)
+        {
+            startStage = _currentSequenceInfo.DialogSequenceData.DialogStages[0];
+        }
+        else
+        {
+            startStage = _currentSequenceInfo.DialogSequenceData.FinalStage;
+        }
 
         SetupView(startStage);
     }

@@ -4,19 +4,49 @@ using UnityEngine;
 
 public class CharacterInfo
 {
-    public int ReputationCounter;
-    public List<DialogSequenceInfo> DialogSequences = new List<DialogSequenceInfo>();
+    public int ReputationValue { get; private set; }
 
-    private CharacterData _characterData;
+    private DialogSequenceInfo _activeDialog;
+    public DialogSequenceInfo ActiveDialog
+    {
+        get
+        {
+            if (_activeDialog == null)
+            {
+                foreach (DialogSequenceInfo dialogSequence in _dialogSequences)
+                {
+                    if (dialogSequence.CanStartSequence())
+                    {
+                        // Если для конкретной части игры уже выбран диалог с персонажем, то имеет смысл очистить кэш sequence'ов ?
+                        //_dialogSequences.Clear();
+
+                        _activeDialog = dialogSequence;
+                        break;
+                    }
+                }
+            }
+
+            return _activeDialog;
+        }
+    }
+
+    public readonly CharacterData CharacterData;
+
+    private List<DialogSequenceInfo> _dialogSequences = new List<DialogSequenceInfo>();
 
     public CharacterInfo(CharacterData data)
     {
-        _characterData = data;
-        ReputationCounter = 0;
+        CharacterData = data;
+        ReputationValue = 0;
 
-        foreach (DialogSequenceData dialogSequenceData in _characterData.DialogSequenceDatas)
+        foreach (DialogSequenceData dialogSequenceData in CharacterData.DialogSequenceDatas)
         {
-            DialogSequences.Add(new DialogSequenceInfo(dialogSequenceData));
+            _dialogSequences.Add(new DialogSequenceInfo(dialogSequenceData));
         }
+    }
+
+    public void UpdateReputation(int value)
+    {
+        ReputationValue += value;
     }
 }
