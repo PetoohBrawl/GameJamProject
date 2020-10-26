@@ -14,7 +14,7 @@ public class CharacterData
         Name = (string)data["Name"];
         StartReputation = data.GetInt("StartReputation");
 
-        string[] dialogSequencesNames = ((string)data["DialogSequences"]).Split(',');
+        string[] dialogSequencesNames = ((string)data["DialogSequences"]).Split('\n');
 
         foreach (string dialogSequenceName in dialogSequencesNames)
         {

@@ -2,7 +2,7 @@
   {
     "Name": "test_dialog_1_1",
     "Phrase": "Hi, Bro",
-    "Choices": "test_dialog_1_1_1,test_dialog_1_1_2",
+    "Choices": "test_dialog_1_1_1\ntest_dialog_1_1_2",
     "NextStageName": ""
   },
   {
@@ -14,7 +14,7 @@
   {
     "Name": "test_dialog_2_succes_1",
     "Phrase": "Hi, Bro(test2)",
-    "Choices": "test_dialog_2_succes_1_1,test_dialog_2_succes_1_2",
+    "Choices": "test_dialog_2_succes_1_1\ntest_dialog_2_succes_1_2",
     "NextStageName": ""
   },
   {
@@ -26,6 +26,12 @@
   {
     "Name": "test_dialog_2_fail_1",
     "Phrase": "I HAATE YOU!!!! T_T",
+    "Choices": "",
+    "NextStageName": ""
+  },
+  {
+    "Name": "test_dialog_1_final",
+    "Phrase": "Did u fuck him? No? What are u w8ing for?",
     "Choices": "",
     "NextStageName": ""
   }

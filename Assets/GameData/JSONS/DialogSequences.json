@@ -1,14 +1,23 @@
 [
   {
     "Name": "test_dialog_1",
-    "DialogStages": "test_dialog_1_1,test_dialog_1_2"
+    "DialogStages": "test_dialog_1_1\ntest_dialog_1_2",
+    "FinalStage": "test_dialog_1_final",
+    "ConditionType": 0,
+    "ConditionValue": 0
   },
   {
     "Name": "test_dialog_2_succes",
-    "DialogStages": "test_dialog_2_succes_1,test_dialog_2_succes_2"
+    "DialogStages": "test_dialog_2_succes_1\ntest_dialog_2_succes_2",
+    "FinalStage": "",
+    "ConditionType": "",
+    "ConditionValue": ""
   },
   {
     "Name": "test_dialog_2_fail",
-    "DialogStages": "test_dialog_2_fail_1"
+    "DialogStages": "test_dialog_2_fail_1",
+    "FinalStage": "",
+    "ConditionType": "",
+    "ConditionValue": ""
   }
 ]

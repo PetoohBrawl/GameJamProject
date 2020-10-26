@@ -21,7 +21,7 @@ public class DialogStageData
 
         if (!string.IsNullOrEmpty(choices))
         {
-            string[] choicesNames = choices.Split(',');
+            string[] choicesNames = choices.Split('\n');
 
             foreach (string choiceName in choicesNames)
             {

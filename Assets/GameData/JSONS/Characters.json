@@ -7,6 +7,6 @@
   {
     "Name": "test_char_2",
     "StartReputation": 0,
-    "DialogSequences": "test_dialog_2_succes,test_dialog_2_fail"
+    "DialogSequences": "test_dialog_2_succes\ntest_dialog_2_fail"
   }
 ]

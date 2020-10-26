@@ -18,9 +18,10 @@ public class GameDataStorage
     }
 
     public List<CharacterData> CharacterDatas = new List<CharacterData>();
-    private List<DialogSequenceData> DialogSequenceDatas = new List<DialogSequenceData>();
-    private List<DialogStageData> DialogStageDatas = new List<DialogStageData>();
-    private List<DialogChoiceData> DialogChoiceDatas = new List<DialogChoiceData>();
+
+    private List<DialogSequenceData> _dialogSequenceDatas = new List<DialogSequenceData>();
+    private List<DialogStageData> _dialogStageDatas = new List<DialogStageData>();
+    private List<DialogChoiceData> _dialogChoiceDatas = new List<DialogChoiceData>();
 
     public void InitStorage(GameDataContainer dataContainer)
     {
@@ -46,7 +47,7 @@ public class GameDataStorage
                         DialogSequenceData dialogSequenceData = new DialogSequenceData();
                         dialogSequenceData.Init(data);
 
-                        DialogSequenceDatas.Add(dialogSequenceData);
+                        _dialogSequenceDatas.Add(dialogSequenceData);
                     }
                     break;
 
@@ -56,7 +57,7 @@ public class GameDataStorage
                         DialogStageData dialogStageData = new DialogStageData();
                         dialogStageData.Init(data);
 
-                        DialogStageDatas.Add(dialogStageData);
+                        _dialogStageDatas.Add(dialogStageData);
                     }
                     break;
 
@@ -66,7 +67,7 @@ public class GameDataStorage
                         DialogChoiceData dialogChoiceData = new DialogChoiceData();
                         dialogChoiceData.Init(data);
 
-                        DialogChoiceDatas.Add(dialogChoiceData);
+                        _dialogChoiceDatas.Add(dialogChoiceData);
                     }
                     break;
             }
@@ -75,7 +76,7 @@ public class GameDataStorage
 
     public DialogSequenceData GetDialogSequenceData(string name)
     {
-        foreach (DialogSequenceData data in DialogSequenceDatas)
+        foreach (DialogSequenceData data in _dialogSequenceDatas)
         {
             if (data.Name.Equals(name))
                 return data;
@@ -86,7 +87,7 @@ public class GameDataStorage
 
     public DialogStageData GetDialogStageData(string name)
     {
-        foreach (DialogStageData data in DialogStageDatas)
+        foreach (DialogStageData data in _dialogStageDatas)
         {
             if (data.Name.Equals(name))
                 return data;
@@ -97,7 +98,7 @@ public class GameDataStorage
 
     public DialogChoiceData GetDialogChoiceData(string name)
     {
-        foreach (DialogChoiceData data in DialogChoiceDatas)
+        foreach (DialogChoiceData data in _dialogChoiceDatas)
         {
             if (data.Name.Equals(name))
                 return data;
