@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class CharacterInfo
 {
-    public int reputationCounter;
-    public List<DialogSequenceInfo> dialogSequences = new List<DialogSequenceInfo>();
+    public int ReputationCounter;
+    public List<DialogSequenceInfo> DialogSequences = new List<DialogSequenceInfo>();
 
-    private CharacterData characterData;
+    private CharacterData charac_terData;
 
     public CharacterInfo(CharacterData data)
     {
-        characterData = data;
-        reputationCounter = 0;
+        charac_terData = data;
+        ReputationCounter = 0;
 
-        foreach (DialogSequenceData dialogSequenceData in characterData.DialogSequenceDatas)
+        foreach (DialogSequenceData dialogSequenceData in charac_terData.DialogSequenceDatas)
         {
-            dialogSequences.Add(new DialogSequenceInfo(dialogSequenceData));
+            DialogSequences.Add(new DialogSequenceInfo(dialogSequenceData));
         }
     }
 }

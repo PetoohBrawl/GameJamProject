@@ -225,10 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef617c573d17c374e8afb811395805cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogWindow: {fileID: 824759323}
-  dataContainer: {fileID: 11400000, guid: b9914511a5e0f054aae34a04c938404d, type: 2}
-  char_1: {fileID: 0}
-  char_2: {fileID: 0}
+  DialogWindow: {fileID: 824759323}
+  _dataContainer: {fileID: 11400000, guid: b9914511a5e0f054aae34a04c938404d, type: 2}
+  _char_1: {fileID: 1526944189}
+  _char_2: {fileID: 641669384}
 --- !u!4 &507482583
 Transform:
   m_ObjectHideFlags: 0
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7751f5c3ad84248aa45a71de958512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterName: test_char_2
+  CharacterName: test_char_2
 --- !u!1 &791793536
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,9 +616,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b997d966d40dcce458e507da3e6b6f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phraseText: {fileID: 1042698989}
-  buttonsParent: {fileID: 1894210115}
-  buttonPrefab: {fileID: 1123971982938748933, guid: b6804da267479fa46992f9523b691e3c,
+  _phraseText: {fileID: 1042698989}
+  _buttonsParent: {fileID: 1894210115}
+  _buttonPrefab: {fileID: 1123971982938748933, guid: b6804da267479fa46992f9523b691e3c,
     type: 3}
 --- !u!222 &824759324
 CanvasRenderer:
@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec7751f5c3ad84248aa45a71de958512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterName: test_char_1
+  CharacterName: test_char_1
 --- !u!1 &1894210114
 GameObject:
   m_ObjectHideFlags: 0

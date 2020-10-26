@@ -6,7 +6,7 @@ using SimpleJson;
 public enum StateVariable
 {
     None = -1,
-    reputation = 0
+    Reputation = 0
 }
 
 public class DialogChoiceData

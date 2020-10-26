@@ -6,7 +6,7 @@ public class DialogSequenceInfo
 {
     public DialogSequenceData DialogSequenceData { get; private set; }
 
-    private bool isCompleted;
+    private bool _isCompleted;
 
     public DialogSequenceInfo(DialogSequenceData data)
     {
@@ -15,7 +15,7 @@ public class DialogSequenceInfo
 
     public bool CanStartSequence()
     {
-        if (isCompleted)
+        if (_isCompleted)
         {
             return false;
         }
@@ -27,6 +27,6 @@ public class DialogSequenceInfo
 
     public void SetCompleted()
     {
-        isCompleted = true;
+        _isCompleted = true;
     }
 }

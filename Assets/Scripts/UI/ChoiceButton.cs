@@ -6,35 +6,35 @@ using TMPro;
 public class ChoiceButton : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI buttonText;
+    private TextMeshProUGUI _buttonText;
 
-    private DialogChoiceData choiceData;
+    private DialogChoiceData _choiceData;
 
     public static event Action<DialogStageData> OnChoiceMade;
 
     public void SetupButton(DialogChoiceData data)
     {
-        choiceData = data;
-        buttonText.text = choiceData.Text;
+        _choiceData = data;
+        _buttonText.text = _choiceData.Text;
     }
 
     public void SetupButton(bool endOfDialog)
     {
-        choiceData = null;
+        _choiceData = null;
 
         if (endOfDialog)
         {
-            buttonText.text = "[End dialog]";
+            _buttonText.text = "[End dialog]";
         }
         else
         {
-            buttonText.text = "[Continue]";
+            _buttonText.text = "[Continue]";
         }
     }
 
     public void OnClick()
     {
-        if (choiceData == null)
+        if (_choiceData == null)
         {
             OnChoiceMade?.Invoke(null);
             return;
@@ -42,7 +42,7 @@ public class ChoiceButton : MonoBehaviour
 
         // TODO: apply impacts
 
-        DialogStageData stageData = GameDataStorage.Instance.GetDialogStageData(choiceData.StageName);
+        DialogStageData stageData = GameDataStorage.Instance.GetDialogStageData(_choiceData.StageName);
 
         OnChoiceMade?.Invoke(stageData);
     }
