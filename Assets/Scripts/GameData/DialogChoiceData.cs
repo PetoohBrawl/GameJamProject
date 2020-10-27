@@ -13,8 +13,8 @@ public class DialogChoiceData
 {
     public string Name { get; private set; }
     public string Text { get; private set; }
-    public ImpactType ImpactType { get; private set; }
     public string StageName { get; private set; }
+    public bool HistoryStageFinalizer { get; private set; }
 
     // TODO : объединить в отдельный класс воздействий (какой-нибудь ImpactInfo), который по вызову метода Apply будет применять импакты
     public int ImpactValue { get; private set; }
@@ -25,13 +25,13 @@ public class DialogChoiceData
         Name = (string)data["Name"];
         Text = (string)data["Text"];
         StageName = (string)data["StageName"];
-        
-        ImpactType = data.GetEnum(data["ImpactType"].ToString(), ImpactType.None);
+        ImpactTargetName = (string)data["ImpactTargetName"];
 
-        if (ImpactType != ImpactType.None)
+        if (!string.IsNullOrEmpty(ImpactTargetName))
         {
             ImpactValue = data.GetInt("ImpactValue");
-            ImpactTargetName = (string)data["ImpactTargetName"];
         }
+
+        HistoryStageFinalizer = ((string)data["HistoryStageFinalizer"]).Equals("TRUE");
     }
 }

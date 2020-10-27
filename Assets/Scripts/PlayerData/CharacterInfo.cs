@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,6 +34,8 @@ public class CharacterInfo
 
     private List<DialogSequenceInfo> _dialogSequences = new List<DialogSequenceInfo>();
 
+    public static event Action<string> OnCharacterInfoUpdated;
+
     public CharacterInfo(CharacterData data)
     {
         CharacterData = data;
@@ -44,12 +46,16 @@ public class CharacterInfo
 
     public void SetupHistoryStageStep(int stageNumber)
     {
+        _dialogSequences.Clear();
+
         List<DialogSequenceData> stageSequences = CharacterData.GetHistoryStageDialogSequences(stageNumber);
 
         foreach (DialogSequenceData dialogSequenceData in stageSequences)
         {
             _dialogSequences.Add(new DialogSequenceInfo(dialogSequenceData));
         }
+
+        OnCharacterInfoUpdated?.Invoke(CharacterData.Name);
     }
 
     public void UpdateReputation(int value)

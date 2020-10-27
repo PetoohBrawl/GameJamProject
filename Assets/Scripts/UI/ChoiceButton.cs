@@ -9,7 +9,7 @@ public class ChoiceButton : MonoBehaviour
 
     private DialogChoiceData _choiceData;
 
-    public static event Action<DialogStageData> OnChoiceMade;
+    public static event Action<DialogChoiceData> OnChoiceMade;
 
     public void SetupButton(DialogChoiceData data)
     {
@@ -40,15 +40,8 @@ public class ChoiceButton : MonoBehaviour
         }
         
         // TODO: переделать на универсальный метод применения импакта
-        switch (_choiceData.ImpactType)
-        {
-            case ImpactType.Reputation:
-                GameController.Instance.UpdateCharacterReputation(_choiceData.ImpactTargetName, _choiceData.ImpactValue);
-                break;
-        }
+        GameController.Instance.UpdateCharacterReputation(_choiceData.ImpactTargetName, _choiceData.ImpactValue);
 
-        DialogStageData stageData = GameDataStorage.Instance.GetDialogStageData(_choiceData.StageName);
-
-        OnChoiceMade?.Invoke(stageData);
+        OnChoiceMade?.Invoke(_choiceData);
     }
 }

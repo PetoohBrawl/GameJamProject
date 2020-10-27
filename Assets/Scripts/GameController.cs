@@ -26,9 +26,18 @@ public class GameController : MonoBehaviour
         }
 
         InitHistoryStage(CurrentHistoryStage);
+
+        ChoiceButton.OnChoiceMade += OnChoiceMade;
     }
 
-    public void InitHistoryStage(int stageNumber)
+    private void OnChoiceMade(DialogChoiceData choiceData)
+    {
+        CurrentHistoryStage++;
+
+        InitHistoryStage(CurrentHistoryStage);
+    }
+
+    private void InitHistoryStage(int stageNumber)
     {
         foreach (CharacterInfo characterInfo in _characters)
         {
@@ -43,10 +52,17 @@ public class GameController : MonoBehaviour
 
     public void UpdateCharacterReputation(string characterName, int reputationValue)
     {
+        if (string.IsNullOrEmpty(characterName))
+        {
+            return;
+        }
+
         CharacterInfo characterInfo = GetCharacterInfo(characterName);
 
         if (characterInfo == null)
+        {
             return;
+        }
 
         characterInfo.UpdateReputation(reputationValue);
     }

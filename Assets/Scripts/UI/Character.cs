@@ -8,8 +8,28 @@ public class Character : MonoBehaviour
 
     private CharacterInfo _characterInfo;
 
+    private void OnEnable()
+    {
+        CharacterInfo.OnCharacterInfoUpdated += OnCharacterInfoUpdated;
+    }
+
+    private void OnDisable()
+    {
+        CharacterInfo.OnCharacterInfoUpdated -= OnCharacterInfoUpdated;
+    }
+
     private void Start()
     {
+        _characterInfo = GameController.Instance.GetCharacterInfo(CharacterName);
+    }
+
+    private void OnCharacterInfoUpdated(string name)
+    {
+        if (!CharacterName.Equals(name))
+        {
+            return;
+        }
+
         if (string.IsNullOrEmpty(CharacterName) == false)
         {
             _characterInfo = GameController.Instance.GetCharacterInfo(CharacterName);
