@@ -20,17 +20,12 @@ public class DialogSequenceInfo
         }
 
         // TODO: переделать на универсальный метод проверки кондишна
-        switch (DialogSequenceData.ConditionType)
+        switch (DialogSequenceData.ConditionDirection)
         {
-            case ImpactType.Reputation:
-                CharacterInfo characterInfo = GameController.Instance.GetCharacterInfo(DialogSequenceData.ConditionTarget);
-
-                if (characterInfo.ReputationValue < DialogSequenceData.ConditionValue)
-                {
-                    return false;
-                }
-
-                break;
+            case 1:
+                CharacterInfo characterInfo = GameController.Instance.GetCharacterInfo(DialogSequenceData.ReputationTarget);
+                
+                return characterInfo.ReputationValue >= DialogSequenceData.ReputationValue;
         }
 
         return true;

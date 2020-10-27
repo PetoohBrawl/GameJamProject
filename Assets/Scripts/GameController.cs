@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }
 
-    public int CurrentHistoryStage { get; private set; }
+    public int CurrentHistoryStage { get; private set; } = 1; // FIXME: инициализация номера этапа
 
     // TODO : UI надо переместить в отдельный менеджер, так как GameController не должен быть MonoBehaviour
     public DialogWindow DialogWindow;

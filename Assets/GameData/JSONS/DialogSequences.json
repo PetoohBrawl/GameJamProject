@@ -3,54 +3,54 @@
     "Name": "test_dialog_1",
     "DialogStages": "test_dialog_1_1\ntest_dialog_1_2",
     "FinalStage": "test_dialog_1_final",
-    "ConditionType": "",
-    "ConditionValue": "",
-    "ConditionTarget": "",
+    "ConditionDirection": 0,
+    "ReputationValue": "",
+    "ReputationTarget": "",
     "HistoryStageNumber": 1
   },
   {
     "Name": "test_dialog_2_succes",
     "DialogStages": "test_dialog_2_succes_1\ntest_dialog_2_succes_2",
     "FinalStage": "",
-    "ConditionType": 0,
-    "ConditionValue": 0,
-    "ConditionTarget": "test_char_2",
+    "ConditionDirection": 1,
+    "ReputationValue": 0,
+    "ReputationTarget": "test_char_2",
     "HistoryStageNumber": 1
   },
   {
     "Name": "test_dialog_2_fail",
     "DialogStages": "test_dialog_2_fail_1",
     "FinalStage": "",
-    "ConditionType": "",
-    "ConditionValue": "",
-    "ConditionTarget": "",
+    "ConditionDirection": 0,
+    "ReputationValue": "",
+    "ReputationTarget": "",
     "HistoryStageNumber": 1
   },
   {
     "Name": "test_dialog_2_1",
     "DialogStages": "test_dialog_1_3\ntest_dialog_1_4",
     "FinalStage": "test_dialog_1_final",
-    "ConditionType": "",
-    "ConditionValue": "",
-    "ConditionTarget": "",
+    "ConditionDirection": 0,
+    "ReputationValue": "",
+    "ReputationTarget": "",
     "HistoryStageNumber": 2
   },
   {
     "Name": "test_dialog_2_2_succes",
     "DialogStages": "test_dialog_2_succes_3\ntest_dialog_2_succes_4",
     "FinalStage": "",
-    "ConditionType": 0,
-    "ConditionValue": 0,
-    "ConditionTarget": "test_char_2",
+    "ConditionDirection": -1,
+    "ReputationValue": 0,
+    "ReputationTarget": "test_char_2",
     "HistoryStageNumber": 2
   },
   {
     "Name": "test_dialog_2_2_fail",
     "DialogStages": "test_dialog_2_fail_2",
     "FinalStage": "",
-    "ConditionType": "",
-    "ConditionValue": "",
-    "ConditionTarget": "",
+    "ConditionDirection": 0,
+    "ReputationValue": "",
+    "ReputationTarget": "",
     "HistoryStageNumber": 2
   }
 ]

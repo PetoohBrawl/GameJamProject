@@ -11,9 +11,9 @@ public class DialogSequenceData
     public int HistoryStageNumber { get; private set; }
 
     // TODO: объединить в класс condition с общим методом на проверку
-    public ImpactType ConditionType { get; private set; }
-    public int ConditionValue { get; private set; }
-    public string ConditionTarget { get; private set; }
+    public int ReputationValue { get; private set; }
+    public string ReputationTarget { get; private set; }
+    public int ConditionDirection { get; private set; }
 
     public void Init(JsonObject data)
     {
@@ -28,12 +28,12 @@ public class DialogSequenceData
 
         FinalStage = GameDataStorage.Instance.GetDialogStageData((string)data["FinalStage"]);
 
-        ConditionType = data.GetEnum(data["ConditionType"].ToString(), ImpactType.None);
+        ConditionDirection = data.GetInt("ConditionDirection", 0);
 
-        if (ConditionType != ImpactType.None)
+        if (ConditionDirection != 0)
         {
-            ConditionValue = data.GetInt("ConditionValue");
-            ConditionTarget = (string)data["ConditionTarget"];
+            ReputationValue = data.GetInt("ReputationValue");
+            ReputationTarget = (string)data["ReputationTarget"];
         }
 
         HistoryStageNumber = data.GetInt("HistoryStageNumber");
