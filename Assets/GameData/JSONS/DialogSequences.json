@@ -5,7 +5,8 @@
     "FinalStage": "test_dialog_1_final",
     "ConditionType": "",
     "ConditionValue": "",
-    "ConditionTarget": ""
+    "ConditionTarget": "",
+    "HistoryStageNumber": 1
   },
   {
     "Name": "test_dialog_2_succes",
@@ -13,7 +14,8 @@
     "FinalStage": "",
     "ConditionType": 0,
     "ConditionValue": 0,
-    "ConditionTarget": "test_char_2"
+    "ConditionTarget": "test_char_2",
+    "HistoryStageNumber": 1
   },
   {
     "Name": "test_dialog_2_fail",
@@ -21,6 +23,34 @@
     "FinalStage": "",
     "ConditionType": "",
     "ConditionValue": "",
-    "ConditionTarget": ""
+    "ConditionTarget": "",
+    "HistoryStageNumber": 1
+  },
+  {
+    "Name": "test_dialog_2_1",
+    "DialogStages": "test_dialog_1_3\ntest_dialog_1_4",
+    "FinalStage": "test_dialog_1_final",
+    "ConditionType": "",
+    "ConditionValue": "",
+    "ConditionTarget": "",
+    "HistoryStageNumber": 2
+  },
+  {
+    "Name": "test_dialog_2_2_succes",
+    "DialogStages": "test_dialog_2_succes_3\ntest_dialog_2_succes_4",
+    "FinalStage": "",
+    "ConditionType": 0,
+    "ConditionValue": 0,
+    "ConditionTarget": "test_char_2",
+    "HistoryStageNumber": 2
+  },
+  {
+    "Name": "test_dialog_2_2_fail",
+    "DialogStages": "test_dialog_2_fail_2",
+    "FinalStage": "",
+    "ConditionType": "",
+    "ConditionValue": "",
+    "ConditionTarget": "",
+    "HistoryStageNumber": 2
   }
 ]

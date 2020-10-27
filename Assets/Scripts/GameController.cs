@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }
 
+    public int CurrentHistoryStage { get; private set; }
+
     // TODO : UI надо переместить в отдельный менеджер, так как GameController не должен быть MonoBehaviour
     public DialogWindow DialogWindow;
 
@@ -21,6 +23,16 @@ public class GameController : MonoBehaviour
         foreach (CharacterData characterData in GameDataStorage.Instance.CharacterDatas)
         {
             _characters.Add(new CharacterInfo(characterData));
+        }
+
+        InitHistoryStage(CurrentHistoryStage);
+    }
+
+    public void InitHistoryStage(int stageNumber)
+    {
+        foreach (CharacterInfo characterInfo in _characters)
+        {
+            characterInfo.SetupHistoryStageStep(stageNumber);
         }
     }
 

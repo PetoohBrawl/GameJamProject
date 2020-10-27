@@ -34,5 +34,35 @@
     "Phrase": "Did u fuck him? No? What are u w8ing for?",
     "Choices": "",
     "NextStageName": ""
+  },
+  {
+    "Name": "test_dialog_1_3",
+    "Phrase": "Hi again, Bro",
+    "Choices": "test_dialog_1_1_1\ntest_dialog_1_1_2",
+    "NextStageName": ""
+  },
+  {
+    "Name": "test_dialog_1_4",
+    "Phrase": "Yeah, да будет шпиливили",
+    "Choices": "",
+    "NextStageName": ""
+  },
+  {
+    "Name": "test_dialog_2_succes_3",
+    "Phrase": "Mama like you",
+    "Choices": "test_dialog_2_succes_1_1\ntest_dialog_2_succes_1_2",
+    "NextStageName": ""
+  },
+  {
+    "Name": "test_dialog_2_succes_4",
+    "Phrase": "Very like",
+    "Choices": "",
+    "NextStageName": ""
+  },
+  {
+    "Name": "test_dialog_2_fail_2",
+    "Phrase": "I HAAAAAAAAAAAAAAAAAAATE YOU!!!! T_T",
+    "Choices": "",
+    "NextStageName": ""
   }
 ]

@@ -8,6 +8,7 @@ public class DialogSequenceData
     public string Name { get; private set; }
     public List<DialogStageData> DialogStages { get; private set; } = new List<DialogStageData>();
     public DialogStageData FinalStage { get; private set; }
+    public int HistoryStageNumber { get; private set; }
 
     // TODO: объединить в класс condition с общим методом на проверку
     public ImpactType ConditionType { get; private set; }
@@ -34,5 +35,7 @@ public class DialogSequenceData
             ConditionValue = data.GetInt("ConditionValue");
             ConditionTarget = (string)data["ConditionTarget"];
         }
+
+        HistoryStageNumber = data.GetInt("HistoryStageNumber");
     }
 }

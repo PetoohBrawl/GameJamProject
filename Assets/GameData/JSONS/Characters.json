@@ -2,11 +2,11 @@
   {
     "Name": "test_char_1",
     "StartReputation": 0,
-    "DialogSequences": "test_dialog_1"
+    "DialogSequences": "test_dialog_1\ntest_dialog_2_1"
   },
   {
     "Name": "test_char_2",
     "StartReputation": 0,
-    "DialogSequences": "test_dialog_2_succes\ntest_dialog_2_fail"
+    "DialogSequences": "test_dialog_2_succes\ntest_dialog_2_fail\ntest_dialog_2_2_succes\ntest_dialog_2_2_fail"
   }
 ]

@@ -7,7 +7,8 @@ public class CharacterData
 {
     public string Name { get; private set; }
     public int StartReputation { get; private set; }
-    public List<DialogSequenceData> DialogSequenceDatas { get; private set; } = new List<DialogSequenceData>();
+
+    private Dictionary<int, List<DialogSequenceData>> _dialogSequenceDatas = new Dictionary<int, List<DialogSequenceData>>();
 
     public void Init(JsonObject data)
     {
@@ -19,8 +20,23 @@ public class CharacterData
         foreach (string dialogSequenceName in dialogSequencesNames)
         {
             DialogSequenceData sequenceData = GameDataStorage.Instance.GetDialogSequenceData(dialogSequenceName);
+            int stageNumber = sequenceData.HistoryStageNumber;
 
-            DialogSequenceDatas.Add(sequenceData);
+            if (!_dialogSequenceDatas.ContainsKey(stageNumber))
+            {
+                _dialogSequenceDatas.Add(stageNumber, new List<DialogSequenceData>());
+            }
+
+            _dialogSequenceDatas[stageNumber].Add(sequenceData);
         }
+    }
+
+    public List<DialogSequenceData> GetHistoryStageDialogSequences(int stageNumber)
+    {
+        List<DialogSequenceData> dialogSequenceDatas;
+
+        _dialogSequenceDatas.TryGetValue(stageNumber, out dialogSequenceDatas);
+
+        return dialogSequenceDatas;
     }
 }

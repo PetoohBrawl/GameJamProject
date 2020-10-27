@@ -39,7 +39,14 @@ public class CharacterInfo
         CharacterData = data;
         ReputationValue = 0;
 
-        foreach (DialogSequenceData dialogSequenceData in CharacterData.DialogSequenceDatas)
+        SetupHistoryStageStep(GameController.Instance.CurrentHistoryStage);
+    }
+
+    public void SetupHistoryStageStep(int stageNumber)
+    {
+        List<DialogSequenceData> stageSequences = CharacterData.GetHistoryStageDialogSequences(stageNumber);
+
+        foreach (DialogSequenceData dialogSequenceData in stageSequences)
         {
             _dialogSequences.Add(new DialogSequenceInfo(dialogSequenceData));
         }
