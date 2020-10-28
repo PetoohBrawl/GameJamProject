@@ -2,6 +2,7 @@
   {
     "Name": "test_dialog_1_1_1",
     "Text": "Hi, fuck this second guy",
+    "ImpactType": "Reputation",
     "ImpactValue": -5,
     "ImpactTargetName": "test_char_2",
     "StageName": "test_dialog_1_2",
@@ -10,6 +11,7 @@
   {
     "Name": "test_dialog_1_1_2",
     "Text": "Just looking around...",
+    "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
     "StageName": "",
@@ -18,6 +20,7 @@
   {
     "Name": "test_dialog_2_succes_1_1",
     "Text": "I don't want FU",
+    "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
     "StageName": "",
@@ -26,6 +29,7 @@
   {
     "Name": "test_dialog_2_succes_1_2",
     "Text": "Just looking fucking around...",
+    "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
     "StageName": "",

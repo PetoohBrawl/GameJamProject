@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public string CharacterName;
-
+    
+    [SerializeField] private Image _glow;
     private CharacterInfo _characterInfo;
 
     private void OnEnable()
@@ -21,6 +24,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         _characterInfo = GameController.Instance.GetCharacterInfo(CharacterName);
+        _glow.gameObject.SetActive(false);
     }
 
     private void OnCharacterInfoUpdated(string name)
@@ -48,5 +52,15 @@ public class Character : MonoBehaviour
         }
 
         GameController.Instance.StartDialogSequence(activeDialog);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _glow.gameObject.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _glow.gameObject.SetActive(false);
     }
 }
