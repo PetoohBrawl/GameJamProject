@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,9 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }
 
+    // настройки игры
     public int CurrentHistoryStage { get; private set; } = 1; // FIXME: инициализация номера этапа
+    private string _currentLocation = "Bar"; //FIXME: инициализация стартовой локации
 
     // TODO : UI надо переместить в отдельный менеджер, так как GameController не должен быть MonoBehaviour
     public DialogWindow DialogWindow;
@@ -30,6 +32,33 @@ public class GameController : MonoBehaviour
         ChoiceButton.OnChoiceMade += OnChoiceMade;
     }
 
+    private void InitHistoryStage(int stageNumber)
+    {
+        foreach (CharacterInfo characterInfo in _characters)
+        {
+            characterInfo.SetupHistoryStageStep(stageNumber);
+        }
+    }
+
+    public void TryMoveNewLocation(string locationName, Action callback)
+    {
+        if (string.IsNullOrEmpty(locationName) || _currentLocation.Equals(locationName))
+        {
+            callback.Invoke();
+        }
+        else
+        {
+            // TODO: реинициализация сцены через затемнение
+            Debug.Log("Moving to location: " + locationName);
+            callback.Invoke();
+        }
+    }
+
+    private void SetupLocation(string locationName)
+    {
+        // TODO: смена локации
+    }
+
     private void OnChoiceMade(DialogChoiceData choiceData)
     {
         if (choiceData == null || choiceData.HistoryStageFinalizer == false)
@@ -47,14 +76,6 @@ public class GameController : MonoBehaviour
         else
         {
             InitHistoryStage(CurrentHistoryStage);
-        }
-    }
-
-    private void InitHistoryStage(int stageNumber)
-    {
-        foreach (CharacterInfo characterInfo in _characters)
-        {
-            characterInfo.SetupHistoryStageStep(stageNumber);
         }
     }
 
