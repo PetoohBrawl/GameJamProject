@@ -12,8 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e7ea970598bfd44adaeaff219e4d53, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
-  gameDataAssets:
-  - {fileID: 4900000, guid: 6334d20582121b4429cf09ed1a100835, type: 3}
-  - {fileID: 4900000, guid: c9291f4fe89b80748a6fc53ddb71372c, type: 3}
-  - {fileID: 4900000, guid: fcf7b7eeaf427ec4ebcac4cb579b2a65, type: 3}
-  - {fileID: 4900000, guid: 88b840ead3ef95f4b944c908dc49f27d, type: 3}
+  GameDataAssets: []
+  MaxHistoryStage: 2

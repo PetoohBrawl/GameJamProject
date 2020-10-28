@@ -25,7 +25,7 @@ public class GameDataStorage
 
     public void InitStorage(GameDataContainer dataContainer)
     {
-        foreach (TextAsset textAsset in dataContainer.gameDataAssets)
+        foreach (TextAsset textAsset in dataContainer.GameDataAssets)
         {
             JsonArray dataArray = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(textAsset.text);
 

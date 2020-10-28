@@ -44,9 +44,18 @@ public class DialogWindow : MonoBehaviour
 
     private void SetupView(DialogChoiceData choiceData)
     {
-        DialogStageData stageData = GameDataStorage.Instance.GetDialogStageData(choiceData.StageName);
+        DialogStageData nextStageData;
 
-        SetupView(stageData);
+        if (choiceData == null)
+        {
+            nextStageData = GameDataStorage.Instance.GetDialogStageData(_currentStage.NextStageName);
+        }
+        else
+        {
+            nextStageData = GameDataStorage.Instance.GetDialogStageData(choiceData.StageName);
+        }
+         
+        SetupView(nextStageData);
     }
 
     private void SetupView(DialogStageData dialogStageData)

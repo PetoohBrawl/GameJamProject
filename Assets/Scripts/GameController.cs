@@ -32,9 +32,22 @@ public class GameController : MonoBehaviour
 
     private void OnChoiceMade(DialogChoiceData choiceData)
     {
+        if (choiceData == null || choiceData.HistoryStageFinalizer == false)
+        {
+            return;
+        }
+
         CurrentHistoryStage++;
 
-        InitHistoryStage(CurrentHistoryStage);
+        if (CurrentHistoryStage > _dataContainer.MaxHistoryStage)
+        {
+            // TODO: завершение игры
+            Debug.Log("Game over");
+        }
+        else
+        {
+            InitHistoryStage(CurrentHistoryStage);
+        }
     }
 
     private void InitHistoryStage(int stageNumber)
