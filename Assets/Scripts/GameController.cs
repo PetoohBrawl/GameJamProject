@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }
-
-    // настройки игры
+    
     public int CurrentHistoryStage { get; private set; } = 1; // FIXME: инициализация номера этапа
+
     private string _currentLocation = "Bar"; //FIXME: инициализация стартовой локации
-
-    // TODO : UI надо переместить в отдельный менеджер, так как GameController не должен быть MonoBehaviour
-    public DialogWindow DialogWindow;
-
-    [SerializeField] private GameDataContainer _dataContainer;
-
+    private GameDataContainer _dataContainer;
     private List<CharacterInfo> _characters = new List<CharacterInfo>();
-
+    
     private void Awake()
     {
+        if (Instance != null)
+            return;
+
         Instance = this;
+
+        _dataContainer = Resources.Load<GameDataContainer>("GameData");
         GameDataStorage.Instance.InitStorage(_dataContainer);
 
         foreach (CharacterData characterData in GameDataStorage.Instance.CharacterDatas)
@@ -27,9 +28,14 @@ public class GameController : MonoBehaviour
             _characters.Add(new CharacterInfo(characterData));
         }
 
+        ChoiceButton.OnChoiceMade += OnChoiceMade;
+    }
+
+    public void OnClickStartGame()
+    {
         InitHistoryStage(CurrentHistoryStage);
 
-        ChoiceButton.OnChoiceMade += OnChoiceMade;
+        SceneManager.LoadScene("GameScene");
     }
 
     private void InitHistoryStage(int stageNumber)
@@ -77,11 +83,6 @@ public class GameController : MonoBehaviour
         {
             InitHistoryStage(CurrentHistoryStage);
         }
-    }
-
-    public void StartDialogSequence(DialogSequenceInfo dialogSequence)
-    {
-        DialogWindow.ShowDialog(dialogSequence);
     }
 
     public void UpdateCharacterReputation(string characterName, int reputationValue)

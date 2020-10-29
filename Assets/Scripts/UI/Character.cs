@@ -3,41 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class Character : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public string CharacterName;
     
     [SerializeField] private Image _glow;
+    [SerializeField] private TextMeshProUGUI _characterName;
     private CharacterInfo _characterInfo;
-
-    private void OnEnable()
-    {
-        CharacterInfo.OnCharacterInfoUpdated += OnCharacterInfoUpdated;
-    }
-
-    private void OnDisable()
-    {
-        CharacterInfo.OnCharacterInfoUpdated -= OnCharacterInfoUpdated;
-    }
 
     private void Start()
     {
+        _characterName.text = CharacterName;
         _characterInfo = GameController.Instance.GetCharacterInfo(CharacterName);
         _glow.gameObject.SetActive(false);
     }
 
-    private void OnCharacterInfoUpdated(string name)
+    public void SetCharacter(string name)
     {
-        if (!CharacterName.Equals(name))
-        {
-            return;
-        }
-
-        if (string.IsNullOrEmpty(CharacterName) == false)
-        {
-            _characterInfo = GameController.Instance.GetCharacterInfo(CharacterName);
-        }
+        CharacterName = name;
     }
 
     public void TryStartDialogSequence()
@@ -51,7 +36,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             return;
         }
 
-        GameController.Instance.StartDialogSequence(activeDialog);
+        UIManager.Instance.StartDialogSequence(activeDialog);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
