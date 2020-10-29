@@ -8,8 +8,8 @@ public class GameController : MonoBehaviour
     public static GameController Instance { get; private set; }
     
     public int CurrentHistoryStage { get; private set; } = 1; // FIXME: инициализация номера этапа
+    public string CurrentLocation { get; private set; } = "Bar"; //FIXME: инициализация стартовой локации
 
-    private string _currentLocation = "Bar"; //FIXME: инициализация стартовой локации
     private GameDataContainer _dataContainer;
     private List<CharacterInfo> _characters = new List<CharacterInfo>();
     
@@ -48,21 +48,20 @@ public class GameController : MonoBehaviour
 
     public void TryMoveNewLocation(string locationName, Action callback)
     {
-        if (string.IsNullOrEmpty(locationName) || _currentLocation.Equals(locationName))
+        if (string.IsNullOrEmpty(locationName) || CurrentLocation.Equals(locationName))
         {
             callback.Invoke();
         }
         else
         {
-            // TODO: реинициализация сцены через затемнение
-            Debug.Log("Moving to location: " + locationName);
-            callback.Invoke();
+            CurrentLocation = locationName;
+            LocationManager.Instance.SetupLocation(locationName, callback);
         }
     }
 
-    private void SetupLocation(string locationName)
+    public List<CharacterInfo> GetCharacters()
     {
-        // TODO: смена локации
+        return _characters;
     }
 
     private void OnChoiceMade(DialogChoiceData choiceData)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterInfo
 {
     public int ReputationValue { get; private set; }
+    public string Location { get; private set; }
 
     private DialogSequenceInfo _activeDialog;
     public DialogSequenceInfo ActiveDialog
@@ -34,12 +35,11 @@ public class CharacterInfo
 
     private List<DialogSequenceInfo> _dialogSequences = new List<DialogSequenceInfo>();
 
-    public static event Action<string> OnCharacterInfoUpdated;
-
     public CharacterInfo(CharacterData data)
     {
         CharacterData = data;
         ReputationValue = 0;
+        Location = CharacterData.StartLocation;
 
         SetupHistoryStageStep(GameController.Instance.CurrentHistoryStage);
     }
@@ -54,8 +54,6 @@ public class CharacterInfo
         {
             _dialogSequences.Add(new DialogSequenceInfo(dialogSequenceData));
         }
-
-        OnCharacterInfoUpdated?.Invoke(CharacterData.Name);
     }
 
     public void UpdateReputation(int value)
