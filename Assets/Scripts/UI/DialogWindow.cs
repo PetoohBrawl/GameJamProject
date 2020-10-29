@@ -75,6 +75,7 @@ public class DialogWindow : MonoBehaviour
     {
         if (dialogStageData == null)
         {
+            // check возможно, лишняя проверка
             if (string.IsNullOrEmpty(_currentStage.NextStageName))
             {
                 _currentSequenceInfo.SetCompleted();

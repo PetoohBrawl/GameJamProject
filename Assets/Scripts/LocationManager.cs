@@ -29,6 +29,7 @@ public class LocationManager : MonoBehaviour
         // UIManager надо будет добавить и на стартовую сцену
 
         // TODO как стемнеет - меняем задний фон, уничтожаем объекты старых персонажей, инстанциируем объекты персонажей новой сцены
+        _charactersParent.DestroyChildren();
 
         List<CharacterInfo> characterInfos = GameController.Instance.GetCharacters();
 
