@@ -10,7 +10,7 @@ public class DialogStageData
     // переделать без инициализации по умолчанию
     public List<DialogChoiceData> DialogChoices { get; private set; } = new List<DialogChoiceData>();
     public string NextStageName { get; private set; }
-    public string Location { get; private set; }
+    public LocationName Location { get; private set; }
 
     public void Init(JsonObject data)
     {
@@ -30,6 +30,6 @@ public class DialogStageData
             }
         }
 
-        Location = (string)data["Location"];
+        Location = data.GetEnum((string)data["Location"], LocationName.Unknown);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterInfo
 {
     public int ReputationValue { get; private set; }
-    public string Location { get; private set; }
+    public LocationName Location { get; private set; }
 
     private DialogSequenceInfo _activeDialog;
     public DialogSequenceInfo ActiveDialog

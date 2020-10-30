@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour
     public static GameController Instance { get; private set; }
     
     public int CurrentHistoryStage { get; private set; } = 1; // FIXME: инициализация номера этапа
-    public string CurrentLocation { get; private set; } = "Bar"; //FIXME: инициализация стартовой локации
 
     private GameDataContainer _dataContainer;
     private List<CharacterInfo> _characters = new List<CharacterInfo>();
@@ -46,17 +45,9 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void TryMoveNewLocation(string locationName, Action callback)
+    public void TryMoveNewLocation(LocationName locationName, Action callback)
     {
-        if (string.IsNullOrEmpty(locationName) || CurrentLocation.Equals(locationName))
-        {
-            callback.Invoke();
-        }
-        else
-        {
-            CurrentLocation = locationName;
-            LocationManager.Instance.SetupLocation(locationName, callback);
-        }
+        LocationManager.Instance.SetupLocation(locationName, callback);
     }
 
     public List<CharacterInfo> GetCharacters()

@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
+public enum LocationName
+{
+    Unknown = -1,
+    Bar = 0,
+    Bedroom = 1,
+    Count = 2
+}
 
 public class LocationManager : MonoBehaviour
 {
@@ -10,6 +19,9 @@ public class LocationManager : MonoBehaviour
     public Character _characterPrefab;
     public TextMeshProUGUI _locationName;
 
+    public LocationName CurrentLocation { get; private set; } = LocationName.Unknown; //FIXME: инициализация стартовой локации
+
+    [SerializeField] private GameObject[] _locationButtonsContainers;
     [SerializeField] private RectTransform _charactersParent;
 
     private void Awake()
@@ -17,14 +29,26 @@ public class LocationManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            SetupLocation(GameController.Instance.CurrentLocation, null);
+            SetupLocation(LocationName.Bar, null); //FIXME: при наличи сохранения надо инициализировать это место
         }
     }
 
-    public void SetupLocation(string locationName, Action callback)
+    public void MoveLocation(int locationIndex)
     {
-        Debug.Log("Moving to location: " + locationName);
-        _locationName.text = locationName;
+        SetupLocation((LocationName)locationIndex, null);
+    }
+
+    public void SetupLocation(LocationName locationName, Action callback)
+    {
+        if (locationName == LocationName.Unknown || locationName.Equals(CurrentLocation))
+        {
+            callback?.Invoke();
+            return;
+        }
+
+        Debug.Log("Moving to location: " + locationName.ToString());
+        CurrentLocation = locationName;
+        _locationName.text = locationName.ToString();
         // TODO вызов затемнения
         // UIManager надо будет добавить и на стартовую сцену
 
@@ -42,6 +66,12 @@ public class LocationManager : MonoBehaviour
             }
 
             // потом доработать таблицу Characters полем-строкой с адресом префаба персонажа
+        }
+
+        for (int i = 0; i < (int)LocationName.Count; i++)
+        {
+            bool enableButtons = i == (int)CurrentLocation;
+            _locationButtonsContainers[i].gameObject.SetActive(enableButtons);
         }
 
         // TODO после инициализации из затемнения показываем сцену
