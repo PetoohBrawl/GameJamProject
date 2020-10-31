@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
         _dataContainer = Resources.Load<GameDataContainer>("GameData");
         GameDataStorage.Instance.InitStorage(_dataContainer);
 
+        PlayerInfo.Instance.Init();
+
         foreach (CharacterData characterData in GameDataStorage.Instance.CharacterDatas)
         {
             _characters.Add(new CharacterInfo(characterData));

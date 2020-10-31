@@ -6,7 +6,9 @@
     "ImpactValue": -5,
     "ImpactTargetName": "test_char_2",
     "StageName": "test_dialog_1_2",
-    "HistoryStageFinalizer": "FALSE"
+    "HistoryStageFinalizer": "FALSE",
+    "RequiredAttribute": "Composure",
+    "RequiredAttributeValue": 5
   },
   {
     "Name": "test_dialog_1_1_2",
@@ -15,7 +17,9 @@
     "ImpactValue": "",
     "ImpactTargetName": "",
     "StageName": "",
-    "HistoryStageFinalizer": "TRUE"
+    "HistoryStageFinalizer": "TRUE",
+    "RequiredAttribute": "",
+    "RequiredAttributeValue": ""
   },
   {
     "Name": "test_dialog_2_succes_1_1",
@@ -24,15 +28,19 @@
     "ImpactValue": "",
     "ImpactTargetName": "",
     "StageName": "",
-    "HistoryStageFinalizer": "TRUE"
+    "HistoryStageFinalizer": "TRUE",
+    "RequiredAttribute": "",
+    "RequiredAttributeValue": ""
   },
   {
     "Name": "test_dialog_2_succes_1_2",
     "Text": "Just looking fucking around...",
-    "ImpactType": "",
-    "ImpactValue": "",
+    "ImpactType": "Composure",
+    "ImpactValue": 5,
     "ImpactTargetName": "",
     "StageName": "",
-    "HistoryStageFinalizer": "FALSE"
+    "HistoryStageFinalizer": "FALSE",
+    "RequiredAttribute": "",
+    "RequiredAttributeValue": ""
   }
 ]
