@@ -22,18 +22,19 @@ public class GameController : MonoBehaviour
         _dataContainer = Resources.Load<GameDataContainer>("GameData");
         GameDataStorage.Instance.InitStorage(_dataContainer);
 
+        ChoiceButton.OnChoiceMade += OnChoiceMade;
+    }
+
+    public void OnClickStartGame()
+    {
+        // TODO: подгрузка сохранений или инициализация стартовых настроек
         PlayerInfo.Instance.Init();
 
         foreach (CharacterData characterData in GameDataStorage.Instance.CharacterDatas)
         {
             _characters.Add(new CharacterInfo(characterData));
         }
-
-        ChoiceButton.OnChoiceMade += OnChoiceMade;
-    }
-
-    public void OnClickStartGame()
-    {
+        
         InitHistoryStage(CurrentHistoryStage);
 
         SceneManager.LoadScene("GameScene");

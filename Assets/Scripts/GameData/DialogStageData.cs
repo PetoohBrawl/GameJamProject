@@ -7,6 +7,7 @@ public class DialogStageData
 {
     public string Name { get; private set; }
     public string Phrase { get; private set; }
+    public string DiaryRecord { get; private set; }
     // переделать без инициализации по умолчанию
     public List<DialogChoiceData> DialogChoices { get; private set; } = new List<DialogChoiceData>();
     public string NextStageName { get; private set; }
@@ -17,6 +18,7 @@ public class DialogStageData
         Name = (string)data["Name"];
         Phrase = (string)data["Phrase"];
         NextStageName = (string)data["NextStageName"];
+        DiaryRecord = (string)data["DiaryRecord"];
 
         string choices = (string)data["Choices"];
 

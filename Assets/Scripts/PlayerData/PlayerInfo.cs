@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Text;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +18,8 @@ public class PlayerInfo
         }
     }
 
+    public StringBuilder DialogHistory { get; private set; } = new StringBuilder();
+
     private Dictionary<ImpactType, int> _heroAttributes = new Dictionary<ImpactType, int>();
 
     public void Init()
@@ -33,8 +35,20 @@ public class PlayerInfo
     {
         _heroAttributes[impactType] += value;
     }
+
     public int GetHeroAttribute(ImpactType impactType)
     {
         return _heroAttributes[impactType];
+    }
+
+    public void TryLogDialog(string record)
+    {
+        if (string.IsNullOrEmpty(record))
+        {
+            return;
+        }
+
+        DialogHistory.AppendLine(record);
+        DialogHistory.AppendLine();
     }
 }

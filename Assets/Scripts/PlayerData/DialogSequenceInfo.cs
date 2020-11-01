@@ -6,10 +6,13 @@ public class DialogSequenceInfo
 {
     public DialogSequenceData DialogSequenceData { get; private set; }
     public bool IsCompleted { get; private set; }
+
+    public readonly string DialogOwner;
     
-    public DialogSequenceInfo(DialogSequenceData data)
+    public DialogSequenceInfo(DialogSequenceData data, string dialogOwner)
     {
         DialogSequenceData = data;
+        DialogOwner = dialogOwner;
     }
 
     public bool CanStartSequence()

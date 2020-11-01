@@ -4,76 +4,87 @@
     "Phrase": "Hi, Bro",
     "Choices": "test_dialog_1_1_1\ntest_dialog_1_1_2",
     "NextStageName": "",
-    "Location": "Bar"
+    "Location": "Bar",
+    "DiaryRecord": "Record 1"
   },
   {
     "Name": "test_dialog_1_2",
     "Phrase": "Yeah, fuck this dumb",
     "Choices": "",
     "NextStageName": "",
-    "Location": "Bar"
+    "Location": "Bar",
+    "DiaryRecord": ""
   },
   {
     "Name": "test_dialog_2_succes_1",
     "Phrase": "Hi, Bro(test2)",
     "Choices": "test_dialog_2_succes_1_1\ntest_dialog_2_succes_1_2",
     "NextStageName": "",
-    "Location": "Bar"
+    "Location": "Bar",
+    "DiaryRecord": "Record 2"
   },
   {
     "Name": "test_dialog_2_succes_2",
     "Phrase": "Yeah, fuck him",
     "Choices": "",
     "NextStageName": "",
-    "Location": "Bar"
+    "Location": "Bar",
+    "DiaryRecord": ""
   },
   {
     "Name": "test_dialog_2_fail_1",
     "Phrase": "I HAATE YOU!!!! T_T",
     "Choices": "",
     "NextStageName": "",
-    "Location": "Bedroom"
+    "Location": "Bedroom",
+    "DiaryRecord": "he hates you"
   },
   {
     "Name": "test_dialog_1_final",
     "Phrase": "Did u fuck him? No? What are u w8ing for?",
     "Choices": "",
     "NextStageName": "",
-    "Location": "Bar"
+    "Location": "Bar",
+    "DiaryRecord": ""
   },
   {
     "Name": "test_dialog_1_3",
     "Phrase": "Hi again, Bro",
     "Choices": "test_dialog_1_1_1\ntest_dialog_1_1_2",
     "NextStageName": "",
-    "Location": "Bar"
+    "Location": "Bar",
+    "DiaryRecord": ""
   },
   {
     "Name": "test_dialog_1_4",
     "Phrase": "Yeah, да будет шпиливили",
     "Choices": "",
     "NextStageName": "",
-    "Location": "Bar"
+    "Location": "Bar",
+    "DiaryRecord": ""
   },
   {
     "Name": "test_dialog_2_succes_3",
     "Phrase": "Mama like you",
     "Choices": "test_dialog_2_succes_1_1\ntest_dialog_2_succes_1_2",
     "NextStageName": "",
-    "Location": "Bar"
+    "Location": "Bar",
+    "DiaryRecord": ""
   },
   {
     "Name": "test_dialog_2_succes_4",
     "Phrase": "Very like",
     "Choices": "",
     "NextStageName": "",
-    "Location": "Bar"
+    "Location": "Bar",
+    "DiaryRecord": ""
   },
   {
     "Name": "test_dialog_2_fail_2",
     "Phrase": "I HAAAAAAAAAAAAAAAAAAATE YOU!!!! T_T",
     "Choices": "",
     "NextStageName": "",
-    "Location": "Bedroom"
+    "Location": "Bedroom",
+    "DiaryRecord": ""
   }
 ]

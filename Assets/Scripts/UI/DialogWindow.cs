@@ -88,6 +88,8 @@ public class DialogWindow : MonoBehaviour
 
         _currentStage = dialogStageData;
 
+        PlayerInfo.Instance.TryLogDialog(_currentStage.DiaryRecord);
+
         _phraseText.text = _currentStage.Phrase;
         _buttonsParent.DestroyChildren();
 
