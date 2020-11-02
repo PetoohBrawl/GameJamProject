@@ -21,6 +21,7 @@ public class PlayerInfo
     public StringBuilder DialogHistory { get; private set; } = new StringBuilder();
 
     private Dictionary<ImpactType, int> _heroAttributes = new Dictionary<ImpactType, int>();
+    private List<string> _completedDialogSequenceNames = new List<string>();
 
     public void Init()
     {
@@ -50,5 +51,15 @@ public class PlayerInfo
 
         DialogHistory.AppendLine(record);
         DialogHistory.AppendLine();
+    }
+
+    public void CompleteDialogSequence(DialogSequenceInfo dialogSequenceInfo)
+    {
+        _completedDialogSequenceNames.Add(dialogSequenceInfo.DialogSequenceData.Name);
+    }
+
+    public bool IsDialogSequenceCompleted(string dialogSequenceName)
+    {
+        return _completedDialogSequenceNames.Contains(dialogSequenceName);
     }
 }

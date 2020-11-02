@@ -14,6 +14,7 @@ public class DialogSequenceData
     public int ReputationValue { get; private set; }
     public string ReputationTarget { get; private set; }
     public int ConditionDirection { get; private set; }
+    public string[] NeedToCompleteSequences { get; private set; }
 
     public void Init(JsonObject data)
     {
@@ -31,5 +32,7 @@ public class DialogSequenceData
         }
 
         HistoryStageNumber = data.GetInt("HistoryStageNumber");
+
+        NeedToCompleteSequences = ((string)data["NeedToCompleteSequences"]).Split('\n');
     }
 }

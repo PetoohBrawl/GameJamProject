@@ -7,18 +7,17 @@ public class DialogSequenceInfo
     public readonly DialogStageInfo StartStageInfo;
     public readonly DialogStageInfo FinalStageInfo;
     public bool IsCompleted { get; private set; }
+    public DialogSequenceData DialogSequenceData { get; private set; }
 
     public readonly string DialogOwner;
-
-    private DialogSequenceData _dialogSequenceData;
-
+    
     public DialogSequenceInfo(DialogSequenceData data, string dialogOwner)
     {
-        _dialogSequenceData = data;
+        DialogSequenceData = data;
         DialogOwner = dialogOwner;
 
-        StartStageInfo = new DialogStageInfo(_dialogSequenceData.StartStage);
-        FinalStageInfo = new DialogStageInfo(_dialogSequenceData.FinalStage);
+        StartStageInfo = new DialogStageInfo(DialogSequenceData.StartStage);
+        FinalStageInfo = new DialogStageInfo(DialogSequenceData.FinalStage);
     }
 
     public bool CanStartSequence()
@@ -28,16 +27,24 @@ public class DialogSequenceInfo
             return false;
         }
 
-        // TODO: переделать на универсальный метод проверки кондишна
-        CharacterInfo characterInfo = GameController.Instance.GetCharacterInfo(_dialogSequenceData.ReputationTarget);
+        // TODO: подумать о структуре кондишнов, обговорить с ГД
+        foreach (string needToCompleteSequenceName in DialogSequenceData.NeedToCompleteSequences)
+        {
+            if (PlayerInfo.Instance.IsDialogSequenceCompleted(needToCompleteSequenceName) == false)
+            {
+                return false;
+            }
+        }
 
-        switch (_dialogSequenceData.ConditionDirection)
+        CharacterInfo characterInfo = GameController.Instance.GetCharacterInfo(DialogSequenceData.ReputationTarget);
+
+        switch (DialogSequenceData.ConditionDirection)
         {
             case 1:
-                return characterInfo.ReputationValue >= _dialogSequenceData.ReputationValue;
+                return characterInfo.ReputationValue >= DialogSequenceData.ReputationValue;
 
             case -1:
-                return characterInfo.ReputationValue <= _dialogSequenceData.ReputationValue;
+                return characterInfo.ReputationValue <= DialogSequenceData.ReputationValue;
         }
 
         return true;
@@ -45,6 +52,8 @@ public class DialogSequenceInfo
 
     public void SetCompleted()
     {
+        PlayerInfo.Instance.CompleteDialogSequence(this);
+
         IsCompleted = true;
     }
 }
