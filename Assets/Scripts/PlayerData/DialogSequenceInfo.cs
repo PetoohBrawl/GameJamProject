@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class DialogSequenceInfo
 {
-    public DialogSequenceData DialogSequenceData { get; private set; }
+    public readonly DialogStageInfo StartStageInfo;
+    public readonly DialogStageInfo FinalStageInfo;
     public bool IsCompleted { get; private set; }
 
     public readonly string DialogOwner;
-    
+
+    private DialogSequenceData _dialogSequenceData;
+
     public DialogSequenceInfo(DialogSequenceData data, string dialogOwner)
     {
-        DialogSequenceData = data;
+        _dialogSequenceData = data;
         DialogOwner = dialogOwner;
+
+        StartStageInfo = new DialogStageInfo(_dialogSequenceData.StartStage);
+        FinalStageInfo = new DialogStageInfo(_dialogSequenceData.FinalStage);
     }
 
     public bool CanStartSequence()
@@ -23,15 +29,15 @@ public class DialogSequenceInfo
         }
 
         // TODO: переделать на универсальный метод проверки кондишна
-        CharacterInfo characterInfo = GameController.Instance.GetCharacterInfo(DialogSequenceData.ReputationTarget);
+        CharacterInfo characterInfo = GameController.Instance.GetCharacterInfo(_dialogSequenceData.ReputationTarget);
 
-        switch (DialogSequenceData.ConditionDirection)
+        switch (_dialogSequenceData.ConditionDirection)
         {
             case 1:
-                return characterInfo.ReputationValue >= DialogSequenceData.ReputationValue;
+                return characterInfo.ReputationValue >= _dialogSequenceData.ReputationValue;
 
             case -1:
-                return characterInfo.ReputationValue <= DialogSequenceData.ReputationValue;
+                return characterInfo.ReputationValue <= _dialogSequenceData.ReputationValue;
         }
 
         return true;

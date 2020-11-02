@@ -10,8 +10,8 @@ public class DialogWindow : MonoBehaviour
     [SerializeField] private ChoiceButton _buttonPrefab;
 
     private DialogSequenceInfo _currentSequenceInfo;
-    private List<DialogStageData> _currentStages;
-    private DialogStageData _currentStage;
+    private DialogStageInfo _currentStage;
+    private List<DialogStageInfo> _currentStages = new List<DialogStageInfo>();
 
     private void OnEnable()
     {
@@ -28,15 +28,17 @@ public class DialogWindow : MonoBehaviour
         gameObject.SetActive(true);
 
         _currentSequenceInfo = dialogSequenceInfo;
-        DialogStageData startStage = null;
+        _currentStages.Clear();
+
+        DialogStageInfo startStage = null;
 
         if (dialogSequenceInfo.IsCompleted == false)
         {
-            startStage = _currentSequenceInfo.DialogSequenceData.DialogStages[0];
+            startStage = _currentSequenceInfo.StartStageInfo;
         }
         else
         {
-            startStage = _currentSequenceInfo.DialogSequenceData.FinalStage;
+            startStage = _currentSequenceInfo.FinalStageInfo;
         }
 
         SetupView(startStage);
@@ -48,16 +50,32 @@ public class DialogWindow : MonoBehaviour
 
         if (choiceData == null)
         {
-            nextStageData = GameDataStorage.Instance.GetDialogStageData(_currentStage.NextStageName);
+            nextStageData = GameDataStorage.Instance.GetDialogStageData(_currentStage.Data.NextStageName);
         }
         else
         {
             nextStageData = GameDataStorage.Instance.GetDialogStageData(choiceData.StageName);
         }
 
-        if (nextStageData == null)
+        DialogStageInfo nextStageInfo = null;
+
+        if (nextStageData != null)
         {
-            SetupView(nextStageData);
+            nextStageInfo = _currentStages.Find((stageInfo) =>
+            {
+                return stageInfo.Data.Equals(nextStageData);
+            });
+
+            if (nextStageInfo == null)
+            {
+                nextStageInfo = new DialogStageInfo(nextStageData);
+                _currentStages.Add(nextStageInfo);
+            }
+        }
+
+        if (nextStageInfo == null)
+        {
+            SetupView(nextStageInfo);
         }
         else
         {
@@ -65,37 +83,34 @@ public class DialogWindow : MonoBehaviour
 
             GameController.Instance.TryMoveNewLocation(nextStageData.Location, () =>
             {
-                SetupView(nextStageData);
+                SetupView(nextStageInfo);
                 gameObject.SetActive(true);
             });
         }
     }
 
-    private void SetupView(DialogStageData dialogStageData)
+    private void SetupView(DialogStageInfo dialogStageInfo)
     {
-        if (dialogStageData == null)
+        if (dialogStageInfo == null)
         {
-            // check возможно, лишняя проверка
-            if (string.IsNullOrEmpty(_currentStage.NextStageName))
-            {
-                _currentSequenceInfo.SetCompleted();
-                gameObject.SetActive(false);
-                return;
-            }
-
-            dialogStageData = GameDataStorage.Instance.GetDialogStageData(_currentStage.NextStageName);
+            _currentSequenceInfo.SetCompleted();
+            gameObject.SetActive(false);
+            return;
         }
 
-        _currentStage = dialogStageData;
+        _currentStage = dialogStageInfo;
+        DialogStageData data = _currentStage.Data;
 
-        PlayerInfo.Instance.TryLogDialog(_currentStage.DiaryRecord);
+        PlayerInfo.Instance.TryLogDialog(data.DiaryRecord);
 
-        _phraseText.text = _currentStage.Phrase;
+        _phraseText.text = data.Phrase;
         _buttonsParent.DestroyChildren();
 
-        if (_currentStage.DialogChoices.Count > 0)
+        List<DialogChoiceData> choices = _currentStage.GetActiveChoices();
+
+        if (choices != null)
         {
-            foreach (DialogChoiceData choiceData in _currentStage.DialogChoices)
+            foreach (DialogChoiceData choiceData in choices)
             {
                 ChoiceButton button = Instantiate(_buttonPrefab, _buttonsParent);
                 button.SetupButton(choiceData);
@@ -105,7 +120,7 @@ public class DialogWindow : MonoBehaviour
         {
             ChoiceButton button = Instantiate(_buttonPrefab, _buttonsParent);
 
-            bool isEndOfDialog = string.IsNullOrEmpty(_currentStage.NextStageName);
+            bool isEndOfDialog = string.IsNullOrEmpty(data.NextStageName);
             button.SetupButton(isEndOfDialog);
         }
     }
