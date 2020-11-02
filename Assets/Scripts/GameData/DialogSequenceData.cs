@@ -6,7 +6,7 @@ using SimpleJson;
 public class DialogSequenceData
 {
     public string Name { get; private set; }
-    public List<DialogStageData> DialogStages { get; private set; } = new List<DialogStageData>();
+    public DialogStageData StartStage { get; private set; }
     public DialogStageData FinalStage { get; private set; }
     public int HistoryStageNumber { get; private set; }
 
@@ -19,13 +19,7 @@ public class DialogSequenceData
     {
         Name = (string)data["Name"];
 
-        string[] dialogStagesNames = ((string)data["DialogStages"]).Split('\n');
-
-        foreach (string dialogStageName in dialogStagesNames)
-        {
-            DialogStages.Add(GameDataStorage.Instance.GetDialogStageData(dialogStageName));
-        }
-
+        StartStage = GameDataStorage.Instance.GetDialogStageData((string)data["StartStage"]);
         FinalStage = GameDataStorage.Instance.GetDialogStageData((string)data["FinalStage"]);
 
         ConditionDirection = data.GetInt("ConditionDirection", 0);
