@@ -33,6 +33,11 @@ public class DialogSequenceData
 
         HistoryStageNumber = data.GetInt("HistoryStageNumber");
 
-        NeedToCompleteSequences = ((string)data["NeedToCompleteSequences"]).Split('\n');
+        string needToCompleteSequencesData = (string)data["NeedToCompleteSequences"];
+
+        if (string.IsNullOrEmpty(needToCompleteSequencesData) == false)
+        {
+            NeedToCompleteSequences = needToCompleteSequencesData.Split('\n');
+        }
     }
 }

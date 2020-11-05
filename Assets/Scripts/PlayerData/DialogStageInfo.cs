@@ -21,11 +21,9 @@ public class DialogStageInfo
                 _activeChoices.Add(choiceData);
             }
         }
-
-        ChoiceButton.OnChoiceMade += OnChoiceMade;
     }
 
-    private void OnChoiceMade(DialogChoiceData choiceData)
+    public void RemoveChoice(DialogChoiceData choiceData)
     {
         _activeChoices.Remove(choiceData);
     }

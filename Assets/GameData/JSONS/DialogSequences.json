@@ -1,56 +1,62 @@
 [
   {
     "Name": "test_dialog_1",
-    "DialogStages": "test_dialog_1_1\ntest_dialog_1_2",
+    "StartStage": "test_dialog_1_1",
     "FinalStage": "test_dialog_1_final",
     "ConditionDirection": 0,
     "ReputationValue": "",
     "ReputationTarget": "",
-    "HistoryStageNumber": 1
+    "HistoryStageNumber": 1,
+    "NeedToCompleteSequences": ""
   },
   {
     "Name": "test_dialog_2_succes",
-    "DialogStages": "test_dialog_2_succes_1\ntest_dialog_2_succes_2",
+    "StartStage": "test_dialog_2_succes_1",
     "FinalStage": "",
     "ConditionDirection": 1,
     "ReputationValue": 0,
     "ReputationTarget": "test_char_2",
-    "HistoryStageNumber": 1
+    "HistoryStageNumber": 1,
+    "NeedToCompleteSequences": ""
   },
   {
     "Name": "test_dialog_2_fail",
-    "DialogStages": "test_dialog_2_fail_1",
+    "StartStage": "test_dialog_2_fail_1",
     "FinalStage": "",
     "ConditionDirection": 0,
     "ReputationValue": "",
     "ReputationTarget": "",
-    "HistoryStageNumber": 1
+    "HistoryStageNumber": 1,
+    "NeedToCompleteSequences": ""
   },
   {
     "Name": "test_dialog_2_1",
-    "DialogStages": "test_dialog_1_3\ntest_dialog_1_4",
+    "StartStage": "test_dialog_1_3",
     "FinalStage": "test_dialog_1_final",
     "ConditionDirection": 0,
     "ReputationValue": "",
     "ReputationTarget": "",
-    "HistoryStageNumber": 2
+    "HistoryStageNumber": 2,
+    "NeedToCompleteSequences": ""
   },
   {
     "Name": "test_dialog_2_2_succes",
-    "DialogStages": "test_dialog_2_succes_3\ntest_dialog_2_succes_4",
+    "StartStage": "test_dialog_2_succes_3",
     "FinalStage": "",
     "ConditionDirection": -1,
     "ReputationValue": 0,
     "ReputationTarget": "test_char_2",
-    "HistoryStageNumber": 2
+    "HistoryStageNumber": 2,
+    "NeedToCompleteSequences": ""
   },
   {
     "Name": "test_dialog_2_2_fail",
-    "DialogStages": "test_dialog_2_fail_2",
+    "StartStage": "test_dialog_2_fail_2",
     "FinalStage": "",
     "ConditionDirection": 0,
     "ReputationValue": "",
     "ReputationTarget": "",
-    "HistoryStageNumber": 2
+    "HistoryStageNumber": 2,
+    "NeedToCompleteSequences": ""
   }
 ]

@@ -17,7 +17,11 @@ public class DialogSequenceInfo
         DialogOwner = dialogOwner;
 
         StartStageInfo = new DialogStageInfo(DialogSequenceData.StartStage);
-        FinalStageInfo = new DialogStageInfo(DialogSequenceData.FinalStage);
+
+        if (DialogSequenceData.FinalStage != null)
+        {
+            FinalStageInfo = new DialogStageInfo(DialogSequenceData.FinalStage);
+        }
     }
 
     public bool CanStartSequence()
@@ -28,11 +32,14 @@ public class DialogSequenceInfo
         }
 
         // TODO: подумать о структуре кондишнов, обговорить с ГД
-        foreach (string needToCompleteSequenceName in DialogSequenceData.NeedToCompleteSequences)
+        if (DialogSequenceData.NeedToCompleteSequences != null)
         {
-            if (PlayerInfo.Instance.IsDialogSequenceCompleted(needToCompleteSequenceName) == false)
+            foreach (string needToCompleteSequenceName in DialogSequenceData.NeedToCompleteSequences)
             {
-                return false;
+                if (PlayerInfo.Instance.IsDialogSequenceCompleted(needToCompleteSequenceName) == false)
+                {
+                    return false;
+                }
             }
         }
 
