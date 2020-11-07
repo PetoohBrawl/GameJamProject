@@ -1,8 +1,8 @@
 [
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog1_start",
-    "StartStage": "Chapter1_Part1_Bar_Dialog1_start_1",
-    "FinalStage": "Chapter1_Part1_Bar_Dialog1_start_4",
+    "StartStage": "Chapter1_Part1_Bar_Axel_Dialog1_start_part_1",
+    "FinalStage": "",
     "HistoryStageNumber": 1,
     "ReputationDirection": "",
     "ReputationValue": "",
@@ -10,63 +10,63 @@
     "NeedToCompleteSequences": ""
   },
   {
-    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_placeholder1",
-    "StartStage": "Chapter1_Part1_Bar_Dialog1_placeholder1_1",
-    "FinalStage": "Chapter1_Part1_Bar_Dialog1_placeholder1_1",
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1",
+    "StartStage": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1_part_1",
+    "FinalStage": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1_part_1",
     "HistoryStageNumber": 1,
     "ReputationDirection": "",
     "ReputationValue": "",
     "ReputationTarget": "",
-    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_start"
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Axel_Dialog1_start"
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start",
-    "StartStage": "Chapter1_Part1_Bar_Dialog1_middle_1",
+    "StartStage": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_1",
     "FinalStage": "",
     "HistoryStageNumber": 1,
     "ReputationDirection": "",
     "ReputationValue": "",
     "ReputationTarget": "",
-    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_placeholder1_1"
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Drawer_Dialog1_start"
   },
   {
     "Name": "Chapter1_Part1_Bar_Poster_Dialog1_start",
-    "StartStage": "Dialog2_start_1",
-    "FinalStage": "Dialog2_start_3",
+    "StartStage": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_1",
+    "FinalStage": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_2",
     "HistoryStageNumber": 1,
     "ReputationDirection": "",
     "ReputationValue": "",
     "ReputationTarget": "",
-    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_start"
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Axel_Dialog1_start"
   },
   {
     "Name": "Chapter1_Part1_Bar_Book_Dialog1_start",
-    "StartStage": "Dialog3_start_1",
+    "StartStage": "Chapter1_Part1_Bar_Book_Dialog1_start_part_1",
     "FinalStage": "",
     "HistoryStageNumber": 1,
     "ReputationDirection": "",
     "ReputationValue": "",
     "ReputationTarget": "",
-    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_start"
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Axel_Dialog1_start"
   },
   {
     "Name": "Chapter1_Part1_Bar_Box_Dialog1_start",
-    "StartStage": "Dialog4_start_1",
+    "StartStage": "Chapter1_Part1_Bar_Box_Dialog1_start_part_1",
     "FinalStage": "",
     "HistoryStageNumber": 1,
     "ReputationDirection": "",
     "ReputationValue": "",
     "ReputationTarget": "",
-    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_start"
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Axel_Dialog1_start"
   },
   {
     "Name": "Chapter1_Part1_Bar_Drawer_Dialog1_start",
-    "StartStage": "Dialog5_start_1",
-    "FinalStage": "",
+    "StartStage": "Chapter1_Part1_Bar_Drawer_Dialog1_start_part_1",
+    "FinalStage": "Chapter1_Part1_Bar_Drawer_Dialog1_start_part_3",
     "HistoryStageNumber": 1,
     "ReputationDirection": "",
     "ReputationValue": "",
     "ReputationTarget": "",
-    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_start"
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Poster_Dialog1_start\nChapter1_Part1_Bar_Book_Dialog1_start\nChapter1_Part1_Bar_Box_Dialog1_start"
   }
 ]

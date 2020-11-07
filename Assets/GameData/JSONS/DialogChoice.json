@@ -1,50 +1,54 @@
 [
   {
-    "Name": "Dialog1_start_2_1",
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_start_part_2_choice_1",
     "Text": "Now, where did I put my cigarette holder?",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "Dialog1_start_3",
+    "StageName": "Chapter1_Part1_Bar_Axel_Dialog1_start_part_3",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog2_start_2_1",
+    "Name": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_2_choice1",
     "Text": "<i>Reminisce</i>",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "Dialog2_start_3",
+    "StageName": "",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog2_start_2_2",
+    "Name": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_2_choice2",
     "Text": "<i>Ashame</i>",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "Dialog2_start_3",
+    "StageName": "",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog2_start_2_3",
+    "Name": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_2_choice3",
     "Text": "<i>Shrug</i>",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "Dialog2_start_3",
+    "StageName": "",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog3_start_3_1",
+    "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_3_choice_1",
     "Text": "Atticus Finch",
     "ImpactType": "",
     "ImpactValue": "",
@@ -52,10 +56,11 @@
     "StageName": "",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog3_start_3_2",
+    "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_3_choice_2",
     "Text": "Mr Darcy",
     "ImpactType": "",
     "ImpactValue": "",
@@ -63,10 +68,11 @@
     "StageName": "",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog3_start_3_3",
+    "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_3_choice_3",
     "Text": "Nick Carraway",
     "ImpactType": "",
     "ImpactValue": "",
@@ -74,94 +80,103 @@
     "StageName": "",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog1_placeholder1_1_1",
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1_part_1_choice_1",
     "Text": "Please",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "",
+    "StageName": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1_part_2",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": "TRUE"
   },
   {
-    "Name": "Dialog1_placeholder1_1_2",
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1_part_1_choice_2",
     "Text": "You can't, warden",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "",
+    "StageName": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1_part_3",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": "TRUE"
   },
   {
-    "Name": "Dialog1_placeholder1_1_3",
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1_part_1_choice_3",
     "Text": "Just looking around",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "",
-    "HistoryStageFinalizer": "TRUE",
+    "StageName": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1_part_3",
+    "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog4_start_1_1",
+    "Name": "Chapter1_Part1_Bar_Box_Dialog1_start_part_1_choice_1",
     "Text": "A book",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "Dialog4_start_2",
+    "StageName": "",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog4_start_1_2",
+    "Name": "Chapter1_Part1_Bar_Box_Dialog1_start_part_1_choice_2",
     "Text": "Flute",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "Dialog4_start_2",
+    "StageName": "",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog4_start_1_3",
+    "Name": "Chapter1_Part1_Bar_Box_Dialog1_start_part_1_choice_3",
     "Text": "Some white powder",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "Dialog4_start_2",
+    "StageName": "",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog5_start_7_1",
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_4_choice_a",
     "Text": "You are trying too hard at your job.",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "Dialog5_start_7_a_1",
+    "StageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_5_a",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   },
   {
-    "Name": "Dialog5_start_7_2",
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_4_choice_b",
     "Text": "You are trying hard to please me.",
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "Dialog5_start_7_b_1",
+    "StageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_5_b",
     "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
-    "RequiredAttributeValue": ""
+    "RequiredAttributeValue": "",
+    "Removable": ""
   }
 ]

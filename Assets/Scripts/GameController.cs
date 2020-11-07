@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -9,7 +9,10 @@ public class GameController : MonoBehaviour
     
     public int CurrentHistoryStage { get; private set; } = 1; // FIXME: инициализация номера этапа
 
-    private GameDataContainer _dataContainer;
+    [SerializeField] private GameDataContainer _dataContainer;
+    [SerializeField] private LocationManager _locationManager;
+    [SerializeField] private Button _startGameButton;
+
     private List<CharacterInfo> _characters = new List<CharacterInfo>();
     
     private void Awake()
@@ -19,7 +22,6 @@ public class GameController : MonoBehaviour
 
         Instance = this;
 
-        _dataContainer = Resources.Load<GameDataContainer>("GameData");
         GameDataStorage.Instance.InitStorage(_dataContainer);
 
         ChoiceButton.OnChoiceMade += OnChoiceMade;
@@ -36,8 +38,8 @@ public class GameController : MonoBehaviour
         }
         
         InitHistoryStage(CurrentHistoryStage);
-
-        SceneManager.LoadScene("GameScene");
+        _locationManager.SetupLocation(_dataContainer.StartLocation, null);
+        _startGameButton.gameObject.SetActive(false);
     }
 
     private void InitHistoryStage(int stageNumber)
@@ -50,7 +52,7 @@ public class GameController : MonoBehaviour
 
     public void TryMoveNewLocation(LocationName locationName, Action callback)
     {
-        LocationManager.Instance.SetupLocation(locationName, callback);
+        _locationManager.SetupLocation(locationName, callback);
     }
 
     public List<CharacterInfo> GetCharacters()

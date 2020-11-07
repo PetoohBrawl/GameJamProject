@@ -23,7 +23,7 @@ public class DialogStageInfo
         }
     }
 
-    public void RemoveChoice(DialogChoiceData choiceData)
+    public void TryRemoveChoice(DialogChoiceData choiceData)
     {
         if (choiceData.Removable == false)
         {

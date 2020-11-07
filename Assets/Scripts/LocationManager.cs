@@ -3,35 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public enum LocationName
 {
     Unknown = -1,
-    Bar = 0,
+    Intro = 0,
     Bedroom = 1,
     Count = 2
 }
 
 public class LocationManager : MonoBehaviour
 {
-    public static LocationManager Instance;
-
-    public Character _characterPrefab;
-    public TextMeshProUGUI _locationName;
-
     public LocationName CurrentLocation { get; private set; } = LocationName.Unknown; //FIXME: инициализация стартовой локации
 
-    [SerializeField] private GameObject[] _locationButtonsContainers;
     [SerializeField] private RectTransform _charactersParent;
+    [SerializeField] private Image _backgroundImage;
+    [SerializeField] private Image _uiShadow;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            SetupLocation(LocationName.Bar, null); //FIXME: при наличи сохранения надо инициализировать это место
-        }
-    }
+    private Color _dark = new Color(0, 0, 0, 1);
+    private Color _transparent = new Color(0, 0, 0, 0);
 
     public void MoveLocation(int locationIndex)
     {
@@ -48,35 +39,63 @@ public class LocationManager : MonoBehaviour
 
         Debug.Log("Moving to location: " + locationName.ToString());
         CurrentLocation = locationName;
-        _locationName.text = locationName.ToString();
-        // TODO вызов затемнения
-        // UIManager надо будет добавить и на стартовую сцену
 
-        // TODO как стемнеет - меняем задний фон, уничтожаем объекты старых персонажей, инстанциируем объекты персонажей новой сцены
-        _charactersParent.DestroyChildren();
+        Sequence sequence = DOTween.Sequence();
 
-        List<CharacterInfo> characterInfos = GameController.Instance.GetCharacters();
-
-        foreach (CharacterInfo characterInfo in characterInfos)
+        ActivateShadow(sequence, () => 
         {
-            if (characterInfo.Location.Equals(locationName))
+            _charactersParent.DestroyChildren();
+
+            List<CharacterInfo> characterInfos = GameController.Instance.GetCharacters();
+
+            foreach (CharacterInfo characterInfo in characterInfos)
             {
-                Character character = Instantiate(_characterPrefab, _charactersParent);
-                character.SetCharacter(characterInfo.CharacterData.Name);
+                if (characterInfo.Location.Equals(locationName))
+                {
+                    GameObject characterPrefab = Instantiate(characterInfo.CharacterData.GetPrefab(), _charactersParent);
+
+                    // костыль, чтобы корректно отображался столик в Intro Локации
+                    if (locationName == LocationName.Intro && characterPrefab.name.Contains("Table"))
+                    {
+                        characterPrefab.transform.SetAsFirstSibling();
+                    }
+
+                    Character character = characterPrefab.GetComponent<Character>();
+                    character.SetCharacter(characterInfo.CharacterData.Name);
+                }
             }
+        });
 
-            // потом доработать таблицу Characters полем-строкой с адресом префаба персонажа
-        }
+        DeactivateShadow(sequence);
 
-        for (int i = 0; i < (int)LocationName.Count; i++)
-        {
-            bool enableButtons = i == (int)CurrentLocation;
-            _locationButtonsContainers[i].gameObject.SetActive(enableButtons);
-        }
-
-        // TODO после инициализации из затемнения показываем сцену
-
-        // TODO после выхода из затемнения вызываем колбек
         callback?.Invoke();
+    }
+
+    private void ActivateShadow(Sequence sequence, Action completeCallback)
+    {
+        if (_uiShadow.color.Equals(_transparent))
+        {
+            sequence.Append(_uiShadow.DOColor(_dark, 2f)).OnComplete(() => 
+            { 
+                completeCallback?.Invoke(); 
+            });
+
+            _uiShadow.raycastTarget = true;
+        }
+        else
+        {
+            completeCallback?.Invoke();
+        }
+    }
+
+    private void DeactivateShadow(Sequence sequence)
+    {
+        if (_uiShadow.color.Equals(_dark))
+        {
+            sequence.Append(_uiShadow.DOColor(_transparent, 2f)).OnComplete(() =>
+            {
+                _uiShadow.raycastTarget = false;
+            });
+        }
     }
 }

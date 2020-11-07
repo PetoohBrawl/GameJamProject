@@ -9,6 +9,7 @@ public class CharacterData
     public int StartReputation { get; private set; }
     public LocationName StartLocation { get; private set; }
 
+    private string _prefabName;
     private Dictionary<int, List<DialogSequenceData>> _dialogSequenceDatas = new Dictionary<int, List<DialogSequenceData>>();
 
     public void Init(JsonObject data)
@@ -16,6 +17,7 @@ public class CharacterData
         Name = (string)data["Name"];
         StartReputation = data.GetInt("StartReputation");
         StartLocation = data.GetEnum((string)data["StartLocation"], LocationName.Unknown);
+        _prefabName = (string)data["PrefabName"];
 
         string[] dialogSequencesNames = ((string)data["DialogSequences"]).Split('\n');
 
@@ -46,5 +48,12 @@ public class CharacterData
         _dialogSequenceDatas.TryGetValue(stageNumber, out dialogSequenceDatas);
 
         return dialogSequenceDatas;
+    }
+
+    public GameObject GetPrefab()
+    {
+        string path = $"Prefabs/Locations/Intro/{_prefabName}";
+
+        return Resources.Load<GameObject>(path);
     }
 }

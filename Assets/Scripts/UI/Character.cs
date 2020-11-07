@@ -7,22 +7,20 @@ using TMPro;
 
 public class Character : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public string CharacterName;
-    
     [SerializeField] private Image _glow;
-    [SerializeField] private TextMeshProUGUI _characterName;
+    
+    private string _characterName;
     private CharacterInfo _characterInfo;
 
     private void Start()
     {
-        _characterName.text = CharacterName;
-        _characterInfo = GameController.Instance.GetCharacterInfo(CharacterName);
+        _characterInfo = GameController.Instance.GetCharacterInfo(_characterName);
         _glow.gameObject.SetActive(false);
     }
 
     public void SetCharacter(string name)
     {
-        CharacterName = name;
+        _characterName = name;
     }
 
     public void TryStartDialogSequence()

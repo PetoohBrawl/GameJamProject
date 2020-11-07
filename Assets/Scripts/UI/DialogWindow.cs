@@ -55,7 +55,7 @@ public class DialogWindow : MonoBehaviour
         else
         {
             nextStageData = GameDataStorage.Instance.GetDialogStageData(choiceData.StageName);
-            _currentStage.RemoveChoice(choiceData);
+            _currentStage.TryRemoveChoice(choiceData);
         }
 
         DialogStageInfo nextStageInfo = null;

@@ -2,31 +2,36 @@
   {
     "Name": "Axel",
     "StartReputation": 0,
-    "DialogSequences": "Chapter1_Part1_Bar_Axel_Dialog1_start\nChapter1_Part1_Bar_Axel_Dialog1_placeholder1\nChapter1_Part1_Bar_Axel_Dialog2_start",
-    "StartLocation": "Bar"
+    "DialogSequences": "Chapter1_Part1_Bar_Axel_Dialog1_start\nChapter1_Part1_Bar_Axel_Dialog1_interlude_1\nChapter1_Part1_Bar_Axel_Dialog2_start",
+    "StartLocation": "Intro",
+    "PrefabName": "Axel"
   },
   {
     "Name": "Books",
     "StartReputation": 0,
     "DialogSequences": "Chapter1_Part1_Bar_Book_Dialog1_start",
-    "StartLocation": "Bar"
+    "StartLocation": "Intro",
+    "PrefabName": "BookShelf"
   },
   {
     "Name": "Box",
     "StartReputation": 0,
     "DialogSequences": "Chapter1_Part1_Bar_Box_Dialog1_start",
-    "StartLocation": "Bar"
+    "StartLocation": "Intro",
+    "PrefabName": "JewelryBox"
   },
   {
     "Name": "Drawer",
     "StartReputation": 0,
     "DialogSequences": "Chapter1_Part1_Bar_Drawer_Dialog1_start",
-    "StartLocation": "Bar"
+    "StartLocation": "Intro",
+    "PrefabName": "Table"
   },
   {
     "Name": "Poster",
     "StartReputation": 0,
     "DialogSequences": "Chapter1_Part1_Bar_Poster_Dialog1_start",
-    "StartLocation": "Bar"
+    "StartLocation": "Intro",
+    "PrefabName": "Poster"
   }
 ]
