@@ -12,7 +12,7 @@ public class CharacterInfo
     {
         get
         {
-            if (_activeDialog == null)
+            if (_activeDialog == null || _activeDialog.IsCompleted)
             {
                 foreach (DialogSequenceInfo dialogSequence in _dialogSequences)
                 {
