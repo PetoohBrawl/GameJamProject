@@ -19,14 +19,6 @@ public class DialogStageData
         Phrase = (string)data["Phrase"];
         NextStageName = (string)data["NextStageName"];
 
-        if (string.IsNullOrEmpty(NextStageName))
-        {
-            if (GameDataStorage.Instance.GetDialogStageData(NextStageName) == null)
-            {
-                Debug.LogError($"NEXT_STAGE_NAME is NULL with NAME: {NextStageName}, DIALOG_STAGE: {Name}");
-            }
-        }
-
         DiaryRecord = (string)data["DiaryRecord"];
 
         string choices = (string)data["Choices"];
@@ -49,5 +41,16 @@ public class DialogStageData
         }
 
         Location = data.GetEnum((string)data["Location"], LocationName.Unknown);
+    }
+
+    public void ValidateData()
+    {
+        if (string.IsNullOrEmpty(NextStageName) == false)
+        {
+            if (GameDataStorage.Instance.GetDialogStageData(NextStageName) == null)
+            {
+                Debug.LogError($"NEXT_STAGE_NAME is NULL with NAME: {NextStageName}, DIALOG_STAGE: {Name}");
+            }
+        }
     }
 }

@@ -27,11 +27,16 @@ public class DialogSequenceData
             Debug.LogError($"START_STAGE NULL with NAME: {(string)data["StartStage"]}, DIALOG_SEQUENCE: {Name}");
         }
 
-        FinalStage = GameDataStorage.Instance.GetDialogStageData((string)data["FinalStage"]);
+        string finalStageName = (string)data["FinalStage"];
 
-        if (FinalStage == null)
+        if (string.IsNullOrEmpty(finalStageName) == false)
         {
-            Debug.LogError($"FINAL_STAGE NULL with NAME: {(string)data["FinalStage"]}, DIALOG_SEQUENCE: {Name}");
+            FinalStage = GameDataStorage.Instance.GetDialogStageData(finalStageName);
+
+            if (FinalStage == null)
+            {
+                Debug.LogError($"FINAL_STAGE NULL with NAME: {(string)data["FinalStage"]}, DIALOG_SEQUENCE: {Name}");
+            }
         }
 
         ConditionDirection = data.GetInt("ConditionDirection", 0);

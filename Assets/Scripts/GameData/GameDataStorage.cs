@@ -117,4 +117,17 @@ public class GameDataStorage
 
         return null;
     }
+
+    public void ValidateDataStorage()
+    {
+        foreach (DialogStageData dialogStageData in _dialogStageDatas)
+        {
+            dialogStageData.ValidateData();
+        }
+
+        foreach (DialogChoiceData dialogChoiceData in _dialogChoiceDatas)
+        {
+            dialogChoiceData.ValidateData();
+        }
+    }
 }

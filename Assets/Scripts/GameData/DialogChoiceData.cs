@@ -33,14 +33,6 @@ public class DialogChoiceData
         Text = (string)data["Text"];
         StageName = (string)data["StageName"];
 
-        if (string.IsNullOrEmpty(StageName))
-        {
-            if (GameDataStorage.Instance.GetDialogStageData(StageName) == null)
-            {
-                Debug.LogError($"STAGE_NAME is NULL with NAME: {StageName}, DIALOG_CHOICE: {Name}");
-            }
-        }
-
         ApplyingImpactType = data.GetEnum(data["ImpactType"].ToString(), ImpactType.None);
 
         if (ApplyingImpactType != ImpactType.None)
@@ -59,5 +51,16 @@ public class DialogChoiceData
         }
 
         Removable = ((string)data["Removable"]).Equals("TRUE");
+    }
+
+    public void ValidateData()
+    {
+        if (string.IsNullOrEmpty(StageName) == false)
+        {
+            if (GameDataStorage.Instance.GetDialogStageData(StageName) == null)
+            {
+                Debug.LogError($"STAGE is NULL with NAME: {StageName}, DIALOG_CHOICE: {Name}");
+            }
+        }
     }
 }
