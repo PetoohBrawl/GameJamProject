@@ -22,6 +22,12 @@ public class CharacterData
         foreach (string dialogSequenceName in dialogSequencesNames)
         {
             DialogSequenceData sequenceData = GameDataStorage.Instance.GetDialogSequenceData(dialogSequenceName);
+
+            if (sequenceData == null)
+            {
+                Debug.LogError($"DialogSequence NULL with NAME: {dialogSequenceName}, CHARACTER: {Name}");
+            }
+
             int stageNumber = sequenceData.HistoryStageNumber;
 
             if (!_dialogSequenceDatas.ContainsKey(stageNumber))

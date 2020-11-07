@@ -32,6 +32,14 @@ public class DialogChoiceData
         Text = (string)data["Text"];
         StageName = (string)data["StageName"];
 
+        if (string.IsNullOrEmpty(StageName))
+        {
+            if (GameDataStorage.Instance.GetDialogStageData(StageName) == null)
+            {
+                Debug.LogError($"STAGE_NAME is NULL with NAME: {StageName}, DIALOG_CHOICE: {Name}");
+            }
+        }
+
         ApplyingImpactType = data.GetEnum(data["ImpactType"].ToString(), ImpactType.None);
 
         if (ApplyingImpactType != ImpactType.None)

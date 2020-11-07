@@ -21,7 +21,18 @@ public class DialogSequenceData
         Name = (string)data["Name"];
 
         StartStage = GameDataStorage.Instance.GetDialogStageData((string)data["StartStage"]);
+
+        if (StartStage == null)
+        {
+            Debug.LogError($"START_STAGE NULL with NAME: {(string)data["StartStage"]}, DIALOG_SEQUENCE: {Name}");
+        }
+
         FinalStage = GameDataStorage.Instance.GetDialogStageData((string)data["FinalStage"]);
+
+        if (FinalStage == null)
+        {
+            Debug.LogError($"FINAL_STAGE NULL with NAME: {(string)data["FinalStage"]}, DIALOG_SEQUENCE: {Name}");
+        }
 
         ConditionDirection = data.GetInt("ConditionDirection", 0);
 
@@ -32,6 +43,11 @@ public class DialogSequenceData
         }
 
         HistoryStageNumber = data.GetInt("HistoryStageNumber");
+
+        if (HistoryStageNumber <= 0)
+        {
+            Debug.LogError($"HISTORY_STAGE_NUMBER <= 0, DIALOG_SEQUENCE: {Name}");
+        }
 
         string needToCompleteSequencesData = (string)data["NeedToCompleteSequences"];
 

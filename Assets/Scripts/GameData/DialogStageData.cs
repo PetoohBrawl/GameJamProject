@@ -18,6 +18,15 @@ public class DialogStageData
         Name = (string)data["Name"];
         Phrase = (string)data["Phrase"];
         NextStageName = (string)data["NextStageName"];
+
+        if (string.IsNullOrEmpty(NextStageName))
+        {
+            if (GameDataStorage.Instance.GetDialogStageData(NextStageName) == null)
+            {
+                Debug.LogError($"NEXT_STAGE_NAME is NULL with NAME: {NextStageName}, DIALOG_STAGE: {Name}");
+            }
+        }
+
         DiaryRecord = (string)data["DiaryRecord"];
 
         string choices = (string)data["Choices"];
@@ -28,7 +37,14 @@ public class DialogStageData
 
             foreach (string choiceName in choicesNames)
             {
-                DialogChoices.Add(GameDataStorage.Instance.GetDialogChoiceData(choiceName));
+                DialogChoiceData choiceData = GameDataStorage.Instance.GetDialogChoiceData(choiceName);
+
+                if (choiceData == null)
+                {
+                    Debug.LogError($"CHOICE_DATA is NULL with NAME: {choiceName}, DIALOG_STAGE: {Name}");
+                }
+
+                DialogChoices.Add(choiceData);
             }
         }
 
