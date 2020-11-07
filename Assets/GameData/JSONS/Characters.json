@@ -1,14 +1,32 @@
 [
   {
-    "Name": "test_char_1",
+    "Name": "Axel",
     "StartReputation": 0,
-    "DialogSequences": "test_dialog_1\ntest_dialog_2_1",
+    "DialogSequences": "Chapter1_Part1_Bar_Axel_Dialog1_start\nChapter1_Part1_Bar_Axel_Dialog1_placeholder1\nChapter1_Part1_Bar_Axel_Dialog2_start",
     "StartLocation": "Bar"
   },
   {
-    "Name": "test_char_2",
+    "Name": "Books",
     "StartReputation": 0,
-    "DialogSequences": "test_dialog_2_succes\ntest_dialog_2_fail\ntest_dialog_2_2_succes\ntest_dialog_2_2_fail",
+    "DialogSequences": "Chapter1_Part1_Bar_Book_Dialog1_start",
+    "StartLocation": "Bar"
+  },
+  {
+    "Name": "Box",
+    "StartReputation": 0,
+    "DialogSequences": "Chapter1_Part1_Bar_Box_Dialog1_start",
+    "StartLocation": "Bar"
+  },
+  {
+    "Name": "Drawer",
+    "StartReputation": 0,
+    "DialogSequences": "Chapter1_Part1_Bar_Drawer_Dialog1_start",
+    "StartLocation": "Bar"
+  },
+  {
+    "Name": "Poster",
+    "StartReputation": 0,
+    "DialogSequences": "Chapter1_Part1_Bar_Poster_Dialog1_start",
     "StartLocation": "Bar"
   }
 ]

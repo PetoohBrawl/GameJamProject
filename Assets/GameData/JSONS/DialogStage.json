@@ -1,90 +1,226 @@
 [
   {
-    "Name": "test_dialog_1_1",
-    "Phrase": "Hi, Bro",
-    "Choices": "test_dialog_1_1_1\ntest_dialog_1_1_2",
-    "NextStageName": "",
+    "Name": "Chapter1_Part1_Bar_Dialog1_start_1",
+    "Phrase": "<i>Narrator</i><br>Vanessa is in her room standing by the dressing table, Axel is standing behind her.",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Dialog1_start_2",
     "Location": "Bar",
-    "DiaryRecord": "Record 1"
+    "DiaryRecord": ""
   },
   {
-    "Name": "test_dialog_1_2",
-    "Phrase": "Yeah, fuck this dumb",
+    "Name": "Chapter1_Part1_Bar_Dialog1_start_2",
+    "Phrase": "<i>Vanessa</i> takes a deep breath",
+    "Choices": "Chapter1_Part1_Bar_Dialog1_start_2_1",
+    "NextStageName": "",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Dialog1_start_3",
+    "Phrase": "<i>Axel</i><br>Why are you looking for it, Ma'am?",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Dialog1_start_4",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Dialog1_start_4",
+    "Phrase": "<i>Vanessa</i><br>Cause that's the last valuable thing I own, warden.<br><i>Right. Let's have a look.</i>",
     "Choices": "",
     "NextStageName": "",
     "Location": "Bar",
     "DiaryRecord": ""
   },
   {
-    "Name": "test_dialog_2_succes_1",
-    "Phrase": "Hi, Bro(test2)",
-    "Choices": "test_dialog_2_succes_1_1\ntest_dialog_2_succes_1_2",
-    "NextStageName": "",
+    "Name": "Dialog2_start_1",
+    "Phrase": "<i>Narrator</i><br>Vanessa looks at the burlesque images on the wall.",
+    "Choices": "",
+    "NextStageName": "Dialog2_start_2",
     "Location": "Bar",
-    "DiaryRecord": "Record 2"
+    "DiaryRecord": ""
   },
   {
-    "Name": "test_dialog_2_succes_2",
-    "Phrase": "Yeah, fuck him",
+    "Name": "Dialog2_start_2",
+    "Phrase": "<i>Vanessa</i><br><i>Look at these. \"The most desired burlesque dancer in her Solar System\". <br>Not a bad way to start a career. Anyway, that was a long, long time ago.</i>",
+    "Choices": "Dialog2_start_2_1\nDialog2_start_2_2\nDialog2_start_2_3",
+    "NextStageName": "Dialog2_start_3",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog2_start_3",
+    "Phrase": "Anyway, back to reality",
     "Choices": "",
     "NextStageName": "",
     "Location": "Bar",
     "DiaryRecord": ""
   },
   {
-    "Name": "test_dialog_2_fail_1",
-    "Phrase": "I HAATE YOU!!!! T_T",
+    "Name": "Dialog3_start_1",
+    "Phrase": "<i>Narrator</i><br><i>Vanessa looks at the bookshelf.</i>",
     "Choices": "",
-    "NextStageName": "",
-    "Location": "Bedroom",
-    "DiaryRecord": "he hates you"
+    "NextStageName": "Dialog3_start_2",
+    "Location": "Bar",
+    "DiaryRecord": ""
   },
   {
-    "Name": "test_dialog_1_final",
-    "Phrase": "Did u fuck him? No? What are u w8ing for?",
+    "Name": "Dialog3_start_2",
+    "Phrase": "<i>Vanessa</i><br><i>Lots of books.</i><br><i>I often find book characters much more sophisticated than real life people. Such a shame.</i>",
     "Choices": "",
+    "NextStageName": "Dialog3_start_3",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog3_start_3",
+    "Phrase": "<i>Vanessa</i><br><i>If only I met a person like...</i>",
+    "Choices": "Dialog3_start_3_1\\nDialog3_start_3_2\\nDialog3_start_3_3",
     "NextStageName": "",
     "Location": "Bar",
     "DiaryRecord": ""
   },
   {
-    "Name": "test_dialog_1_3",
-    "Phrase": "Hi again, Bro",
-    "Choices": "test_dialog_1_1_1\ntest_dialog_1_1_2",
+    "Name": "Chapter1_Part1_Bar_Dialog1_placeholder1_1",
+    "Phrase": "<i>Axel</i><br>Need help?",
+    "Choices": "Chapter1_Part1_Bar_Dialog1_placeholder1_1_1\\nChapter1_Part1_Bar_Dialog1_placeholder1_1_2\\nChapter1_Part1_Bar_Dialog1_placeholder1_1_3",
     "NextStageName": "",
     "Location": "Bar",
     "DiaryRecord": ""
   },
   {
-    "Name": "test_dialog_1_4",
-    "Phrase": "Yeah, да будет шпиливили",
-    "Choices": "",
-    "NextStageName": "",
-    "Location": "Bar",
-    "DiaryRecord": ""
-  },
-  {
-    "Name": "test_dialog_2_succes_3",
-    "Phrase": "Mama like you",
-    "Choices": "test_dialog_2_succes_1_1\ntest_dialog_2_succes_1_2",
-    "NextStageName": "",
-    "Location": "Bar",
-    "DiaryRecord": ""
-  },
-  {
-    "Name": "test_dialog_2_succes_4",
-    "Phrase": "Very like",
+    "Name": "Chapter1_Part1_Bar_Dialog1_placeholder1_2",
+    "Phrase": "<i>Axel</i><br>Did you check the jewelry box? I would place it there.",
     "Choices": "",
     "NextStageName": "",
     "Location": "Bar",
     "DiaryRecord": ""
   },
   {
-    "Name": "test_dialog_2_fail_2",
-    "Phrase": "I HAAAAAAAAAAAAAAAAAAATE YOU!!!! T_T",
+    "Name": "Chapter1_Part1_Bar_Dialog1_placeholder1_3",
+    "Phrase": "<i>Axel</i><br>Good luck then.",
     "Choices": "",
     "NextStageName": "",
-    "Location": "Bedroom",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog4_start_1",
+    "Phrase": "<i>Narrator</i><br>Vanessa checks her jewelry box.<br><i>Nothing here. Well, nothing that might come in handy in this shithole. Though I would appritiate some...</i>",
+    "Choices": "Dialog4_start_1_1\\nDialog4_start_1_2\\nDialog4_start_1_3",
+    "NextStageName": "",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog4_start_2",
+    "Phrase": "If only...",
+    "Choices": "",
+    "NextStageName": "",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_1",
+    "Phrase": "<i>Narrator</i><br>Vanessa opens the drawer of her dressing table and takes out the cigarette holder.",
+    "Choices": "",
+    "NextStageName": "Dialog5_start_2",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_2",
+    "Phrase": "<i>Vanessa</i><br>There it is! Now, I'm ready to go...",
+    "Choices": "",
+    "NextStageName": "Dialog5_start_3",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_3",
+    "Phrase": "<i>Axel</i><br>I'm sorry, Ma'am, did you say something?",
+    "Choices": "",
+    "NextStageName": "Dialog5_start_4",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_4",
+    "Phrase": "<i>Vanessa</i><br>Now, to you.",
+    "Choices": "",
+    "NextStageName": "Dialog5_start_5",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_5",
+    "Phrase": "<i>Vanessa</i><br>Did you get what I asked you?",
+    "Choices": "",
+    "NextStageName": "Dialog5_start_6",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_6",
+    "Phrase": "<i>Axel</i><br>Absolutely. I brought you some little somethings! Your favorite cigarettes and some perfume.",
+    "Choices": "",
+    "NextStageName": "Dialog5_start_7",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_7",
+    "Phrase": "<i>Vanessa</i><br>Oh, did you?",
+    "Choices": "Dialog5_start_7_1\\nDialog5_start_7_2",
+    "NextStageName": "",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_7_a_1",
+    "Phrase": "<i>Vanessa</i><br>You're a tryhard, warden. I've always had a soft spot for the most dedicated workers.",
+    "Choices": "",
+    "NextStageName": "Dialog5_start_7_a_2",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_7_a_2",
+    "Phrase": "<i>Vanessa</i><br>Good for the business, yet completely clueless about their lives.",
+    "Choices": "",
+    "NextStageName": "Dialog5_start_7_a_3",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_7_a_3",
+    "Phrase": "<i>Axel</i><br>Living on our inhospitable planet, one must learn to find pleasure in simple things, my lady.",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Dialog1_middle_1",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_7_b_1",
+    "Phrase": "<i>Vanessa</i><br>Trying hard to please me, warden?",
+    "Choices": "",
+    "NextStageName": "Dialog5_start_7_b_2",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Dialog5_start_7_b_2",
+    "Phrase": "<i>Axel</i><br>Seems like not hard enough, my lady!",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Dialog1_middle_1",
+    "Location": "Bar",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Dialog1_middle_1",
+    "Phrase": "",
+    "Choices": "",
+    "NextStageName": "",
+    "Location": "Bar",
     "DiaryRecord": ""
   }
 ]

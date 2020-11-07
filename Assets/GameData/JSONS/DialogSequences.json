@@ -1,62 +1,72 @@
 [
   {
-    "Name": "test_dialog_1",
-    "StartStage": "test_dialog_1_1",
-    "FinalStage": "test_dialog_1_final",
-    "ConditionDirection": 0,
-    "ReputationValue": "",
-    "ReputationTarget": "",
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_start",
+    "StartStage": "Chapter1_Part1_Bar_Dialog1_start_1",
+    "FinalStage": "Chapter1_Part1_Bar_Dialog1_start_4",
     "HistoryStageNumber": 1,
+    "ReputationDirection": "",
+    "ReputationValue": "",
+    "ReputationTarget": "",
     "NeedToCompleteSequences": ""
   },
   {
-    "Name": "test_dialog_2_succes",
-    "StartStage": "test_dialog_2_succes_1",
-    "FinalStage": "",
-    "ConditionDirection": 1,
-    "ReputationValue": 0,
-    "ReputationTarget": "test_char_2",
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_placeholder1",
+    "StartStage": "Chapter1_Part1_Bar_Dialog1_placeholder1_1",
+    "FinalStage": "Chapter1_Part1_Bar_Dialog1_placeholder1_1",
     "HistoryStageNumber": 1,
-    "NeedToCompleteSequences": ""
-  },
-  {
-    "Name": "test_dialog_2_fail",
-    "StartStage": "test_dialog_2_fail_1",
-    "FinalStage": "",
-    "ConditionDirection": 0,
+    "ReputationDirection": "",
     "ReputationValue": "",
     "ReputationTarget": "",
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_start"
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start",
+    "StartStage": "Chapter1_Part1_Bar_Dialog1_middle_1",
+    "FinalStage": "",
     "HistoryStageNumber": 1,
-    "NeedToCompleteSequences": ""
-  },
-  {
-    "Name": "test_dialog_2_1",
-    "StartStage": "test_dialog_1_3",
-    "FinalStage": "test_dialog_1_final",
-    "ConditionDirection": 0,
+    "ReputationDirection": "",
     "ReputationValue": "",
     "ReputationTarget": "",
-    "HistoryStageNumber": 2,
-    "NeedToCompleteSequences": ""
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_placeholder1_1"
   },
   {
-    "Name": "test_dialog_2_2_succes",
-    "StartStage": "test_dialog_2_succes_3",
-    "FinalStage": "",
-    "ConditionDirection": -1,
-    "ReputationValue": 0,
-    "ReputationTarget": "test_char_2",
-    "HistoryStageNumber": 2,
-    "NeedToCompleteSequences": ""
-  },
-  {
-    "Name": "test_dialog_2_2_fail",
-    "StartStage": "test_dialog_2_fail_2",
-    "FinalStage": "",
-    "ConditionDirection": 0,
+    "Name": "Chapter1_Part1_Bar_Poster_Dialog1_start",
+    "StartStage": "Dialog2_start_1",
+    "FinalStage": "Dialog2_start_3",
+    "HistoryStageNumber": 1,
+    "ReputationDirection": "",
     "ReputationValue": "",
     "ReputationTarget": "",
-    "HistoryStageNumber": 2,
-    "NeedToCompleteSequences": ""
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_start"
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Book_Dialog1_start",
+    "StartStage": "Dialog3_start_1",
+    "FinalStage": "",
+    "HistoryStageNumber": 1,
+    "ReputationDirection": "",
+    "ReputationValue": "",
+    "ReputationTarget": "",
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_start"
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Box_Dialog1_start",
+    "StartStage": "Dialog4_start_1",
+    "FinalStage": "",
+    "HistoryStageNumber": 1,
+    "ReputationDirection": "",
+    "ReputationValue": "",
+    "ReputationTarget": "",
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_start"
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Drawer_Dialog1_start",
+    "StartStage": "Dialog5_start_1",
+    "FinalStage": "",
+    "HistoryStageNumber": 1,
+    "ReputationDirection": "",
+    "ReputationValue": "",
+    "ReputationTarget": "",
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Dialog1_start"
   }
 ]
