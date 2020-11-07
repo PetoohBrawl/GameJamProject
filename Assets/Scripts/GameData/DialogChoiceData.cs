@@ -20,6 +20,7 @@ public class DialogChoiceData
     public bool HistoryStageFinalizer { get; private set; }
     public ImpactType RequiredAttribute { get; private set; }
     public int RequiredAttributeValue { get; private set; }
+    public bool Removable { get; private set; }
 
     // TODO : объединить в отдельный класс воздействий (какой-нибудь ImpactInfo), который по вызову метода Apply будет применять импакты
     public ImpactType ApplyingImpactType { get; private set; }
@@ -56,5 +57,7 @@ public class DialogChoiceData
         {
             RequiredAttributeValue = data.GetInt("RequiredAttributeValue");
         }
+
+        Removable = ((string)data["Removable"]).Equals("TRUE");
     }
 }

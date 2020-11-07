@@ -25,6 +25,11 @@ public class DialogStageInfo
 
     public void RemoveChoice(DialogChoiceData choiceData)
     {
+        if (choiceData.Removable == false)
+        {
+            return;
+        }
+
         _activeChoices.Remove(choiceData);
     }
 
