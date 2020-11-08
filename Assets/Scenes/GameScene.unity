@@ -773,8 +773,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef617c573d17c374e8afb811395805cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dataContainer: {fileID: 0}
-  _locationManager: {fileID: 0}
+  _dataContainer: {fileID: 11400000, guid: b9914511a5e0f054aae34a04c938404d, type: 2}
+  _locationManager: {fileID: 1191150478}
+  _startGameButton: {fileID: 2077608529}
 --- !u!4 &853543138
 Transform:
   m_ObjectHideFlags: 0
@@ -1206,7 +1207,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1054683547
 MonoBehaviour:
@@ -1274,13 +1275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6effd6b28e03d3a45ab8a3acf1e89c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _locationName: {fileID: 0}
-  _locationButtonsContainers:
-  - {fileID: 0}
-  - {fileID: 0}
   _charactersParent: {fileID: 41397842}
-  _backgroundImage: {fileID: 0}
-  _uiShadow: {fileID: 0}
+  _backgroundImage: {fileID: 45025788}
+  _uiShadow: {fileID: 1054683547}
 --- !u!4 &1191150479
 Transform:
   m_ObjectHideFlags: 0
