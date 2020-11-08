@@ -24,11 +24,6 @@ public class LocationManager : MonoBehaviour
     private Color _dark = new Color(0, 0, 0, 1);
     private Color _transparent = new Color(0, 0, 0, 0);
 
-    public void MoveLocation(int locationIndex)
-    {
-        SetupLocation((LocationName)locationIndex, null);
-    }
-
     public void SetupLocation(LocationName locationName, Action callback)
     {
         if (locationName == LocationName.Unknown || locationName.Equals(CurrentLocation))
@@ -37,7 +32,6 @@ public class LocationManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("Moving to location: " + locationName.ToString());
         CurrentLocation = locationName;
 
         Sequence sequence = DOTween.Sequence();

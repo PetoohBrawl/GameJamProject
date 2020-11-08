@@ -7,15 +7,24 @@ using UnityEngine.UI;
 public class ChoiceButton : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _buttonText;
+    [SerializeField] private RectTransform _buttonTransform;
 
     private DialogChoiceData _choiceData;
 
     public static event Action<DialogChoiceData> OnChoiceMade;
 
+    private const int ButtonTransformPadding = 50;
+    private const int DefaultButtonWidth = 350;
+
     public void SetupButton(DialogChoiceData data)
     {
         _choiceData = data;
         _buttonText.text = _choiceData.Text;
+
+        _buttonText.ForceMeshUpdate();
+
+        float buttonWidth = Mathf.Max(_buttonText.preferredWidth + ButtonTransformPadding, DefaultButtonWidth);
+        _buttonTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, buttonWidth);
 
         if (_choiceData.RequiredAttribute != ImpactType.None)
         {
