@@ -41,7 +41,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_2",
-    "Phrase": "<i>Vanessa</i><br><i>Look at these. \"The most desired burlesque dancer in her Solar System\". <br>Not a bad way to start a career. Anyway, that was a long, long time ago.</i>",
+    "Phrase": "<i>Vanessa</i><br><i>Look at this. \"The most desired burlesque dancer in her Solar System\". <br>Not a bad way to start a career. Anyway, that was a long, long time ago.</i>",
     "Choices": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_2_choice1\nChapter1_Part1_Bar_Poster_Dialog1_start_part_2_choice2\nChapter1_Part1_Bar_Poster_Dialog1_start_part_2_choice3",
     "NextStageName": "",
     "Location": "Intro",
@@ -65,7 +65,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_3",
-    "Phrase": "<i>Vanessa</i><br><i>If only I met a person like...</i>",
+    "Phrase": "<i>Vanessa</i><br><i>I wish I could talk to someone like ...</i>",
     "Choices": "Chapter1_Part1_Bar_Book_Dialog1_start_part_3_choice_1\nChapter1_Part1_Bar_Book_Dialog1_start_part_3_choice_2\nChapter1_Part1_Bar_Book_Dialog1_start_part_3_choice_3",
     "NextStageName": "",
     "Location": "Intro",
@@ -81,7 +81,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1_part_2",
-    "Phrase": "<i>Axel</i><br>Did you check the jewelry box? I would place it there.",
+    "Phrase": "<i>Axel</i><br>Did you try the jewelry box? I would place it there.",
     "Choices": "",
     "NextStageName": "",
     "Location": "Intro",
@@ -113,7 +113,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Drawer_Dialog1_start_part_2",
-    "Phrase": "<i>Vanessa</i><br>There it is! Now, I'm ready to go...",
+    "Phrase": "<i>Vanessa</i><br>There it is! Now, I'm ready to get the hell out of here.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Drawer_Dialog1_start_part_3",
     "Location": "Intro",
@@ -129,7 +129,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_1",
-    "Phrase": "<i>Vanessa</i><br>Now, to you.",
+    "Phrase": "<i>Vanessa</i><br>Ah, warden. You're gonna try to sweet-talk me again, aren't you? Don't worry, you'll play your part soon.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_2",
     "Location": "Intro",
@@ -433,7 +433,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot_interlude",
-    "Phrase": "VANESSA\n<i>Perhaps I shall try another option</i>...",
+    "Phrase": "VANESSA\n<i>Perhaps I ñould try another option</i>...",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot",
     "Location": "Intro",
