@@ -91,5 +91,7 @@ public class LocationManager : MonoBehaviour
                 _uiShadow.raycastTarget = false;
             });
         }
+
+        MusicController.Instance.SwitchLocationMusic(CurrentLocation);
     }
 }

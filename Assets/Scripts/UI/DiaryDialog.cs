@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +9,10 @@ public class DiaryDialog : MonoBehaviour
     [SerializeField] private ScrollRect _recordsScroll;
     [SerializeField] private TextMeshProUGUI _recordsText;
 
+    [SerializeField] private Slider _volumeSlider;
+    [SerializeField] private TextMeshProUGUI _sliderValue;
+
+    public static event Action<float> OnVolumeChange;
     public void ShowDialog()
     {
         gameObject.SetActive(true);
@@ -22,5 +26,11 @@ public class DiaryDialog : MonoBehaviour
     public void CloseDialog()
     {
         gameObject.SetActive(false);
+    }
+
+    public void OnSliderValueChange()
+    {
+        OnVolumeChange?.Invoke(_volumeSlider.value);
+        _sliderValue.text = _volumeSlider.value.ToString();
     }
 }
