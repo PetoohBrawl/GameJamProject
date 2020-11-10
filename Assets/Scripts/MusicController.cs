@@ -55,6 +55,12 @@ public class MusicController : MonoBehaviour
 
     public void SwitchLocationMusic(LocationName locationName)
     {
+        if (locationName == LocationName.Unknown)
+        {
+            _audioSource.Stop();
+            return;
+        }
+
         // TODO: переделать получение аудиоклипа
         _audioSource.clip = _audioClips[(int)locationName];
 

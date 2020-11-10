@@ -65,7 +65,7 @@ public class LocationManager : MonoBehaviour
         DeactivateShadow(sequence, deactivatedShadowCallback);
     }
 
-    private void ActivateShadow(Sequence sequence, Action completeCallback)
+    public void ActivateShadow(Sequence sequence, Action completeCallback)
     {
         if (_uiShadow.color.Equals(_transparent))
         {

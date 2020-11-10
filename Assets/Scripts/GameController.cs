@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class GameController : MonoBehaviour
 {
@@ -77,8 +78,12 @@ public class GameController : MonoBehaviour
 
         if (CurrentHistoryStage > _maxHistoryStage)
         {
-            // TODO: завершение игры
-            Debug.Log("Game over");
+            Sequence sequence = DOTween.Sequence();
+
+            _locationManager.ActivateShadow(sequence, () => 
+            { 
+                //TODO вставить выстрел
+            });
         }
         else
         {
