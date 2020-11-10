@@ -60,4 +60,9 @@ public class CharacterInfo
     {
         ReputationValue += value;
     }
+
+    public bool HasActiveSequence()
+    {
+        return ActiveDialog != null && (!_activeDialog.IsCompleted || _activeDialog.FinalStageInfo != null);
+    }
 }

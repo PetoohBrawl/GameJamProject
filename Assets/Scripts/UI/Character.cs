@@ -39,7 +39,10 @@ public class Character : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _glow.gameObject.SetActive(true);
+        if (_characterInfo.HasActiveSequence())
+        {
+            _glow.gameObject.SetActive(true);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
