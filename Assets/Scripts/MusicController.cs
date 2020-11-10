@@ -7,10 +7,36 @@ public class MusicController : MonoBehaviour
 {
     public static MusicController Instance;
 
+    private bool _isMusicEnabled = true;
+    public bool IsMusicEnabled 
+    { 
+        get 
+        {
+            return _isMusicEnabled;
+        }
+
+        set
+        {
+            _isMusicEnabled = value;
+
+            if (_isMusicEnabled == false)
+            {
+                _audioSource.DOFade(0, 1).OnComplete(() =>
+                {
+                    _audioSource.Stop();
+                });
+            }
+            else
+            {
+                PlayMusic();
+            }
+        } 
+    }
+
     [SerializeField] private AudioClip[] _audioClips;
     [SerializeField] private AudioSource _audioSource;
 
-    private float _musicVolume = 1f;
+    public float MusicVolume { get; private set; } = 1f;
 
     private void OnEnable()
     {
@@ -19,12 +45,12 @@ public class MusicController : MonoBehaviour
             Instance = this;
         }
 
-        DiaryDialog.OnVolumeChange += SetVolume;
+        SettingsDialog.OnVolumeChange += SetVolume;
     }
 
     private void OnDisable()
     {
-        DiaryDialog.OnVolumeChange -= SetVolume;
+        SettingsDialog.OnVolumeChange -= SetVolume;
     }
 
     public void SwitchLocationMusic(LocationName locationName)
@@ -48,13 +74,18 @@ public class MusicController : MonoBehaviour
 
     private void PlayMusic()
     {
+        if (_isMusicEnabled == false)
+        {
+            return;
+        }
+
         _audioSource.Play();
-        _audioSource.DOFade(_musicVolume, 1);
+        _audioSource.DOFade(MusicVolume, 1);
     }
 
     public void SetVolume(float value)
     {
-        _musicVolume = value;
+        MusicVolume = value;
         _audioSource.volume = value;
     }
 }
