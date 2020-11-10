@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Button _startGameButton;
 
     private List<CharacterInfo> _characters = new List<CharacterInfo>();
+    private int _maxHistoryStage;
     
     private void Awake()
     {
@@ -69,7 +70,7 @@ public class GameController : MonoBehaviour
 
         CurrentHistoryStage++;
 
-        if (CurrentHistoryStage > _dataContainer.MaxHistoryStage)
+        if (CurrentHistoryStage > _maxHistoryStage)
         {
             // TODO: завершение игры
             Debug.Log("Game over");
@@ -108,5 +109,13 @@ public class GameController : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void TryUpdateMaxHistoryStage(int historyStage)
+    {
+        if (historyStage > _maxHistoryStage)
+        {
+            _maxHistoryStage = historyStage;
+        }
     }
 }

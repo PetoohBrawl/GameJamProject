@@ -6,6 +6,5 @@ using UnityEngine;
 public class GameDataContainer : ScriptableObject
 {
     public TextAsset[] GameDataAssets;
-    public int MaxHistoryStage;
     public LocationName StartLocation;
 }

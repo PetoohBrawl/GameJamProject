@@ -48,6 +48,8 @@ public class GameDataStorage
                         dialogSequenceData.Init(data);
 
                         _dialogSequenceDatas.Add(dialogSequenceData);
+
+                        GameController.Instance.TryUpdateMaxHistoryStage(dialogSequenceData.HistoryStageNumber);
                     }
                     break;
 
