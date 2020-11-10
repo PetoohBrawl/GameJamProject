@@ -19,6 +19,8 @@ public class GameDataStorage
 
     public List<CharacterData> CharacterDatas = new List<CharacterData>();
 
+    public DialogSequenceData StartSequenceData { get; private set; }
+
     private List<DialogSequenceData> _dialogSequenceDatas = new List<DialogSequenceData>();
     private List<DialogStageData> _dialogStageDatas = new List<DialogStageData>();
     private List<DialogChoiceData> _dialogChoiceDatas = new List<DialogChoiceData>();
@@ -50,6 +52,11 @@ public class GameDataStorage
                         _dialogSequenceDatas.Add(dialogSequenceData);
 
                         GameController.Instance.TryUpdateMaxHistoryStage(dialogSequenceData.HistoryStageNumber);
+
+                        if (dialogSequenceData.HistoryStageNumber == 0)
+                        {
+                            StartSequenceData = dialogSequenceData;
+                        }
                     }
                     break;
 

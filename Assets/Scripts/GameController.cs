@@ -39,7 +39,12 @@ public class GameController : MonoBehaviour
         }
         
         InitHistoryStage(CurrentHistoryStage);
-        _locationManager.SetupLocation(_dataContainer.StartLocation, null);
+        _locationManager.SetupLocation(_dataContainer.StartLocation, null, () => 
+        {
+            DialogSequenceInfo startSequence = new DialogSequenceInfo(GameDataStorage.Instance.StartSequenceData);
+            UIManager.Instance.StartDialogSequence(startSequence);
+        });
+
         _startGameButton.gameObject.SetActive(false);
     }
 
@@ -51,9 +56,9 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void TryMoveNewLocation(LocationName locationName, Action callback)
+    public void TryMoveNewLocation(LocationName locationName, Action activeShadowCallback, Action deactivatedShadowCallback)
     {
-        _locationManager.SetupLocation(locationName, callback);
+        _locationManager.SetupLocation(locationName, activeShadowCallback, deactivatedShadowCallback);
     }
 
     public List<CharacterInfo> GetCharacters()

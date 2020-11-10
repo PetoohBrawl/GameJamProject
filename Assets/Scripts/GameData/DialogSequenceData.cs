@@ -49,7 +49,7 @@ public class DialogSequenceData
 
         HistoryStageNumber = data.GetInt("HistoryStageNumber");
 
-        if (HistoryStageNumber <= 0)
+        if (HistoryStageNumber < 0)
         {
             Debug.LogError($"HISTORY_STAGE_NUMBER <= 0, DIALOG_SEQUENCE: {Name}");
         }

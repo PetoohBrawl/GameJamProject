@@ -52,7 +52,7 @@ public class CharacterInfo
 
         foreach (DialogSequenceData dialogSequenceData in stageSequences)
         {
-            _dialogSequences.Add(new DialogSequenceInfo(dialogSequenceData, CharacterData.Name));
+            _dialogSequences.Add(new DialogSequenceInfo(dialogSequenceData));
         }
     }
 

@@ -82,7 +82,7 @@ public class DialogWindow : MonoBehaviour
         {
             gameObject.SetActive(false);
 
-            GameController.Instance.TryMoveNewLocation(nextStageData.Location, () =>
+            GameController.Instance.TryMoveNewLocation(nextStageData.Location, null, () =>
             {
                 SetupView(nextStageInfo);
                 gameObject.SetActive(true);

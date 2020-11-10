@@ -8,13 +8,10 @@ public class DialogSequenceInfo
     public readonly DialogStageInfo FinalStageInfo;
     public bool IsCompleted { get; private set; }
     public DialogSequenceData DialogSequenceData { get; private set; }
-
-    public readonly string DialogOwner;
     
-    public DialogSequenceInfo(DialogSequenceData data, string dialogOwner)
+    public DialogSequenceInfo(DialogSequenceData data)
     {
         DialogSequenceData = data;
-        DialogOwner = dialogOwner;
 
         StartStageInfo = new DialogStageInfo(DialogSequenceData.StartStage);
 

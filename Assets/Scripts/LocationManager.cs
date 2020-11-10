@@ -24,11 +24,11 @@ public class LocationManager : MonoBehaviour
     private Color _dark = new Color(0, 0, 0, 1);
     private Color _transparent = new Color(0, 0, 0, 0);
 
-    public void SetupLocation(LocationName locationName, Action callback)
+    public void SetupLocation(LocationName locationName, Action activeShadowCallback, Action deactivatedShadowCallback)
     {
         if (locationName == LocationName.Unknown || locationName.Equals(CurrentLocation))
         {
-            callback?.Invoke();
+            deactivatedShadowCallback?.Invoke();
             return;
         }
 
@@ -58,11 +58,11 @@ public class LocationManager : MonoBehaviour
                     character.SetCharacter(characterInfo.CharacterData.Name);
                 }
             }
+
+            activeShadowCallback?.Invoke();
         });
 
-        DeactivateShadow(sequence);
-
-        callback?.Invoke();
+        DeactivateShadow(sequence, deactivatedShadowCallback);
     }
 
     private void ActivateShadow(Sequence sequence, Action completeCallback)
@@ -82,13 +82,15 @@ public class LocationManager : MonoBehaviour
         }
     }
 
-    private void DeactivateShadow(Sequence sequence)
+    private void DeactivateShadow(Sequence sequence, Action callback)
     {
         if (_uiShadow.color.Equals(_dark))
         {
             sequence.Append(_uiShadow.DOColor(_transparent, 2f)).OnComplete(() =>
             {
                 _uiShadow.raycastTarget = false;
+
+                callback?.Invoke();
             });
         }
 
