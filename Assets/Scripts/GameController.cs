@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameDataContainer _dataContainer;
     [SerializeField] private LocationManager _locationManager;
     [SerializeField] private Button _startGameButton;
+    [SerializeField] private Button _exitGameButton;
 
     private List<CharacterInfo> _characters = new List<CharacterInfo>();
     private int _maxHistoryStage;
@@ -83,8 +84,13 @@ public class GameController : MonoBehaviour
             Sequence sequence = DOTween.Sequence();
 
             _locationManager.ActivateShadow(sequence, () => 
-            { 
-                //TODO вставить выстрел
+            {
+                // КОСТЫЛЬ! переделать
+                AudioClip clip = Resources.Load<AudioClip>("Sounds/shot");
+                StartCoroutine(MusicController.Instance.PlayOneShot(clip, () =>
+                {
+                    _exitGameButton.gameObject.SetActive(true);
+                }));
             });
         }
         else
@@ -129,5 +135,10 @@ public class GameController : MonoBehaviour
         {
             _maxHistoryStage = historyStage;
         }
+    }
+
+    public void OnClickExitGame()
+    {
+        Application.Quit();
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class MusicController : MonoBehaviour
 {
@@ -93,5 +94,15 @@ public class MusicController : MonoBehaviour
     {
         MusicVolume = value;
         _audioSource.volume = value;
+    }
+
+    public IEnumerator PlayOneShot(AudioClip clip, Action callback)
+    {
+        _audioSource.Stop();
+        _audioSource.PlayOneShot(clip);
+
+        yield return new WaitForSeconds(1.3f);
+
+        callback?.Invoke();
     }
 }
