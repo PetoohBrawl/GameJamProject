@@ -161,7 +161,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_2_a",
-    "Phrase": "<i>Axel</i>I just guessed. Sorry, my lady.",
+    "Phrase": "<i>Axel</i><br>I just guessed. Sorry, my lady.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_3",
     "Location": "Intro",
@@ -169,7 +169,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_2_b",
-    "Phrase": "<i>Axel</i>I would not dare, my lady. I'm sorry.",
+    "Phrase": "<i>Axel</i><br>I would not dare, my lady. I'm sorry.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_3",
     "Location": "Intro",
@@ -177,7 +177,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_3",
-    "Phrase": "<i>You</i>What a fool.",
+    "Phrase": "<i>You</i><br>What a fool.",
     "Choices": "",
     "NextStageName": "",
     "Location": "Intro",
@@ -345,7 +345,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_10_knot",
-    "Phrase": "<i>You</i><br>\n<i>I need to pick up the right words</i>",
+    "Phrase": "<i>You</i><br>\n<i>Seems like I didn't match his expextations. I need to pick up the right words</i>",
     "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_a\nChapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_b\nChapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_c\nChapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_d",
     "NextStageName": "",
     "Location": "Intro",
@@ -547,13 +547,13 @@
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_21",
     "Phrase": "<i>You</i><br>\n    I am the one who decides what comes  next.",
     "Choices": "",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22",
+    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot",
-    "Phrase": "<i>You</i><br>\n<i>Time to strike</i>...",
+    "Phrase": "<i>You</i><br>\n<i>I feel his will weakens under desires suppression. Just a little more right words, a small incentive speech, and he becomes my obedient puppy.</i>...",
     "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_a\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_b\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_c\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_d",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_23_knot",
     "Location": "Intro",
