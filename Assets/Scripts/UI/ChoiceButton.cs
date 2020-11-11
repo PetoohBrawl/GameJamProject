@@ -54,6 +54,8 @@ public class ChoiceButton : MonoBehaviour
     {
         if (_choiceData == null)
         {
+            Debug.LogWarning($"Null choice data (continue or endDialog)");
+
             OnChoiceMade?.Invoke(null);
             return;
         }
@@ -67,6 +69,8 @@ public class ChoiceButton : MonoBehaviour
         {
             PlayerInfo.Instance.UpdateHeroAttribute(_choiceData.ApplyingImpactType, _choiceData.ImpactValue);
         }
+
+        Debug.LogWarning($"Trying to move to dialogStage: {_choiceData.StageName}");
 
         OnChoiceMade?.Invoke(_choiceData);
     }

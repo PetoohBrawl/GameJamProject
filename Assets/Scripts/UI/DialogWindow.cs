@@ -99,6 +99,8 @@ public class DialogWindow : MonoBehaviour
             return;
         }
 
+        Debug.LogWarning($"Stage {dialogStageInfo.Data.Name} initialized");
+
         _currentStage = dialogStageInfo;
         DialogStageData data = _currentStage.Data;
 
