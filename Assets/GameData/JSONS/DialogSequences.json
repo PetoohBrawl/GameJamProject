@@ -108,5 +108,15 @@
     "ReputationValue": "",
     "ReputationTarget": "",
     "NeedToCompleteSequences": "Chapter1_Part1_Bar_Poster_Dialog1_start\nChapter1_Part1_Bar_Book_Dialog1_start\nChapter1_Part1_Bar_Box_Dialog1_start"
+  },
+  {
+    "Name": "Chapter1_Final",
+    "StartStage": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_3",
+    "FinalStage": "",
+    "HistoryStageNumber": 5,
+    "ReputationDirection": "",
+    "ReputationValue": "",
+    "ReputationTarget": "",
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Axel_Dialog4_start"
   }
 ]

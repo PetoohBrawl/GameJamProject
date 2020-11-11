@@ -382,5 +382,17 @@
     "RequiredAttribute": "",
     "RequiredAttributeValue": "",
     "Removable": "TRUE"
+  },
+  {
+    "Name": "Chapter1_Final_finalizer",
+    "Text": "Pull the trigger",
+    "ImpactType": "",
+    "ImpactValue": "",
+    "ImpactTargetName": "",
+    "StageName": "",
+    "HistoryStageFinalizer": "TRUE",
+    "RequiredAttribute": "",
+    "RequiredAttributeValue": "",
+    "Removable": "TRUE"
   }
 ]

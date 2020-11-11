@@ -795,7 +795,7 @@
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_3",
     "Phrase": "<i>Axel</i><br>\n    What are you going to do with it?!",
     "Choices": "",
-    "NextStageName": "",
+    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_4",
     "Location": "Intro",
     "DiaryRecord": ""
   },
@@ -810,7 +810,7 @@
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_5",
     "Phrase": "<i>You</i><br>\n    Sorry, old man.",
-    "Choices": "",
+    "Choices": "Chapter1_Final_finalizer",
     "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
