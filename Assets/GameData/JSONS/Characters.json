@@ -2,7 +2,7 @@
   {
     "Name": "Axel",
     "StartReputation": 0,
-    "DialogSequences": "Chapter1_Part1_Bar_Axel_Dialog1_start\nChapter1_Part1_Bar_Axel_Dialog1_interlude_1\nChapter1_Part1_Bar_Axel_Dialog2_start\nChapter1_Part1_Bar_Axel_Dialog2_final_a\nChapter1_Part1_Bar_Axel_Dialog2_final_b",
+    "DialogSequences": "Chapter1_Part1_Bar_Axel_Dialog1_start\nChapter1_Part1_Bar_Axel_Dialog1_interlude_1\nChapter1_Part1_Bar_Axel_Dialog1_interlude_2\nChapter1_Part1_Bar_Axel_Dialog2_start\nChapter1_Part1_Bar_Axel_Dialog3_start\nChapter1_Part1_Bar_Axel_Dialog4_start\nChapter1_Part1_Bar_Axel_Dialog2_final_a\nChapter1_Part1_Bar_Axel_Dialog2_final_b",
     "StartLocation": "Intro",
     "PrefabName": "Axel"
   },

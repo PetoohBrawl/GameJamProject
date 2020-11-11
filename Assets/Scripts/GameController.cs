@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }
     
-    public int CurrentHistoryStage { get; private set; } = 1; // FIXME: инициализация номера этапа
+    public int CurrentHistoryStage { get; private set; } = 0; // FIXME: инициализация номера этапа
 
     [SerializeField] private GameDataContainer _dataContainer;
     [SerializeField] private LocationManager _locationManager;
@@ -51,6 +51,8 @@ public class GameController : MonoBehaviour
 
     private void InitHistoryStage(int stageNumber)
     {
+        Debug.LogWarning($"Initializing new history stage: {stageNumber}");
+
         foreach (CharacterInfo characterInfo in _characters)
         {
             characterInfo.SetupHistoryStageStep(stageNumber);

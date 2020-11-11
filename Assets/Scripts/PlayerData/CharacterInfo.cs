@@ -18,9 +18,6 @@ public class CharacterInfo
                 {
                     if (dialogSequence.CanStartSequence())
                     {
-                        // Если для конкретной части игры уже выбран диалог с персонажем, то имеет смысл очистить кэш sequence'ов ?
-                        //_dialogSequences.Clear();
-
                         _activeDialog = dialogSequence;
                         break;
                     }
@@ -49,6 +46,11 @@ public class CharacterInfo
         _dialogSequences.Clear();
 
         List<DialogSequenceData> stageSequences = CharacterData.GetHistoryStageDialogSequences(stageNumber);
+
+        if (stageSequences == null)
+        {
+            return;
+        }
 
         foreach (DialogSequenceData dialogSequenceData in stageSequences)
         {

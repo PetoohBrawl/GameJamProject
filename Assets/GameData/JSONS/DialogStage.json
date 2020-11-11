@@ -1,7 +1,31 @@
 [
   {
+    "Name": "Chapter1_Part1_Bar_Fade_in_part1",
+    "Phrase": "Dim light and stuffy air of limbo",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Fade_in_part2",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Fade_in_part2",
+    "Phrase": "Old guardian beholds that I never get out of failure",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Fade_in_part3",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Fade_in_part3",
+    "Phrase": "This is no more than an Inept scoff at my wit",
+    "Choices": "Chapter1_Part1_Bar_Fade_in_part4_choice_1",
+    "NextStageName": "",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog1_start_part_1",
-    "Phrase": "<i>Narrator</i><br>Vanessa is in her room standing by the dressing table, Axel is standing behind her.",
+    "Phrase": "I'm in my cell standing by the dressing table, Axel is standing behind.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog1_start_part_2",
     "Location": "Intro",
@@ -9,7 +33,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog1_start_part_2",
-    "Phrase": "<i>Vanessa</i> takes a deep breath",
+    "Phrase": "<i>You</i><br><i>takes a deep breath</i>",
     "Choices": "Chapter1_Part1_Bar_Axel_Dialog1_start_part_2_choice_1",
     "NextStageName": "",
     "Location": "Intro",
@@ -25,7 +49,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog1_start_part_4",
-    "Phrase": "<i>Vanessa</i><br>Cause that's the last valuable thing I own, warden.<br><i>Right. Let's have a look.</i>",
+    "Phrase": "<i>You</i><br>Cause that's the last valuable thing I own, warden.<br><i>Right. Let's have a look.</i>",
     "Choices": "",
     "NextStageName": "",
     "Location": "Intro",
@@ -33,7 +57,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_1",
-    "Phrase": "<i>Narrator</i><br>Vanessa looks at the burlesque images on the wall.",
+    "Phrase": "You looks at the burlesque images on the wall.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_2",
     "Location": "Intro",
@@ -41,15 +65,15 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_2",
-    "Phrase": "<i>Vanessa</i><br><i>Look at this. \"The most desired burlesque dancer in her Solar System\". <br>Not a bad way to start a career. Anyway, that was a long, long time ago.</i>",
-    "Choices": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_2_choice1\nChapter1_Part1_Bar_Poster_Dialog1_start_part_2_choice2\nChapter1_Part1_Bar_Poster_Dialog1_start_part_2_choice3",
+    "Phrase": "<i>You</i><br><i>Look at this. \"The most desired burlesque dancer in her Solar System\". <br>Not a bad way to start a career. Anyway, that was a long, long time ago.</i>",
+    "Choices": "",
     "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
     "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_1",
-    "Phrase": "<i>Narrator</i><br><i>Vanessa looks at the bookshelf.</i>",
+    "Phrase": "You looks at the bookshelf.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Book_Dialog1_start_part_2",
     "Location": "Intro",
@@ -57,7 +81,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_2",
-    "Phrase": "<i>Vanessa</i><br><i>Lots of books.</i><br><i>I often find book characters much more sophisticated than real life people. Such a shame.</i>",
+    "Phrase": "<i>You</i><br><i>Lots of books.</i><br><i>I often find book characters much more sophisticated than real life people. Such a shame.</i>",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Book_Dialog1_start_part_3",
     "Location": "Intro",
@@ -65,8 +89,40 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_3",
-    "Phrase": "<i>Vanessa</i><br><i>I wish I could talk to someone like ...</i>",
+    "Phrase": "<i>You</i><br><i>I wish I could talk to someone like ...</i>",
     "Choices": "Chapter1_Part1_Bar_Book_Dialog1_start_part_3_choice_1\nChapter1_Part1_Bar_Book_Dialog1_start_part_3_choice_2\nChapter1_Part1_Bar_Book_Dialog1_start_part_3_choice_3",
+    "NextStageName": "",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_4_a",
+    "Phrase": "<i>You</i><br><i>There's nothing's sexier than a woman with ambition and a man of inner strength.</i>",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Book_Dialog1_start_part_5",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_4_b",
+    "Phrase": "<i>You</i><br><i>Oh, yes. He'd keep me entertained.</i>",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Book_Dialog1_start_part_5",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_4_c",
+    "Phrase": "<i>You</i><br><i>I'm sure he'd make a good listener.</i>",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Book_Dialog1_start_part_5",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_5",
+    "Phrase": "A lot of good books here, but no sign of a cigarette holder",
+    "Choices": "",
     "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
@@ -96,16 +152,88 @@
     "DiaryRecord": ""
   },
   {
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_1",
+    "Phrase": "<i>Axel</i><br>So?",
+    "Choices": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_1_choice_1_a\nChapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_1_choice_1_b",
+    "NextStageName": "",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_2_a",
+    "Phrase": "<i>Axel</i>I just guessed. Sorry, my lady.",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_3",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_2_b",
+    "Phrase": "<i>Axel</i>I would not dare, my lady. I'm sorry.",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_3",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_2_part_3",
+    "Phrase": "<i>You</i>What a fool.",
+    "Choices": "",
+    "NextStageName": "",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
     "Name": "Chapter1_Part1_Bar_Box_Dialog1_start_part_1",
-    "Phrase": "<i>Narrator</i><br>Vanessa checks her jewelry box.<br><i>Nothing here. Well, nothing that might come in handy in this shithole. Though I would appritiate some...</i>",
+    "Phrase": "You checks the jewelry box.",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Box_Dialog1_start_part_2",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Box_Dialog1_start_part_2",
+    "Phrase": "<i>Nothing here. Well, nothing that might come in handy in this shithole. Though I would appreciate some...</i>",
     "Choices": "Chapter1_Part1_Bar_Box_Dialog1_start_part_1_choice_1\nChapter1_Part1_Bar_Box_Dialog1_start_part_1_choice_2\nChapter1_Part1_Bar_Box_Dialog1_start_part_1_choice_3",
     "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
+    "Name": "Chapter1_Part1_Bar_Box_Dialog1_start_part_3_a",
+    "Phrase": "<i>You</i><br><i>Oh, they are my favorite! A taste to die for...</i>",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Box_Dialog1_start_part_4",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Box_Dialog1_start_part_3_b",
+    "Phrase": "<i>You</i><br><i>What? A must have for every lady these days.</i>",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Box_Dialog1_start_part_4",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Box_Dialog1_start_part_3_c",
+    "Phrase": "<i>You</i><br><i>A real lady always has a scar to cover.</i>",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Box_Dialog1_start_part_4",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Box_Dialog1_start_part_4",
+    "Phrase": "<i>You</i><br><i>Unfortunately, there is none. Like there is no cigarette holder. Where did I leave it?<i>",
+    "Choices": "",
+    "NextStageName": "",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
     "Name": "Chapter1_Part1_Bar_Drawer_Dialog1_start_part_1",
-    "Phrase": "<i>Narrator</i><br>Vanessa opens the drawer of her dressing table and takes out the cigarette holder.",
+    "Phrase": "Vanessa opens the drawer of her dressing table and takes out the cigarette holder.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Drawer_Dialog1_start_part_2",
     "Location": "Intro",
@@ -113,7 +241,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Drawer_Dialog1_start_part_2",
-    "Phrase": "<i>Vanessa</i><br>There it is! Now, I'm ready to get the hell out of here.",
+    "Phrase": "<i>You</i><br>There it is! Now, I'm ready to get the hell out of here.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Drawer_Dialog1_start_part_3",
     "Location": "Intro",
@@ -122,14 +250,14 @@
   {
     "Name": "Chapter1_Part1_Bar_Drawer_Dialog1_start_part_3",
     "Phrase": "<i>Axel</i><br>I'm sorry, Ma'am, did you say something?",
-    "Choices": "",
+    "Choices": "Chapter1_Part1_Bar_Drawer_Dialog1_start_part_2_finalizer",
     "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_1",
-    "Phrase": "<i>Vanessa</i><br>Ah, warden. You're gonna try to sweet-talk me again, aren't you? Don't worry, you'll play your part soon.",
+    "Phrase": "<i>You</i><br>Ah, warden. You're gonna try to sweet-talk me again, aren't you? Don't worry, you'll play your part soon.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_2",
     "Location": "Intro",
@@ -137,7 +265,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_2",
-    "Phrase": "<i>Vanessa</i><br>Did you get what I asked you?",
+    "Phrase": "<i>You</i><br>Did you get what I asked you?",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_3",
     "Location": "Intro",
@@ -145,7 +273,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_3",
-    "Phrase": "<i>Axel</i><br>Absolutely. I brought you some little somethings! Your favorite cigarettes and some perfume.",
+    "Phrase": "<i>Axel</i><br>Absolutely. I brought you some little somethings! Your favorite perfume and some hair pins.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_4",
     "Location": "Intro",
@@ -153,7 +281,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_4",
-    "Phrase": "<i>Vanessa</i><br>Oh, did you?",
+    "Phrase": "<i>You</i><br>Oh, did you?",
     "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_4_choice_a\nChapter1_Part1_Bar_Axel_Dialog2_start_part_4_choice_b",
     "NextStageName": "",
     "Location": "Intro",
@@ -161,7 +289,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_5_a",
-    "Phrase": "<i>Vanessa</i><br>You're a tryhard, warden. I've always had a soft spot for the most dedicated workers.",
+    "Phrase": "<i>You</i><br>You're a tryhard, warden. I've always had a soft spot for the most dedicated workers.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_6_a",
     "Location": "Intro",
@@ -169,7 +297,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_6_a",
-    "Phrase": "<i>Vanessa</i><br>Good for the business, yet completely clueless about their lives.",
+    "Phrase": "<i>You</i><br>Good for the business, yet completely clueless about their lives.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_7_a",
     "Location": "Intro",
@@ -185,7 +313,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_5_b",
-    "Phrase": "<i>Vanessa</i><br>Trying hard to please me, warden?",
+    "Phrase": "<i>You</i><br>Trying hard to please me, warden?",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_6_b",
     "Location": "Intro",
@@ -201,7 +329,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_8",
-    "Phrase": "Axel\nYou see, I like to see you smile. But, unfortunately, that doesn't happen very often.",
+    "Phrase": "<i>Axel</i><br>\nYou see, I like to see you smile. But, unfortunately, that doesn't happen very often.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_9",
     "Location": "Intro",
@@ -209,7 +337,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_9",
-    "Phrase": "<b><i>HINT</i></b><br>Axel reveals his weakness: he likes Vanessa.",
+    "Phrase": "<i>You</i><br>Oh, poor old man, you'd better beware of your lusts.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_10_knot",
     "Location": "Intro",
@@ -217,7 +345,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_10_knot",
-    "Phrase": "VANESSA\n<i>What do I say?</i>",
+    "Phrase": "<i>You</i><br>\n<i>I need to pick up the right words</i>",
     "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_a\nChapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_b\nChapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_c\nChapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_d",
     "NextStageName": "",
     "Location": "Intro",
@@ -225,7 +353,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_10_a",
-    "Phrase": "VANESSA\nIn the old days a poet once said: \"There's daggers in men's smiles\".",
+    "Phrase": "<i>You</i><br>\nIn the old days a poet once said: \"There's daggers in men's smiles\".",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_a",
     "Location": "Intro",
@@ -233,7 +361,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_a",
-    "Phrase": "VANESSA\nNow imagine what my smile can do.",
+    "Phrase": "<i>You</i><br>\nNow imagine what my smile can do.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_12_a",
     "Location": "Intro",
@@ -241,7 +369,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_12_a",
-    "Phrase": "AXEL\nI thank you for your concern, Ma'am. But I'd rather come near you and burn alive than carry on with my pathetic existence.",
+    "Phrase": "<i>Axel</i><br>\nI thank you for your concern, Ma'am. But I'd rather come near you and burn alive than carry on with my pathetic existence.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_13_a",
     "Location": "Intro",
@@ -249,7 +377,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_13_a",
-    "Phrase": "VANESSA\nBurn alive, did you say?",
+    "Phrase": "<i>You</i><br>\nBurn alive, did you say?",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_10_knot",
     "Location": "",
@@ -257,7 +385,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_10_b",
-    "Phrase": "VANESSA \n    Oh, you are a sweet darling, warden!",
+    "Phrase": "<i>You</i><br> \n    Oh, you are a sweet darling, warden!",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_b",
     "Location": "Intro",
@@ -265,15 +393,15 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_b",
-    "Phrase": "AXEL\n    You're smiling again, Ma'am! You make me feel younger when you do that.",
-    "Choices": "",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_14",
+    "Phrase": "<i>Axel</i><br>\n    You're smiling again, Ma'am! You make me feel younger when you do that.",
+    "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_finalizer",
+    "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_10_c",
-    "Phrase": "VANESSA\n    That must feel terrible, living all by yourself...taking care of this rotten, soulless place!",
+    "Phrase": "<i>You</i><br>\n    That must feel terrible, living all by yourself...taking care of this rotten, soulless place!",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_c",
     "Location": "Intro",
@@ -281,7 +409,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_c",
-    "Phrase": "AXEL\n    Terrible is not the word, Madam.",
+    "Phrase": "<i>Axel</i><br>\n    Terrible is not the word, Madam.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_12_c",
     "Location": "Intro",
@@ -289,7 +417,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_12_c",
-    "Phrase": "AXEL\n    I wasn't always like this, I swear! I had a wife, and a house, but it was a long, long time ago.",
+    "Phrase": "<i>Axel</i><br>\n    I wasn't always like this, I swear! I had a wife, and a house, but it was a long, long time ago.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_13_c",
     "Location": "Intro",
@@ -297,15 +425,15 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_13_c",
-    "Phrase": "VANESSA\n    Yes, things could have worked out differently for you, warden.",
-    "Choices": "",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_14",
+    "Phrase": "<i>You</i><br>\n    Yes, things could have worked out differently for you, warden.",
+    "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_finalizer",
+    "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_10_d",
-    "Phrase": "VANESSA\nYou know, you could get a lot more than that... if you do me a small favor.",
+    "Phrase": "<i>You</i><br>\nYou know, you could get a lot more than that... if you do me a small favor.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_d",
     "Location": "Intro",
@@ -313,7 +441,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_d",
-    "Phrase": "AXEL\n    Madam! I didn't even dream that you would...",
+    "Phrase": "<i>Axel</i><br>\n    Madam! I didn't even dream that you would...",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_12_d",
     "Location": "Intro",
@@ -321,15 +449,15 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_12_d",
-    "Phrase": "VANESSA\n    I'm sure you did, warden.",
-    "Choices": "",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_14",
+    "Phrase": "<i>You</i><br>\n    I'm sure you did, warden.",
+    "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_finalizer",
+    "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_14",
-    "Phrase": "AXEL\n    You are one of a kind, Vanessa.",
+    "Phrase": "<i>Axel</i><br>\n    You are one of a kind, Vanessa.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_15",
     "Location": "Intro",
@@ -337,7 +465,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_15",
-    "Phrase": "AXEL\n    If only I was a little younger...",
+    "Phrase": "<i>Axel</i><br>\n    If only I was a little younger...",
     "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_15_choice_a\nChapter1_Part1_Bar_Axel_Dialog2_start_part_15_choice_b\nChapter1_Part1_Bar_Axel_Dialog2_start_part_15_choice_c",
     "NextStageName": "",
     "Location": "Intro",
@@ -345,7 +473,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_16_a",
-    "Phrase": "VANESSA\n    Then what? Don't be ridiculous, old man!",
+    "Phrase": "<i>You</i><br>\n    Then what? Don't be ridiculous, old man!",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_17_a",
     "Location": "Intro",
@@ -353,7 +481,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_17_a",
-    "Phrase": "AXEL\n    How can you say that?! You know, you will be my age one day. If live long enough, of course.",
+    "Phrase": "<i>Axel</i><br>\n    How can you say that?! You know, you will be my age one day. If live long enough, of course.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_18_a",
     "Location": "Intro",
@@ -361,7 +489,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_18_a",
-    "Phrase": "AXEL\n    Your beauty and wits all gone. You will see what I see. You will feel just what I feel!",
+    "Phrase": "<i>Axel</i><br>\n    Your beauty and wits all gone. You will see what I see. You will feel just what I feel!",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_19_a",
     "Location": "Intro",
@@ -369,7 +497,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_19_a",
-    "Phrase": "VANESSA\nRelax. This has nothing to do with age.",
+    "Phrase": "<i>You</i><br>\nRelax. This has nothing to do with age.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_20",
     "Location": "Intro",
@@ -377,7 +505,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_16_b",
-    "Phrase": "VANESSA\n    Regret is for the weak, warden. Didn't you know that?",
+    "Phrase": "<i>You</i><br>\n    Regret is for the weak, warden. Didn't you know that?",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_17_b",
     "Location": "Intro",
@@ -385,7 +513,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_17_b",
-    "Phrase": "AXEL\n    I expected you to say that! You're a lot stronger than most people I've seen.",
+    "Phrase": "<i>Axel</i><br>\n    I expected you to say that! You're a lot stronger than most people I've seen.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_20",
     "Location": "Intro",
@@ -393,7 +521,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_16_c",
-    "Phrase": "VANESSA\n    Don't do this to yourself, warden. There's no room for regret in this life.",
+    "Phrase": "<i>You</i><br>\n    Don't do this to yourself, warden. There's no room for regret in this life.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_17_c",
     "Location": "Intro",
@@ -401,7 +529,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_17_c",
-    "Phrase": "AXEL\n    Was that sympathy in your voice?  You're such a mystery to me, my lady.",
+    "Phrase": "<i>Axel</i><br>\n    Was that sympathy in your voice?  You're such a mystery to me, my lady.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_20",
     "Location": "Intro",
@@ -409,7 +537,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_20",
-    "Phrase": "VANESSA\n    You know what the difference is between you and me?",
+    "Phrase": "<i>You</i><br>\n    You know what the difference is between you and me?",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_21",
     "Location": "Intro",
@@ -417,7 +545,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_21",
-    "Phrase": "VANESSA\n    I am the one who decides what comes  next.",
+    "Phrase": "<i>You</i><br>\n    I am the one who decides what comes  next.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22",
     "Location": "Intro",
@@ -425,7 +553,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot",
-    "Phrase": "VANESSA\n<i>Time to strike</i>...",
+    "Phrase": "<i>You</i><br>\n<i>Time to strike</i>...",
     "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_a\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_b\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_c\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_d",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_23_knot",
     "Location": "Intro",
@@ -433,7 +561,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot_interlude",
-    "Phrase": "VANESSA\n<i>Perhaps I ñould try another option</i>...",
+    "Phrase": "<i>You</i><br>\n<i>Well, if that's what you want</i>...",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot",
     "Location": "Intro",
@@ -441,7 +569,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_23_a",
-    "Phrase": "VANESSA\n    What day is it?",
+    "Phrase": "<i>You</i><br>\n    What day is it?",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_24_a",
     "Location": "Intro",
@@ -449,7 +577,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_24_a",
-    "Phrase": "AXEL\n    I can't remember, my lady. Why would that matter anyway? You are going to stay here for a very long time...",
+    "Phrase": "<i>Axel</i><br>\n    I can't remember, my lady. Why would that matter anyway? You are going to stay here for a very long time...",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_25_a",
     "Location": "Intro",
@@ -457,7 +585,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_25_a",
-    "Phrase": "VANESSA\n    It's your only day off, warden. Yet, you're here. You know why? Cause I wanted you to be here.",
+    "Phrase": "<i>You</i><br>\n    It's your only day off, warden. Yet, you're here. We both know why.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_27",
     "Location": "Intro",
@@ -465,7 +593,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_23_b",
-    "Phrase": "AXEL\n    Why are you looking at me like that, Ma'am?",
+    "Phrase": "<i>Axel</i><br>\n    Why are you looking at me like that, Ma'am?",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_24_b",
     "Location": "Intro",
@@ -473,7 +601,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_24_b",
-    "Phrase": "VANESSA\n    You are still a good looking man, I must say. Perhaps it's the air around here.",
+    "Phrase": "<i>You</i><br>\n    You are still a good looking man, I must say. Perhaps it's the air around here.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_25_b",
     "Location": "Intro",
@@ -481,15 +609,15 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_25_b",
-    "Phrase": "AXEL\n    Oh, I'm feeling very young deep inside. Especially, when you are near me, my lady!",
-    "Choices": "",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_28",
+    "Phrase": "<i>Axel</i><br>\n    Oh, I'm feeling very young deep inside. Especially, when you are near me, my lady!",
+    "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_finalizer",
+    "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_23_c",
-    "Phrase": "VANESSA\n    What's the worst thing that could happen to you right now, warden?",
+    "Phrase": "<i>You</i><br>\n    What's the worst thing that could happen to you right now, warden?",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_24_c",
     "Location": "Intro",
@@ -497,7 +625,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_24_c",
-    "Phrase": "AXEL\n    The worst thing would be If you no longer enjoy my company, my lady. I'd be devastated.",
+    "Phrase": "<i>Axel</i><br>\n    The worst thing would be If one day I don't find you here. Though you would surely like it ...",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_25_c",
     "Location": "Intro",
@@ -505,7 +633,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_25_c",
-    "Phrase": "VANESSA\n    Oh, that'd be terrible. We don't want that, do we?",
+    "Phrase": "<i>You</i><br>\n\nYeah, I'd appreciate a sip of freedom.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_27",
     "Location": "Intro",
@@ -513,7 +641,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_23_d",
-    "Phrase": "VANESSA\n    Come, take my hand. Come on, don't be shy.",
+    "Phrase": "<i>You</i><br>\n    Come, take my hand. Come on, don't be shy.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_24_d",
     "Location": "Intro",
@@ -521,7 +649,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_24_d",
-    "Phrase": "AXEL\n    I couldn't have asked for more, my lady!",
+    "Phrase": "<i>Axel</i><br>\n    I couldn't have asked for more, my lady!",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_25_d",
     "Location": "Intro",
@@ -529,7 +657,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_25_d",
-    "Phrase": "VANESSA\n    You're incredibly easy to please.",
+    "Phrase": "<i>You</i><br>\n    You're incredibly easy to please.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_26_d",
     "Location": "Intro",
@@ -537,15 +665,15 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_26_d",
-    "Phrase": "AXEL\n    Your skin is so soft...I could easily lose myself in you...",
-    "Choices": "",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_28",
+    "Phrase": "<i>Axel</i><br>\n    Your skin is so soft...I could easily lose myself in you...",
+    "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_finalizer",
+    "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_27",
-    "Phrase": "AXEL\n    My lady, please...show mercy! I'm begging for your affection, Vanessa!",
+    "Phrase": "<i>Axel</i><br>\n I hope I didn't come for nothing...You know, if you were a bit nicer to me, I could help you with that.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot_interlude",
     "Location": "Intro",
@@ -553,7 +681,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_28",
-    "Phrase": "VANESSA\n    Good. And now, will you do me a little favor, Axel?",
+    "Phrase": "<i>You</i><br>\n    Good. And now, will you do me a little favor, Axel?",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_29",
     "Location": "Intro",
@@ -561,7 +689,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_29",
-    "Phrase": "AXEL\n    Anything you say, my queen.",
+    "Phrase": "<i>Axel</i><br>\n    Anything you say, my queen.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_30",
     "Location": "Intro",
@@ -569,7 +697,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_30",
-    "Phrase": "VANESSA\n    Oh, it's nothing much. Can you...",
+    "Phrase": "<i>You</i><br>\n    Oh, it's nothing much. Can you...",
     "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_30_choice_a\nChapter1_Part1_Bar_Axel_Dialog2_start_part_30_choice_b",
     "NextStageName": "",
     "Location": "Intro",
@@ -577,7 +705,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_31_a",
-    "Phrase": "VANESSA \n    Pass me your gun? I really need to see it.",
+    "Phrase": "<i>You</i><br> \n    Pass me your gun? I really need to see it.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_32_a",
     "Location": "Intro",
@@ -585,7 +713,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_32_a",
-    "Phrase": "AXEL\n    Nobody's ever touched my gun, my sweet lady. What makes you think you can have it?",
+    "Phrase": "<i>Axel</i><br>\n    Nobody's ever touched my gun, my sweet lady. What makes you think you can have it?",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_33_a",
     "Location": "Intro",
@@ -593,15 +721,15 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_33_a",
-    "Phrase": "VANESSA\n    Oh, I guess, you didn't hear me right. I want your gun, warden. And you will give it to me willingly.",
+    "Phrase": "<i>You</i><br>\n    Oh, I guess, you didn't hear me right. I want your gun, warden. And you will give it to me willingly.",
     "Choices": "",
-    "NextStageName": "",
+    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_1_a",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_1_a",
-    "Phrase": "AXEL\n    God...I don't want to do this! But I can't resist you...What are you, Vanessa?!",
+    "Phrase": "<i>Axel</i><br>\n    God...I don't want to do this! But I can't resist you...What are you, Vanessa?!",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_2_a",
     "Location": "Intro",
@@ -609,15 +737,15 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_2_a",
-    "Phrase": "VANESSA\n    Good boy. There, that wasn't so hard, now, was it?",
-    "Choices": "",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_3",
+    "Phrase": "<i>You</i><br>\n    Good boy. There, that wasn't so hard, now, was it?",
+    "Choices": "Chapter1_Part1_Bar_Axel_Dialog4_finalizer",
+    "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_31_b",
-    "Phrase": "ANESSA\n    You have too much clothing on for my liking...let me take care of that, but don't move, okay?",
+    "Phrase": "<i>You</i><br>\n    You have too much clothing on for my liking...let me take care of that, but don't move, okay?",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_32_b",
     "Location": "Intro",
@@ -625,7 +753,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_32_b",
-    "Phrase": "AXEL\n    I...I will not dare, my queen. My life's in your hands...",
+    "Phrase": "<i>Axel</i><br>\n    I...I will not dare, my queen. My life's in your hands...",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_33_b",
     "Location": "Intro",
@@ -633,31 +761,39 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_33_b",
-    "Phrase": "VANESSA (V.O.)\n    <i>In every f***ing sense, you fool.</i>",
+    "Phrase": "<i>You</i><br>\n    <i>In every f***ing sense, you fool.</i>",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_34_b",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_34_b",
+    "Phrase": "You embrace Axel's body. He moans and shakes from anticipation when you rapidly tear a gun from his holster",
+    "Choices": "",
+    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_1_b",
+    "Location": "",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_1_b",
+    "Phrase": "<i>Axel</i><br>\n    I cannot believe this! You witch... Give me my gun back!",
+    "Choices": "Chapter1_Part1_Bar_Axel_Dialog4_finalizer",
+    "NextStageName": "",
+    "Location": "Intro",
+    "DiaryRecord": ""
+  },
+  {
+    "Name": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_3",
+    "Phrase": "<i>Axel</i><br>\n    What are you going to do with it?!",
     "Choices": "",
     "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
-    "Name": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_1_b",
-    "Phrase": "AXEL\n    I cannot believe this! You witch... Give me my gun back!",
-    "Choices": "",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_3",
-    "Location": "Intro",
-    "DiaryRecord": ""
-  },
-  {
-    "Name": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_3",
-    "Phrase": "AXEL\n    What are you going to do with it?!",
-    "Choices": "",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_4",
-    "Location": "Intro",
-    "DiaryRecord": ""
-  },
-  {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_4",
-    "Phrase": "AXEL\n    NO, Please, NO! Please... I'd never get over losing you, Vanessa!",
+    "Phrase": "<i>Axel</i><br>\n    NO, Please, NO! Please... I'd never get over losing you, Vanessa!",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_5",
     "Location": "Intro",
@@ -665,10 +801,10 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_5",
-    "Phrase": "VANESSA\n    Sorry, old man.",
+    "Phrase": "<i>You</i><br>\n    Sorry, old man.",
     "Choices": "",
     "NextStageName": "",
-    "Location": "",
+    "Location": "Intro",
     "DiaryRecord": ""
   }
 ]
