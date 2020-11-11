@@ -5,7 +5,7 @@
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "Chapter1_Part1_Bar_Axel_Dialog1_start_part_1",
+    "StageName": "",
     "HistoryStageFinalizer": "TRUE",
     "RequiredAttribute": "",
     "RequiredAttributeValue": "",
@@ -333,7 +333,7 @@
     "HistoryStageFinalizer": "TRUE",
     "RequiredAttribute": "",
     "RequiredAttributeValue": "",
-    "Removable": ""
+    "Removable": "TRUE"
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_30_choice_a",
@@ -342,7 +342,7 @@
     "ImpactValue": "",
     "ImpactTargetName": "",
     "StageName": "",
-    "HistoryStageFinalizer": "FALSE",
+    "HistoryStageFinalizer": "TRUE",
     "RequiredAttribute": "",
     "RequiredAttributeValue": "",
     "Removable": "TRUE"
@@ -354,7 +354,7 @@
     "ImpactValue": "",
     "ImpactTargetName": "",
     "StageName": "",
-    "HistoryStageFinalizer": "FALSE",
+    "HistoryStageFinalizer": "TRUE",
     "RequiredAttribute": "",
     "RequiredAttributeValue": "",
     "Removable": "TRUE"
@@ -369,7 +369,7 @@
     "HistoryStageFinalizer": "TRUE",
     "RequiredAttribute": "",
     "RequiredAttributeValue": "",
-    "Removable": ""
+    "Removable": "TRUE"
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_11_finalizer",
@@ -381,6 +381,6 @@
     "HistoryStageFinalizer": "TRUE",
     "RequiredAttribute": "",
     "RequiredAttributeValue": "",
-    "Removable": ""
+    "Removable": "TRUE"
   }
 ]

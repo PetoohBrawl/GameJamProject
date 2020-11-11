@@ -338,8 +338,8 @@
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_9",
     "Phrase": "<i>You</i><br>Oh, poor old man, you'd better beware of your lusts.",
-    "Choices": "",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_10_knot",
+    "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_a\nChapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_b\nChapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_c\nChapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_d",
+    "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
@@ -555,15 +555,15 @@
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot",
     "Phrase": "<i>You</i><br>\n<i>I feel his will weakens under desires suppression. Just a little more right words, a small incentive speech, and he becomes my obedient puppy.</i>...",
     "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_a\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_b\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_c\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_d",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_23_knot",
+    "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot_interlude",
     "Phrase": "<i>You</i><br>\n<i>Well, if that's what you want</i>...",
-    "Choices": "",
-    "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot",
+    "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_a\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_b\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_c\nChapter1_Part1_Bar_Axel_Dialog2_start_part_22_choice_d",
+    "NextStageName": "",
     "Location": "Intro",
     "DiaryRecord": ""
   },
