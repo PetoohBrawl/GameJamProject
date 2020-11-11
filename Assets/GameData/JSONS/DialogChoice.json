@@ -341,8 +341,8 @@
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "",
-    "HistoryStageFinalizer": "TRUE",
+    "StageName": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_1_a",
+    "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
     "RequiredAttributeValue": "",
     "Removable": "TRUE"
@@ -353,8 +353,8 @@
     "ImpactType": "",
     "ImpactValue": "",
     "ImpactTargetName": "",
-    "StageName": "",
-    "HistoryStageFinalizer": "TRUE",
+    "StageName": "Chapter1_Part1_Bar_Axel_Dialog2_final_part_1_b",
+    "HistoryStageFinalizer": "FALSE",
     "RequiredAttribute": "",
     "RequiredAttributeValue": "",
     "Removable": "TRUE"
