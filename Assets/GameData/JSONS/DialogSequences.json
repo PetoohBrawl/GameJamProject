@@ -17,7 +17,7 @@
     "ReputationDirection": "",
     "ReputationValue": "",
     "ReputationTarget": "",
-    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Fade_in_part1"
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Fade_in"
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1",
@@ -37,7 +37,7 @@
     "ReputationDirection": "",
     "ReputationValue": "",
     "ReputationTarget": "",
-    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1_part_1"
+    "NeedToCompleteSequences": "Chapter1_Part1_Bar_Axel_Dialog1_interlude_1"
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start",
