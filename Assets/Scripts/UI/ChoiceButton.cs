@@ -28,7 +28,7 @@ public class ChoiceButton : MonoBehaviour
 
         if (_choiceData.RequiredAttribute != ImpactType.None)
         {
-            int playerAttribute = PlayerInfo.Instance.GetHeroAttribute(_choiceData.RequiredAttribute);
+            int playerAttribute = PlayerProgress.Instance.GetHeroAttribute(_choiceData.RequiredAttribute);
 
             bool isActive = playerAttribute >= _choiceData.RequiredAttributeValue;
 
@@ -63,11 +63,11 @@ public class ChoiceButton : MonoBehaviour
         // TODO: переделать на универсальный метод применения импакта
         if (_choiceData.ApplyingImpactType == ImpactType.Reputation)
         {
-            GameController.Instance.UpdateCharacterReputation(_choiceData.ImpactTargetName, _choiceData.ImpactValue);
+            PlayerProgress.Instance.UpdateCharacterReputation(_choiceData.ImpactTargetName, _choiceData.ImpactValue);
         }
         else if (_choiceData.ApplyingImpactType != ImpactType.None)
         {
-            PlayerInfo.Instance.UpdateHeroAttribute(_choiceData.ApplyingImpactType, _choiceData.ImpactValue);
+            PlayerProgress.Instance.UpdateHeroAttribute(_choiceData.ApplyingImpactType, _choiceData.ImpactValue);
         }
 
         Debug.LogWarning($"Trying to move to dialogStage: {_choiceData.StageName}");

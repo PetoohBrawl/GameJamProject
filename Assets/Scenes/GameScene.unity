@@ -2055,7 +2055,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &795465884
 GameObject:
@@ -2216,10 +2216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef617c573d17c374e8afb811395805cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dataContainer: {fileID: 11400000, guid: b9914511a5e0f054aae34a04c938404d, type: 2}
-  _locationManager: {fileID: 1191150478}
-  _startGameButton: {fileID: 2077608529}
-  _exitGameButton: {fileID: 992255253}
 --- !u!4 &853543138
 Transform:
   m_ObjectHideFlags: 0
@@ -2247,6 +2243,7 @@ GameObject:
   - component: {fileID: 878036487}
   - component: {fileID: 878036486}
   - component: {fileID: 878036490}
+  - component: {fileID: 878036491}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2336,7 +2333,7 @@ RectTransform:
   - {fileID: 2077608528}
   - {fileID: 992255252}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2356,6 +2353,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogWindow: {fileID: 824759323}
+  _startGameButton: {fileID: 2077608529}
+  _exitGameButton: {fileID: 992255253}
+--- !u!114 &878036491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878036485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6effd6b28e03d3a45ab8a3acf1e89c02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _charactersParent: {fileID: 41397842}
+  _backgroundImage: {fileID: 45025788}
+  _uiShadow: {fileID: 1054683547}
 --- !u!1 &904531918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,7 +2526,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 853543137}
+      - m_Target: {fileID: 878036490}
         m_MethodName: OnClickExitGame
         m_Mode: 1
         m_Arguments:
@@ -2974,52 +2988,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054683545}
   m_CullTransparentMesh: 0
---- !u!1 &1191150477
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1191150479}
-  - component: {fileID: 1191150478}
-  m_Layer: 0
-  m_Name: LocationManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1191150478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191150477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6effd6b28e03d3a45ab8a3acf1e89c02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _charactersParent: {fileID: 41397842}
-  _backgroundImage: {fileID: 45025788}
-  _uiShadow: {fileID: 1054683547}
---- !u!4 &1191150479
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191150477}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1197453522
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,7 +4894,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 853543137}
+      - m_Target: {fileID: 878036490}
         m_MethodName: OnClickStartGame
         m_Mode: 1
         m_Arguments:

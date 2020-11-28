@@ -12,7 +12,7 @@ public class DiaryDialog : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        _recordsText.text = PlayerInfo.Instance.DialogHistory.ToString();
+        _recordsText.text = PlayerProgress.Instance.HeroDiary.ToString();
         _recordsText.ForceMeshUpdate();
 
         _recordsScroll.normalizedPosition = Vector2.one;

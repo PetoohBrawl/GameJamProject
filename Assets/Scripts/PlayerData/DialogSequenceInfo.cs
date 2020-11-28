@@ -33,14 +33,14 @@ public class DialogSequenceInfo
         {
             foreach (string needToCompleteSequenceName in DialogSequenceData.NeedToCompleteSequences)
             {
-                if (PlayerInfo.Instance.IsDialogSequenceCompleted(needToCompleteSequenceName) == false)
+                if (PlayerProgress.Instance.IsDialogSequenceCompleted(needToCompleteSequenceName) == false)
                 {
                     return false;
                 }
             }
         }
 
-        CharacterInfo characterInfo = GameController.Instance.GetCharacterInfo(DialogSequenceData.ReputationTarget);
+        CharacterInfo characterInfo = PlayerProgress.Instance.GetCharacterInfo(DialogSequenceData.ReputationTarget);
 
         switch (DialogSequenceData.ConditionDirection)
         {
@@ -56,7 +56,7 @@ public class DialogSequenceInfo
 
     public void SetCompleted()
     {
-        PlayerInfo.Instance.CompleteDialogSequence(this);
+        PlayerProgress.Instance.CompleteDialogSequence(this);
 
         IsCompleted = true;
     }

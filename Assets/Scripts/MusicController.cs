@@ -67,16 +67,22 @@ public class MusicController : MonoBehaviour
 
         if (_audioSource.isPlaying)
         {
-            _audioSource.DOFade(0, 1).OnComplete(() => 
-            {
-                _audioSource.Stop();
-                PlayMusic();
-            });
+            StopMusic(PlayMusic);
         }
         else
         {
             PlayMusic();
         }
+    }
+
+    private void StopMusic(Action callback)
+    {
+        _audioSource.DOFade(0, 1).OnComplete(() =>
+        {
+            _audioSource.Stop();
+
+            callback?.Invoke();
+        });
     }
 
     private void PlayMusic()
@@ -85,6 +91,8 @@ public class MusicController : MonoBehaviour
         {
             return;
         }
+
+        _audioSource.volume = 0;
 
         _audioSource.Play();
         _audioSource.DOFade(MusicVolume, 1);
@@ -96,9 +104,17 @@ public class MusicController : MonoBehaviour
         _audioSource.volume = value;
     }
 
-    public IEnumerator PlayOneShot(AudioClip clip, Action callback)
+    public void PlayOneShot(AudioClip clip, Action callback)
     {
-        _audioSource.Stop();
+        StopMusic(() => 
+        {
+            StartCoroutine(EndGameAction(clip, callback));
+        });
+    }
+
+    // костыльное завершение игры, потом переделать
+    private IEnumerator EndGameAction(AudioClip clip, Action callback)
+    {
         _audioSource.PlayOneShot(clip);
 
         yield return new WaitForSeconds(1.3f);

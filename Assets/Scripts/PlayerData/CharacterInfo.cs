@@ -31,6 +31,7 @@ public class CharacterInfo
     public readonly CharacterData CharacterData;
 
     private List<DialogSequenceInfo> _dialogSequences = new List<DialogSequenceInfo>();
+    private List<CharacterInfo> _characters = new List<CharacterInfo>();
 
     public CharacterInfo(CharacterData data)
     {
@@ -38,7 +39,7 @@ public class CharacterInfo
         ReputationValue = 0;
         Location = CharacterData.StartLocation;
 
-        SetupHistoryStageStep(GameController.Instance.CurrentHistoryStage);
+        SetupHistoryStageStep(GameProgressController.Instance.CurrentHistoryStage);
     }
 
     public void SetupHistoryStageStep(int stageNumber)

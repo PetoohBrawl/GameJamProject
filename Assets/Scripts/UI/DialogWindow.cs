@@ -82,7 +82,7 @@ public class DialogWindow : MonoBehaviour
         {
             gameObject.SetActive(false);
 
-            GameController.Instance.TryMoveNewLocation(nextStageData.Location, null, () =>
+            LocationManager.Instance.SetupLocation(nextStageData.Location, null, () =>
             {
                 SetupView(nextStageInfo);
                 gameObject.SetActive(true);
@@ -104,7 +104,7 @@ public class DialogWindow : MonoBehaviour
         _currentStage = dialogStageInfo;
         DialogStageData data = _currentStage.Data;
 
-        PlayerInfo.Instance.TryLogDialog(data.DiaryRecord);
+        PlayerProgress.Instance.RecordDiary(data.DiaryRecord);
 
         _phraseText.text = data.Phrase;
         _buttonsParent.DestroyChildren();

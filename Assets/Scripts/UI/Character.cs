@@ -14,7 +14,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     private void Start()
     {
-        _characterInfo = GameController.Instance.GetCharacterInfo(_characterName);
+        _characterInfo = PlayerProgress.Instance.GetCharacterInfo(_characterName);
         _glow.gameObject.SetActive(false);
     }
 

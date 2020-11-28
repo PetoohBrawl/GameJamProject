@@ -15,7 +15,9 @@ public enum LocationName
 
 public class LocationManager : MonoBehaviour
 {
-    public LocationName CurrentLocation { get; private set; } = LocationName.Unknown; //FIXME: инициализация стартовой локации
+    public static LocationManager Instance { get; private set; }
+
+    public LocationName CurrentLocation { get; private set; } = LocationName.Unknown;
 
     [SerializeField] private RectTransform _charactersParent;
     [SerializeField] private Image _backgroundImage;
@@ -23,6 +25,14 @@ public class LocationManager : MonoBehaviour
 
     private Color _dark = new Color(0, 0, 0, 1);
     private Color _transparent = new Color(0, 0, 0, 0);
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
 
     public void SetupLocation(LocationName locationName, Action activeShadowCallback, Action deactivatedShadowCallback)
     {
@@ -40,41 +50,43 @@ public class LocationManager : MonoBehaviour
         {
             _charactersParent.DestroyChildren();
 
-            List<CharacterInfo> characterInfos = GameController.Instance.GetCharacters();
+            List<CharacterInfo> characterInfos = PlayerProgress.Instance.GetCharactersInLocation(CurrentLocation);
 
             foreach (CharacterInfo characterInfo in characterInfos)
             {
-                if (characterInfo.Location.Equals(locationName))
+                GameObject characterPrefab = Instantiate(characterInfo.CharacterData.GetPrefab(), _charactersParent);
+
+                // костыль, чтобы корректно отображался столик в Intro Локации
+                if (locationName == LocationName.Intro && characterPrefab.name.Contains("Table"))
                 {
-                    GameObject characterPrefab = Instantiate(characterInfo.CharacterData.GetPrefab(), _charactersParent);
-
-                    // костыль, чтобы корректно отображался столик в Intro Локации
-                    if (locationName == LocationName.Intro && characterPrefab.name.Contains("Table"))
-                    {
-                        characterPrefab.transform.SetAsFirstSibling();
-                    }
-
-                    Character character = characterPrefab.GetComponent<Character>();
-                    character.SetCharacter(characterInfo.CharacterData.Name);
+                    characterPrefab.transform.SetAsFirstSibling();
                 }
+
+                Character character = characterPrefab.GetComponent<Character>();
+                character.SetCharacter(characterInfo.CharacterData.Name);
             }
 
             activeShadowCallback?.Invoke();
-        });
 
-        DeactivateShadow(sequence, deactivatedShadowCallback);
+            DeactivateShadow(sequence, deactivatedShadowCallback);
+        });
     }
 
     public void ActivateShadow(Sequence sequence, Action completeCallback)
     {
         if (_uiShadow.color.Equals(_transparent))
         {
+            _uiShadow.raycastTarget = true;
+
+            if (sequence == null)
+            {
+                sequence = DOTween.Sequence();
+            }
+
             sequence.Append(_uiShadow.DOColor(_dark, 2f)).OnComplete(() => 
             { 
                 completeCallback?.Invoke(); 
             });
-
-            _uiShadow.raycastTarget = true;
         }
         else
         {
@@ -92,6 +104,10 @@ public class LocationManager : MonoBehaviour
 
                 callback?.Invoke();
             });
+        }
+        else
+        {
+            callback?.Invoke();
         }
 
         MusicController.Instance.SwitchLocationMusic(CurrentLocation);
