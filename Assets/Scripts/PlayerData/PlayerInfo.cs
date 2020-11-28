@@ -20,8 +20,8 @@ public class PlayerInfo
 
     public StringBuilder DialogHistory { get; private set; } = new StringBuilder();
 
-    private Dictionary<ImpactType, int> _heroAttributes = new Dictionary<ImpactType, int>();
-    private List<string> _completedDialogSequenceNames = new List<string>();
+    private readonly Dictionary<ImpactType, int> _heroAttributes = new Dictionary<ImpactType, int>();
+    private readonly List<string> _completedDialogSequenceNames = new List<string>();
 
     public void Init()
     {

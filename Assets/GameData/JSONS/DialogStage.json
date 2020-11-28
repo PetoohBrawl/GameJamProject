@@ -33,7 +33,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog1_start_part_2",
-    "Phrase": "<i>You</i><br><i>takes a deep breath</i>",
+    "Phrase": "You take a deep breath",
     "Choices": "Chapter1_Part1_Bar_Axel_Dialog1_start_part_2_choice_1",
     "NextStageName": "",
     "Location": "Intro",
@@ -57,7 +57,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_1",
-    "Phrase": "You looks at the burlesque images on the wall.",
+    "Phrase": "You look at the burlesque images on the wall.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Poster_Dialog1_start_part_2",
     "Location": "Intro",
@@ -73,7 +73,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_1",
-    "Phrase": "You looks at the bookshelf.",
+    "Phrase": "You look at the bookshelf.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Book_Dialog1_start_part_2",
     "Location": "Intro",
@@ -81,7 +81,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Book_Dialog1_start_part_2",
-    "Phrase": "<i>You</i><br><i>Lots of books.</i><br><i>I often find book characters much more sophisticated than real life people. Such a shame.</i>",
+    "Phrase": "<i>You</i><br>I often find book characters much more sophisticated than real life people. Such a shame.</i>",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Book_Dialog1_start_part_3",
     "Location": "Intro",
@@ -185,7 +185,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Box_Dialog1_start_part_1",
-    "Phrase": "You checks the jewelry box.",
+    "Phrase": "You check the jewelry box.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Box_Dialog1_start_part_2",
     "Location": "Intro",
@@ -257,7 +257,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_1",
-    "Phrase": "<i>You</i><br>Ah, warden. You're gonna try to sweet-talk me again, aren't you? Don't worry, you'll play your part soon.",
+    "Phrase": "<i>You</i><br><i>Ah, warden. You're gonna try to sweet-talk me again, aren't you? Don't worry, you'll play your part soon.</i>",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_2",
     "Location": "Intro",
@@ -345,7 +345,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_10_knot",
-    "Phrase": "<i>You</i><br>\n<i>Seems like I didn't match his expextations. I need to pick up the right words</i>",
+    "Phrase": "<i>You</i><br>\n<i>Seems like I didn't match his expextations. I need to pick the right words</i>",
     "Choices": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_b\nChapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_c\nChapter1_Part1_Bar_Axel_Dialog2_start_part_9_choice_d",
     "NextStageName": "",
     "Location": "Intro",
@@ -553,7 +553,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot",
-    "Phrase": "<i>You</i><br>\n<i>I feel his will weakens under desires suppression. Just a little more right words, a small incentive speech, and he becomes my obedient puppy.</i>...",
+    "Phrase": "<i>You</i><br>\n<i>I feel his will weakens under desire suppression. Just a little more right words, a small incentive speech, and he becomes my obedient puppy.</i>...",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_loop",
     "Location": "Intro",
@@ -681,7 +681,7 @@
   },
   {
     "Name": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_27",
-    "Phrase": "<i>Axel</i><br>\n I hope I didn't come for nothing...You know, if you were a bit nicer to me, I could help you with that.",
+    "Phrase": "<i>Axel</i><br>\nYou know, if you were a bit nicer to me, I could help you with that.",
     "Choices": "",
     "NextStageName": "Chapter1_Part1_Bar_Axel_Dialog2_start_part_22_knot_interlude",
     "Location": "Intro",

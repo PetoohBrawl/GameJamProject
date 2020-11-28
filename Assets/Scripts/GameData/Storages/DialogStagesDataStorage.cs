@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SimpleJson;
 
-public class DialogStageData
+public class DialogStageData : IDataStorageObject
 {
     public string Name { get; private set; }
     public string Phrase { get; private set; }
@@ -29,7 +29,7 @@ public class DialogStageData
 
             foreach (string choiceName in choicesNames)
             {
-                DialogChoiceData choiceData = GameDataStorage.Instance.GetDialogChoiceData(choiceName);
+                DialogChoiceData choiceData = DialogChoicesDataStorage.Instance.GetByName(choiceName);
 
                 if (choiceData == null)
                 {
@@ -47,10 +47,14 @@ public class DialogStageData
     {
         if (string.IsNullOrEmpty(NextStageName) == false)
         {
-            if (GameDataStorage.Instance.GetDialogStageData(NextStageName) == null)
+            if (DialogStagesDataStorage.Instance.GetByName(NextStageName) == null)
             {
                 Debug.LogError($"NEXT_STAGE_NAME is NULL with NAME: {NextStageName}, DIALOG_STAGE: {Name}");
             }
         }
     }
+}
+public class DialogStagesDataStorage : BaseDataStorage<DialogStageData, DialogStagesDataStorage>
+{
+    public DialogStagesDataStorage() : base("DialogStage") { }
 }

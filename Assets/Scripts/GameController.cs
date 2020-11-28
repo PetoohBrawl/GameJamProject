@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using SimpleJson;
 
 public class GameController : MonoBehaviour
 {
@@ -17,6 +18,14 @@ public class GameController : MonoBehaviour
 
     private List<CharacterInfo> _characters = new List<CharacterInfo>();
     private int _maxHistoryStage;
+
+    private IDataStorage[] _storages = new IDataStorage[]
+    {
+        DialogChoicesDataStorage.Instance,
+        DialogStagesDataStorage.Instance,
+        DialogSequencesDataStorage.Instance,
+        CharactersDataStorage.Instance,
+    };
     
     private void Awake()
     {
@@ -25,7 +34,29 @@ public class GameController : MonoBehaviour
 
         Instance = this;
 
-        GameDataStorage.Instance.InitStorage(_dataContainer);
+        for (int i = 0; i < _storages.Length; i++)
+        {
+            IDataStorage storage = _storages[i];
+            string storageName = storage.GetStorageName();
+
+            foreach (TextAsset dataAsset in _dataContainer.GameDataAssets)
+            {
+                if (dataAsset.name.Equals(storageName))
+                {
+                    JsonArray dataArray = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(dataAsset.text);
+
+                    storage.Init(dataArray);
+                    break;
+                }
+            }
+
+            if (storage.IsInited() == false)
+            {
+                Debug.LogError($"No data for storage {storageName}");
+            }
+        }
+
+        _maxHistoryStage = DialogSequencesDataStorage.Instance.MaxHistoryStage;
 
         ChoiceButton.OnChoiceMade += OnChoiceMade;
     }
@@ -35,7 +66,9 @@ public class GameController : MonoBehaviour
         // TODO: подгрузка сохранений или инициализация стартовых настроек
         PlayerInfo.Instance.Init();
 
-        foreach (CharacterData characterData in GameDataStorage.Instance.CharacterDatas)
+        List<CharacterData> characterDatas = CharactersDataStorage.Instance.GetData();
+
+        foreach (CharacterData characterData in characterDatas)
         {
             _characters.Add(new CharacterInfo(characterData));
         }
@@ -43,7 +76,7 @@ public class GameController : MonoBehaviour
         InitHistoryStage(CurrentHistoryStage);
         _locationManager.SetupLocation(_dataContainer.StartLocation, null, () => 
         {
-            DialogSequenceInfo startSequence = new DialogSequenceInfo(GameDataStorage.Instance.StartSequenceData);
+            DialogSequenceInfo startSequence = new DialogSequenceInfo(DialogSequencesDataStorage.Instance.StartSequenceData);
             UIManager.Instance.StartDialogSequence(startSequence);
         });
 
@@ -127,14 +160,6 @@ public class GameController : MonoBehaviour
         }
 
         return null;
-    }
-
-    public void TryUpdateMaxHistoryStage(int historyStage)
-    {
-        if (historyStage > _maxHistoryStage)
-        {
-            _maxHistoryStage = historyStage;
-        }
     }
 
     public void OnClickExitGame()

@@ -1,9 +1,8 @@
-﻿using System.Collections;
+﻿using SimpleJson;
 using System.Collections.Generic;
 using UnityEngine;
-using SimpleJson;
 
-public class CharacterData
+public class CharacterData : IDataStorageObject
 {
     public string Name { get; private set; }
     public int StartReputation { get; private set; }
@@ -23,7 +22,7 @@ public class CharacterData
 
         foreach (string dialogSequenceName in dialogSequencesNames)
         {
-            DialogSequenceData sequenceData = GameDataStorage.Instance.GetDialogSequenceData(dialogSequenceName);
+            DialogSequenceData sequenceData = DialogSequencesDataStorage.Instance.GetByName(dialogSequenceName);
 
             if (sequenceData == null)
             {
@@ -56,4 +55,9 @@ public class CharacterData
 
         return Resources.Load<GameObject>(path);
     }
+}
+
+public class CharactersDataStorage : BaseDataStorage<CharacterData, CharactersDataStorage>
+{
+    public CharactersDataStorage() : base("Characters") { }
 }

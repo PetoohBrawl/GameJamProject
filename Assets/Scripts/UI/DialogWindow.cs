@@ -50,11 +50,11 @@ public class DialogWindow : MonoBehaviour
 
         if (choiceData == null)
         {
-            nextStageData = GameDataStorage.Instance.GetDialogStageData(_currentStage.Data.NextStageName);
+            nextStageData = DialogStagesDataStorage.Instance.GetByName(_currentStage.Data.NextStageName);
         }
         else
         {
-            nextStageData = GameDataStorage.Instance.GetDialogStageData(choiceData.StageName);
+            nextStageData = DialogStagesDataStorage.Instance.GetByName(choiceData.StageName);
             _currentStage.TryRemoveChoice(choiceData);
         }
 

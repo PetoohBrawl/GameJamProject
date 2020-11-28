@@ -12,7 +12,7 @@ public enum ImpactType
     Count
 }
 
-public class DialogChoiceData
+public class DialogChoiceData : IDataStorageObject
 {
     public string Name { get; private set; }
     public string Text { get; private set; }
@@ -57,10 +57,15 @@ public class DialogChoiceData
     {
         if (string.IsNullOrEmpty(StageName) == false)
         {
-            if (GameDataStorage.Instance.GetDialogStageData(StageName) == null)
+            if (DialogStagesDataStorage.Instance.GetByName(StageName) == null)
             {
                 Debug.LogError($"STAGE is NULL with NAME: {StageName}, DIALOG_CHOICE: {Name}");
             }
         }
     }
+}
+
+public class DialogChoicesDataStorage : BaseDataStorage<DialogChoiceData, DialogChoicesDataStorage>
+{
+    public DialogChoicesDataStorage() : base("DialogChoice") { }
 }

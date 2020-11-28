@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SimpleJson;
 
-public class DialogSequenceData
+public class DialogSequenceData : IDataStorageObject
 {
     public string Name { get; private set; }
     public DialogStageData StartStage { get; private set; }
@@ -20,7 +20,7 @@ public class DialogSequenceData
     {
         Name = (string)data["Name"];
 
-        StartStage = GameDataStorage.Instance.GetDialogStageData((string)data["StartStage"]);
+        StartStage = DialogStagesDataStorage.Instance.GetByName((string)data["StartStage"]);
 
         if (StartStage == null)
         {
@@ -31,7 +31,7 @@ public class DialogSequenceData
 
         if (string.IsNullOrEmpty(finalStageName) == false)
         {
-            FinalStage = GameDataStorage.Instance.GetDialogStageData(finalStageName);
+            FinalStage = DialogStagesDataStorage.Instance.GetByName(finalStageName);
 
             if (FinalStage == null)
             {
@@ -59,6 +59,29 @@ public class DialogSequenceData
         if (string.IsNullOrEmpty(needToCompleteSequencesData) == false)
         {
             NeedToCompleteSequences = needToCompleteSequencesData.Split('\n');
+        }
+    }
+}
+public class DialogSequencesDataStorage : BaseDataStorage<DialogSequenceData, DialogSequencesDataStorage>
+{
+    public DialogSequenceData StartSequenceData { get; private set; }
+    public int MaxHistoryStage { get; private set; }
+
+    public DialogSequencesDataStorage() : base("DialogSequences") { }
+
+    protected override void DataStoreObjectReaded(DialogSequenceData obj)
+    {
+        base.DataStoreObjectReaded(obj);
+
+        int historyStageNumber = obj.HistoryStageNumber;
+
+        if (historyStageNumber == 0)
+        {
+            StartSequenceData = obj;
+        }
+        else if (historyStageNumber > MaxHistoryStage)
+        {
+            MaxHistoryStage = historyStageNumber;
         }
     }
 }
