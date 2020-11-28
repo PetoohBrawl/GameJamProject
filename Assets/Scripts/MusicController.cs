@@ -115,6 +115,7 @@ public class MusicController : MonoBehaviour
     // костыльное завершение игры, потом переделать
     private IEnumerator EndGameAction(AudioClip clip, Action callback)
     {
+        _audioSource.volume = MusicVolume;
         _audioSource.PlayOneShot(clip);
 
         yield return new WaitForSeconds(1.3f);
