@@ -42,17 +42,6 @@ public class DialogStageData : IDataStorageObject
 
         Location = data.GetEnum((string)data["Location"], LocationName.Unknown);
     }
-
-    public void ValidateData()
-    {
-        if (string.IsNullOrEmpty(NextStageName) == false)
-        {
-            if (DialogStagesDataStorage.Instance.GetByName(NextStageName) == null)
-            {
-                Debug.LogError($"NEXT_STAGE_NAME is NULL with NAME: {NextStageName}, DIALOG_STAGE: {Name}");
-            }
-        }
-    }
 }
 public class DialogStagesDataStorage : BaseDataStorage<DialogStageData, DialogStagesDataStorage>
 {
