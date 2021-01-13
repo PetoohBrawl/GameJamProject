@@ -15,22 +15,16 @@ public class NodeBasedEditor : EditorWindow
     private Vector2 _drag;
     private Vector2 _offset;
 
-    private JsonArray _dialogSequences;
     private JsonArray _dialogStages;
     private JsonArray _dialogChoices;
-    private JsonArray _characters;
-
-    private string _currentSequenceName;
 
     private Vector2 _stageNodeSize = new Vector2(300, 200);
     private Vector2 _choiceNodeSize = new Vector2(300, 300);
 
     private static NodeBasedEditor _instance;
 
-    private string _sequencesDataPath;
     private string _stagesDataPath;
     private string _choicesDataPath;
-    private string _charactersDataPath;
 
     private void OnEnable()
     {
@@ -48,50 +42,28 @@ public class NodeBasedEditor : EditorWindow
         Connection.OnClickRemoveConnection -= OnClickRemoveConnection;
     }
 
-    private static void OpenWindow(string sequenceName)
+    private static void OpenWindow(string startStageName)
     {
         _instance = GetWindow<NodeBasedEditor>();
         _instance.titleContent = new GUIContent("Node Based Editor");
 
         string assetDataPath = Application.dataPath;
 
-        _instance._sequencesDataPath = Path.Combine(assetDataPath, "GameData/JSONS/DialogSequences.json");
         _instance._stagesDataPath = Path.Combine(assetDataPath, "GameData/JSONS/DialogStage.json");
         _instance._choicesDataPath = Path.Combine(assetDataPath, "GameData/JSONS/DialogChoice.json");
-        _instance._charactersDataPath = Path.Combine(assetDataPath, "GameData/JSONS/Characters.json");
 
-        string sequencesData = File.ReadAllText(_instance._sequencesDataPath);
         string stagesData = File.ReadAllText(_instance._stagesDataPath);
         string choicesData = File.ReadAllText(_instance._choicesDataPath);
-        string charactersData = File.ReadAllText(_instance._charactersDataPath);
 
-        _instance._dialogSequences = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(sequencesData);
         _instance._dialogStages = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(stagesData);
         _instance._dialogChoices = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(choicesData);
-        _instance._characters = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(charactersData);
 
-        _instance._currentSequenceName = sequenceName;
+        JsonObject startStageJson = _instance.GetStageJson(startStageName);
 
-        _instance.ParseSequence();
+        _instance.ParseNextStage(startStageJson, Vector2.zero, null);
     }
 
     #region Parsing
-    private void ParseSequence()
-    {
-        foreach (JsonObject json in _instance._dialogSequences)
-        {
-            if (json["Name"].Equals(_instance._currentSequenceName))
-            {
-                string startStageName = (string)json["StartStage"];
-
-                JsonObject startStageJson = GetStageJson(startStageName);
-
-                ParseNextStage(startStageJson, Vector2.zero, null);
-
-                break;
-            }
-        }
-    }
 
     private void ParseNextStage(JsonObject stageObj, Vector2 lastNodePos, Node parentNode)
     {
