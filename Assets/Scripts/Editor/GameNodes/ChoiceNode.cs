@@ -6,7 +6,7 @@ using SimpleJson;
 
 public class ChoiceNode : Node
 {
-    private string _choiceName;
+    public string ChoiceName { get; private set; }
     private string _choiceText;
     private ImpactType _requiredImpact;
     private string _requiredImpactValue;
@@ -23,7 +23,7 @@ public class ChoiceNode : Node
             return;
         }
 
-        _choiceName = (string)json["Name"];
+        ChoiceName = (string)json["Name"];
         _choiceText = (string)json["Text"];
         _requiredImpact = json.GetEnum((string)json["RequiredAttribute"], ImpactType.None);
         _requiredImpactValue = (string)json["RequiredAttributeValue"];
@@ -45,7 +45,7 @@ public class ChoiceNode : Node
         GUILayout.BeginHorizontal();
 
         GUILayout.Label("Name: ", GUILayout.Width(100));
-        _choiceName = GUILayout.TextArea(_choiceName, GUILayout.ExpandWidth(true));
+        ChoiceName = GUILayout.TextArea(ChoiceName, GUILayout.ExpandWidth(true));
 
         GUILayout.EndHorizontal();
 
@@ -106,5 +106,24 @@ public class ChoiceNode : Node
         GUILayout.EndHorizontal();
 
         GUILayout.EndVertical();
+    }
+
+    public override JsonObject SerializeToJson()
+    {
+        JsonObject resultJson = new JsonObject()
+        {
+            { "Name", ChoiceName },
+            { "Text", _choiceText },
+            { "ImpactType", (int)_applyingImpact },
+            { "ImpactValue", _applyingImpactValue },
+            { "ImpactTargetName", _applyingImpactTargetName },
+            { "StageName", null },
+            { "HistoryStageFinalizer", _historyStageFinalizer },
+            { "RequiredAttribute", _requiredImpact },
+            { "RequiredAttributeValue", _requiredImpactValue },
+            { "Removable", _removable },
+        };
+
+        return resultJson;
     }
 }

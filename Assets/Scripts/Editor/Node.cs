@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using SimpleJson;
 using UnityEditor;
 using UnityEngine;
 
-public class Node : ScriptableObject
+public abstract class Node : ScriptableObject
 {
     public Rect NodeRect;
     public string Title;
@@ -16,6 +16,8 @@ public class Node : ScriptableObject
     public static event Action<Node> OnRemoveNode;
     public static event Action<Node> OnConnectionCreateBegin;
     public static event Action<Node> OnConnectionCreateEnd;
+
+    public abstract JsonObject SerializeToJson();
 
     private void OnEnable()
     {

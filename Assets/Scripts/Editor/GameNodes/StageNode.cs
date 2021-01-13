@@ -6,7 +6,7 @@ using SimpleJson;
 
 public class StageNode : Node
 {
-    private string _stageName;
+    public string StageName { get; private set; }
     private string _stagePhrase;
     private LocationName _location;
     private string _diaryString;
@@ -18,7 +18,7 @@ public class StageNode : Node
             return;
         }
 
-        _stageName = (string)json["Name"];
+        StageName = (string)json["Name"];
         _stagePhrase = (string)json["Phrase"];
         _location = json.GetEnum((string)json["Location"], LocationName.Unknown);
         _diaryString = (string)json["DiaryRecord"];
@@ -33,7 +33,7 @@ public class StageNode : Node
         GUILayout.BeginHorizontal();
 
         GUILayout.Label("Name: ", GUILayout.Width(100));
-        _stageName = GUILayout.TextArea(_stageName, GUILayout.ExpandWidth(true));
+        StageName = GUILayout.TextArea(StageName, GUILayout.ExpandWidth(true));
 
         GUILayout.EndHorizontal();
 
@@ -59,5 +59,20 @@ public class StageNode : Node
         GUILayout.EndHorizontal();
 
         GUILayout.EndVertical();
+    }
+
+    public override JsonObject SerializeToJson()
+    {
+        JsonObject resultJson = new JsonObject()
+        {
+            { "Name", StageName },
+            { "Phrase", _stagePhrase },
+            { "Choices", null },
+            { "NextStageName", null },
+            { "Location", (int)_location },
+            { "DiaryRecord", _diaryString },
+        };
+
+        return resultJson;
     }
 }

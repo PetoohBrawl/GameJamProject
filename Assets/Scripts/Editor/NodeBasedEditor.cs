@@ -24,9 +24,13 @@ public class NodeBasedEditor : EditorWindow
 
     private Vector2 _stageNodeSize = new Vector2(300, 200);
     private Vector2 _choiceNodeSize = new Vector2(300, 300);
-    private float _zoomScale = 1f;
 
     private static NodeBasedEditor _instance;
+
+    private string _sequencesDataPath;
+    private string _stagesDataPath;
+    private string _choicesDataPath;
+    private string _charactersDataPath;
 
     private void OnEnable()
     {
@@ -44,27 +48,34 @@ public class NodeBasedEditor : EditorWindow
         Connection.OnClickRemoveConnection -= OnClickRemoveConnection;
     }
 
-    [MenuItem("Tools/Node Based Editor")]
-    private static void OpenWindow()
+    private static void OpenWindow(string sequenceName)
     {
         _instance = GetWindow<NodeBasedEditor>();
         _instance.titleContent = new GUIContent("Node Based Editor");
 
-        string sequencesData = AssetDatabase.LoadAssetAtPath<TextAsset>(@"Assets/GameData/JSONS/DialogSequences.json").text;
-        string stagesData = AssetDatabase.LoadAssetAtPath<TextAsset>(@"Assets/GameData/JSONS/DialogStage.json").text;
-        string choicesData = AssetDatabase.LoadAssetAtPath<TextAsset>(@"Assets/GameData/JSONS/DialogChoice.json").text;
-        string charactersData = AssetDatabase.LoadAssetAtPath<TextAsset>(@"Assets/GameData/JSONS/Characters.json").text;
+        string assetDataPath = Application.dataPath;
+
+        _instance._sequencesDataPath = Path.Combine(assetDataPath, "GameData/JSONS/DialogSequences.json");
+        _instance._stagesDataPath = Path.Combine(assetDataPath, "GameData/JSONS/DialogStage.json");
+        _instance._choicesDataPath = Path.Combine(assetDataPath, "GameData/JSONS/DialogChoice.json");
+        _instance._charactersDataPath = Path.Combine(assetDataPath, "GameData/JSONS/Characters.json");
+
+        string sequencesData = File.ReadAllText(_instance._sequencesDataPath);
+        string stagesData = File.ReadAllText(_instance._stagesDataPath);
+        string choicesData = File.ReadAllText(_instance._choicesDataPath);
+        string charactersData = File.ReadAllText(_instance._charactersDataPath);
 
         _instance._dialogSequences = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(sequencesData);
         _instance._dialogStages = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(stagesData);
         _instance._dialogChoices = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(choicesData);
         _instance._characters = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(charactersData);
 
-        _instance._currentSequenceName = "Chapter1_Part1_Bar_Fade_in";
+        _instance._currentSequenceName = sequenceName;
 
         _instance.ParseSequence();
     }
 
+    #region Parsing
     private void ParseSequence()
     {
         foreach (JsonObject json in _instance._dialogSequences)
@@ -190,18 +201,12 @@ public class NodeBasedEditor : EditorWindow
 
         return null;
     }
+    #endregion
 
-    private void CreateConnection(Node parentNode, Node childNode)
-    {
-        Connection connection = new Connection(parentNode);
-        connection.ChildNode = childNode;
-
-        _connections.Add(connection);
-    }
+    #region Drawing
 
     private void OnGUI()
     {
-        ScaleWindow();
         DrawGrid(20, 0.2f, Color.gray);
         DrawGrid(100, 0.4f, Color.gray);
 
@@ -213,19 +218,15 @@ public class NodeBasedEditor : EditorWindow
         ProcessNodeEvents(Event.current);
         ProcessEvents(Event.current);
 
+        if (GUILayout.Button("Save Data"))
+        {
+            OnClickSaveData();
+        }
+
         if (GUI.changed)
         {
             Repaint();
         }
-    }
-
-    private void ScaleWindow()
-    {
-        Matrix4x4 before = GUI.matrix;
-        //Scale my gui matrix
-        Matrix4x4 Translation = Matrix4x4.TRS(new Vector3(0, 25, 0), Quaternion.identity, Vector3.one);
-        Matrix4x4 Scale = Matrix4x4.Scale(new Vector3(_zoomScale, _zoomScale, _zoomScale));
-        GUI.matrix = Translation * Scale * Translation.inverse;
     }
 
     private void DrawNodes()
@@ -259,6 +260,60 @@ public class NodeBasedEditor : EditorWindow
         }
     }
 
+    private void DrawConnectionLine(Event e)
+    {
+        if (_newConnection != null)
+        {
+            Vector2 startPoint = new Vector2(_newConnection.ParentNode.NodeRect.xMax, _newConnection.ParentNode.NodeRect.center.y);
+
+            Handles.DrawLine(startPoint, e.mousePosition);
+
+            GUI.changed = true;
+        }
+    }
+
+    private void DrawGrid(float gridSpacing, float gridOpacity, Color gridColor)
+    {
+        int widthDivs = Mathf.CeilToInt(position.width / gridSpacing);
+        int heightDivs = Mathf.CeilToInt(position.height / gridSpacing);
+
+        Handles.BeginGUI();
+        Handles.color = new Color(gridColor.r, gridColor.g, gridColor.b, gridOpacity);
+
+        _offset += _drag * 0.5f;
+        Vector3 newOffset = new Vector3(_offset.x % gridSpacing, _offset.y % gridSpacing, 0);
+
+        for (int i = 0; i < widthDivs; i++)
+        {
+            Handles.DrawLine(new Vector3(gridSpacing * i, -gridSpacing, 0) + newOffset, new Vector3(gridSpacing * i, position.height, 0f) + newOffset);
+        }
+
+        for (int j = 0; j < heightDivs; j++)
+        {
+            Handles.DrawLine(new Vector3(-gridSpacing, gridSpacing * j, 0) + newOffset, new Vector3(position.width, gridSpacing * j, 0f) + newOffset);
+        }
+
+        Handles.color = Color.white;
+        Handles.EndGUI();
+    }
+
+    private void OnDrag(Vector2 delta)
+    {
+        _drag = delta;
+
+        if (_nodes != null)
+        {
+            for (int i = 0; i < _nodes.Count; i++)
+            {
+                _nodes[i].Drag(delta);
+            }
+        }
+
+        GUI.changed = true;
+    }
+    #endregion
+
+    #region Processing
     private void ProcessNodeEvents(Event e)
     {
         if (_nodes != null)
@@ -298,31 +353,15 @@ public class NodeBasedEditor : EditorWindow
                     OnDrag(processEvent.delta);
                 }
                 break;
-
-            case EventType.ScrollWheel:
-                {
-                    _zoomScale += processEvent.delta.y / 60f;
-                }
-                break;
         }
     }
 
     private void ProcessContextMenu(Vector2 mousePosition)
     {
         GenericMenu genericMenu = new GenericMenu();
-        genericMenu.AddItem(new GUIContent("Add node"), false, () => OnClickAddNode(mousePosition));
         genericMenu.AddItem(new GUIContent("Add Stage Node"), false, () => OnClickAddStageNode(mousePosition));
         genericMenu.AddItem(new GUIContent("Add Choice Node"), false, () => OnClickAddChoiceNode(mousePosition));
         genericMenu.ShowAsContext();
-    }
-
-    private void OnClickAddNode(Vector2 mousePosition)
-    {
-        Node node = new Node();
-        node.NodeRect = new Rect(mousePosition.x, mousePosition.y, 200, 300);
-        node.Title = "Node";
-
-        _nodes.Add(node);
     }
 
     private void OnClickAddStageNode(Vector2 mousePosition)
@@ -395,63 +434,109 @@ public class NodeBasedEditor : EditorWindow
         _newConnection = null;
     }
 
-    private void OnDrag(Vector2 delta)
+    private void CreateConnection(Node parentNode, Node childNode)
     {
-        _drag = delta;
+        Connection connection = new Connection(parentNode);
+        connection.ChildNode = childNode;
 
-        if (_nodes != null)
+        _connections.Add(connection);
+    }
+
+    public void OnClickSaveData()
+    {
+        // надо будет добавить дополнительный список удалённых нод, которые выпиливать из итогового json
+
+        foreach (Node node in _nodes)
         {
-            for (int i = 0; i < _nodes.Count; i++)
+            if (node is StageNode)
             {
-                _nodes[i].Drag(delta);
+                JsonObject newStageData = ((StageNode)node).SerializeToJson();
+                JsonObject oldStageData = GetStageJson((string)newStageData["Name"]);
+
+                if (oldStageData != null)
+                {
+                    _dialogStages.Remove(oldStageData);
+                }
+
+                _dialogStages.Add(newStageData);
+            }
+            else if (node is ChoiceNode)
+            {
+                JsonObject newChoiceData = ((ChoiceNode)node).SerializeToJson();
+                JsonObject oldChoiceData = GetChoiceJson((string)newChoiceData["Name"]);
+
+                if (oldChoiceData != null)
+                {
+                    _dialogChoices.Remove(oldChoiceData);
+                }
+
+                _dialogChoices.Add(newChoiceData);
             }
         }
 
-        GUI.changed = true;
-    }
-
-    private void DrawConnectionLine(Event e)
-    {
-        if (_newConnection != null)
+        foreach (Connection connection in _connections)
         {
-            Vector2 startPoint = new Vector2(_newConnection.ParentNode.NodeRect.xMax, _newConnection.ParentNode.NodeRect.center.y);
+            if (connection.ChildNode == null || connection.ParentNode == null)
+            {
+                Debug.LogError("Error in connection parsing. One node is NULL");
+                continue;
+            }
 
-            Handles.DrawBezier(
-                startPoint,
-                e.mousePosition,
-                _newConnection.ParentNode.NodeRect.center + Vector2.left * 50f,
-                e.mousePosition - Vector2.left * 50f,
-                Color.white,
-                null,
-                2f
-            );
+            if (connection.ParentNode is StageNode)
+            {
+                StageNode parentStage = connection.ParentNode as StageNode;
 
-            GUI.changed = true;
+                if (connection.ChildNode is StageNode)
+                {
+                    StageNode childStage = connection.ChildNode as StageNode;
+
+                    foreach (JsonObject stageJson in _dialogStages)
+                    {
+                        if (((string)stageJson["Name"]).Equals(parentStage.StageName))
+                        {
+                            stageJson["NextStageName"] = childStage.StageName;
+                            break;
+                        }
+                    }
+                }
+                else if (connection.ChildNode is ChoiceNode)
+                {
+                    ChoiceNode childChoice = connection.ChildNode as ChoiceNode;
+
+                    foreach (JsonObject stageJson in _dialogStages)
+                    {
+                        if (((string)stageJson["Name"]).Equals(parentStage.StageName))
+                        {
+                            if (stageJson["Choices"] == null)
+                            {
+                                stageJson["Choices"] = new JsonArray();
+                            }
+
+                            ((JsonArray)stageJson["Choices"]).Add(childChoice.ChoiceName);
+
+                            break;
+                        }
+                    }
+                }
+            }
+            else if (connection.ParentNode is ChoiceNode)
+            {
+                ChoiceNode parentChoice = connection.ParentNode as ChoiceNode;
+                StageNode childStage = connection.ChildNode as StageNode;
+
+                foreach (JsonObject choiceJson in _dialogChoices)
+                {
+                    if (((string)choiceJson["Name"]).Equals(parentChoice.ChoiceName))
+                    {
+                        choiceJson["StageName"] = childStage.StageName;
+                        break;
+                    }
+                }
+            }
         }
+
+        File.WriteAllText(_stagesDataPath, _dialogStages.ToString());
+        File.WriteAllText(_choicesDataPath, _dialogChoices.ToString());
     }
-
-    private void DrawGrid(float gridSpacing, float gridOpacity, Color gridColor)
-    {
-        int widthDivs = Mathf.CeilToInt(position.width / gridSpacing);
-        int heightDivs = Mathf.CeilToInt(position.height / gridSpacing);
-
-        Handles.BeginGUI();
-        Handles.color = new Color(gridColor.r, gridColor.g, gridColor.b, gridOpacity);
-
-        _offset += _drag * 0.5f;
-        Vector3 newOffset = new Vector3(_offset.x % gridSpacing, _offset.y % gridSpacing, 0);
-
-        for (int i = 0; i < widthDivs; i++)
-        {
-            Handles.DrawLine(new Vector3(gridSpacing * i, -gridSpacing, 0) + newOffset, new Vector3(gridSpacing * i, position.height, 0f) + newOffset);
-        }
-
-        for (int j = 0; j < heightDivs; j++)
-        {
-            Handles.DrawLine(new Vector3(-gridSpacing, gridSpacing * j, 0) + newOffset, new Vector3(position.width, gridSpacing * j, 0f) + newOffset);
-        }
-
-        Handles.color = Color.white;
-        Handles.EndGUI();
-    }
+    #endregion
 }
