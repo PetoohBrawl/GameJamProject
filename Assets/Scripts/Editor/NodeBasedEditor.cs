@@ -42,7 +42,7 @@ public class NodeBasedEditor : EditorWindow
         Connection.OnClickRemoveConnection -= OnClickRemoveConnection;
     }
 
-    private static void OpenWindow(string startStageName)
+    public static void OpenWindow(string startStageName)
     {
         _instance = GetWindow<NodeBasedEditor>();
         _instance.titleContent = new GUIContent("Node Based Editor");
@@ -116,8 +116,14 @@ public class NodeBasedEditor : EditorWindow
 
     private void ParseChoices(JsonObject[] choiceObjs, Vector2 lastNodePos, Node parentNode)
     {
-        foreach (JsonObject choiceObj in choiceObjs)
+        int choicesCount = choiceObjs.Length;
+        float choiceNodeYPlace = _choiceNodeSize.y + 200;
+        float topNodePosY = (choicesCount - 1) * choiceNodeYPlace / 2;
+
+        for (int i = 0; i < choicesCount; i++)
         {
+            JsonObject choiceObj = choiceObjs[i];
+
             if (choiceObj == null)
             {
                 continue;
@@ -126,7 +132,9 @@ public class NodeBasedEditor : EditorWindow
             ChoiceNode choiceNode = new ChoiceNode(choiceObj);
 
             choiceNode.Title = "Choice";
-            choiceNode.NodeRect = new Rect(lastNodePos.x + 400, lastNodePos.y, _choiceNodeSize.x, _choiceNodeSize.y);
+
+            Vector2 choicePosition = new Vector2(lastNodePos.x + 400, lastNodePos.y - (topNodePosY - i * choiceNodeYPlace));
+            choiceNode.NodeRect = new Rect(choicePosition.x, choicePosition.y, _choiceNodeSize.x, _choiceNodeSize.y);
 
             _instance._nodes.Add(choiceNode);
 
@@ -144,7 +152,8 @@ public class NodeBasedEditor : EditorWindow
 
             JsonObject nextStageJson = GetStageJson(stageName);
 
-            ParseNextStage(nextStageJson, Vector2.zero, choiceNode);
+            Vector2 stagePos = new Vector2(choicePosition.x + 400, choicePosition.y);
+            ParseNextStage(nextStageJson, stagePos, choiceNode);
         }
     }
 
