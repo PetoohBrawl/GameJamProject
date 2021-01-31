@@ -11,7 +11,11 @@ public class StageNode : Node
     private LocationName _location;
     private string _diaryString;
 
-    public StageNode(JsonObject json) : base()
+    public bool IsFinal { get; set; }
+    
+    public Node ParentNode { get; set; }
+
+    public void Init(JsonObject json)
     {
         if (json == null)
         {
@@ -20,7 +24,7 @@ public class StageNode : Node
 
         StageName = (string)json["Name"];
         _stagePhrase = (string)json["Phrase"];
-        _location = json.GetEnum((string)json["Location"], LocationName.Unknown);
+        _location = (LocationName)json.GetInt(("Location"));
         _diaryString = (string)json["DiaryRecord"];
     }
 
@@ -58,6 +62,13 @@ public class StageNode : Node
 
         GUILayout.EndHorizontal();
 
+        GUILayout.BeginHorizontal();
+
+        GUILayout.Label("Is Final Stage: ", GUILayout.Width(100));
+        IsFinal = GUILayout.Toggle(IsFinal, string.Empty);
+
+        GUILayout.EndHorizontal();
+
         GUILayout.EndVertical();
     }
 
@@ -69,7 +80,7 @@ public class StageNode : Node
             { "Phrase", _stagePhrase },
             { "Choices", null },
             { "NextStageName", null },
-            { "Location", (int)_location },
+            { "Location", (long)_location },
             { "DiaryRecord", _diaryString },
         };
 

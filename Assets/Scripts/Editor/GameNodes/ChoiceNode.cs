@@ -9,15 +9,24 @@ public class ChoiceNode : Node
     public string ChoiceName { get; private set; }
     private string _choiceText;
     private ImpactType _requiredImpact;
-    private string _requiredImpactValue;
+    private long _requiredImpactValue;
     private bool _historyStageFinalizer;
     private bool _removable;
     private ImpactType _applyingImpact;
-    private string _applyingImpactValue;
+    private long _applyingImpactValue;
     private string _applyingImpactTargetName;
 
-    public ChoiceNode(JsonObject json) : base()
+    private GenericMenu _characterReputationTarget;
+
+    public void Init(JsonObject json, List<string> characterNames)
     {
+        _characterReputationTarget = new GenericMenu();
+
+        foreach (string characterName in characterNames)
+        {
+            _characterReputationTarget.AddItem(new GUIContent(characterName), false, OnReputationTargetChange, characterName);
+        }
+        
         if (json == null)
         {
             return;
@@ -25,14 +34,14 @@ public class ChoiceNode : Node
 
         ChoiceName = (string)json["Name"];
         _choiceText = (string)json["Text"];
-        _requiredImpact = json.GetEnum((string)json["RequiredAttribute"], ImpactType.None);
-        _requiredImpactValue = (string)json["RequiredAttributeValue"];
+        _requiredImpact = (ImpactType)json.GetInt("RequiredAttribute");
+        _requiredImpactValue = json.GetInt("RequiredAttributeValue");
 
-        _historyStageFinalizer = ((string)json["HistoryStageFinalizer"]).Equals("TRUE"); // json.GetBool("HistoryStageFinalizer");
-        _removable = ((string)json["Removable"]).Equals("TRUE"); // json.GetBool("Removable");
+        _historyStageFinalizer = json.GetBool("HistoryStageFinalizer");
+        _removable = json.GetBool("Removable");
 
-        _applyingImpact = json.GetEnum((string)json["ImpactType"], ImpactType.None);
-        _applyingImpactValue = (string)json["ImpactValue"];
+        _applyingImpact = (ImpactType)json.GetInt("ImpactType");
+        _applyingImpactValue = json.GetInt("ImpactValue");
         _applyingImpactTargetName = (string)json["ImpactTargetName"];
     }
 
@@ -66,7 +75,7 @@ public class ChoiceNode : Node
         GUILayout.BeginHorizontal();
 
         GUILayout.Label("Value: ", GUILayout.Width(100));
-        _requiredImpactValue = GUILayout.TextArea(_requiredImpactValue, GUILayout.ExpandWidth(true));
+        _requiredImpactValue = EditorGUILayout.LongField(_requiredImpactValue, GUILayout.ExpandWidth(true));
 
         GUILayout.EndHorizontal();
 
@@ -94,18 +103,27 @@ public class ChoiceNode : Node
         GUILayout.BeginHorizontal();
 
         GUILayout.Label("Value: ", GUILayout.Width(100));
-        _applyingImpactValue = GUILayout.TextArea(_applyingImpactValue, GUILayout.ExpandWidth(true));
+        _applyingImpactValue = EditorGUILayout.LongField(_applyingImpactValue, GUILayout.ExpandWidth(true));
 
         GUILayout.EndHorizontal();
 
         GUILayout.BeginHorizontal();
 
         GUILayout.Label("Target Name: ", GUILayout.Width(100));
-        _applyingImpactTargetName = GUILayout.TextArea(_applyingImpactTargetName, GUILayout.ExpandWidth(true));
+
+        if (GUILayout.Button(_applyingImpactTargetName))
+        {
+            _characterReputationTarget.ShowAsContext();
+        }
 
         GUILayout.EndHorizontal();
 
         GUILayout.EndVertical();
+    }
+
+    private void OnReputationTargetChange(object characterName)
+    {
+        _applyingImpactTargetName = (string) characterName;
     }
 
     public override JsonObject SerializeToJson()
@@ -114,7 +132,7 @@ public class ChoiceNode : Node
         {
             { "Name", ChoiceName },
             { "Text", _choiceText },
-            { "ImpactType", (int)_applyingImpact },
+            { "ImpactType", (long)_applyingImpact },
             { "ImpactValue", _applyingImpactValue },
             { "ImpactTargetName", _applyingImpactTargetName },
             { "StageName", null },

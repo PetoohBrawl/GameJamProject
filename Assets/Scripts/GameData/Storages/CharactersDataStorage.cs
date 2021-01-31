@@ -15,10 +15,10 @@ public class CharacterData : IDataStorageObject
     {
         Name = (string)data["Name"];
         StartReputation = data.GetInt("StartReputation");
-        StartLocation = data.GetEnum((string)data["StartLocation"], LocationName.Unknown);
+        StartLocation = (LocationName)data.GetInt("StartLocation");
         _prefabName = (string)data["PrefabName"];
 
-        string[] dialogSequencesNames = ((string)data["DialogSequences"]).Split('\n');
+        JsonArray dialogSequencesNames = data.Get<JsonArray>("DialogSequences");
 
         foreach (string dialogSequenceName in dialogSequencesNames)
         {

@@ -1,30 +1,30 @@
-﻿using System.IO;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using SimpleJson;
 using System;
 
-public class NodeBasedEditor : EditorWindow
+public class NodeBasedEditor : BaseCustomEditor
 {
     private Connection _newConnection;
-    private List<Connection> _connections = new List<Connection>();
+    private readonly List<Connection> _connections = new List<Connection>();
 
-    private List<Node> _nodes = new List<Node>();
+    private readonly List<Node> _nodes = new List<Node>();
 
     private Vector2 _drag;
     private Vector2 _offset;
 
-    private JsonArray _dialogStages;
-    private JsonArray _dialogChoices;
-
-    private Vector2 _stageNodeSize = new Vector2(300, 200);
-    private Vector2 _choiceNodeSize = new Vector2(300, 300);
+    private readonly Vector2 _stageNodeSize = new Vector2(300, 200);
+    private readonly Vector2 _choiceNodeSize = new Vector2(300, 300);
 
     private static NodeBasedEditor _instance;
 
-    private string _stagesDataPath;
-    private string _choicesDataPath;
+    private string _sequenceName;
+    private string _finalStageName;
+
+    private List<string> _parsedNodes = new List<string>();
+
+    private List<string> _characterNames;
 
     private void OnEnable()
     {
@@ -42,22 +42,21 @@ public class NodeBasedEditor : EditorWindow
         Connection.OnClickRemoveConnection -= OnClickRemoveConnection;
     }
 
-    public static void OpenWindow(string startStageName)
+    public static void OpenWindow(string startStageName, string finalStageName, string sequenceName, List<string> characterNames)
     {
         _instance = GetWindow<NodeBasedEditor>();
         _instance.titleContent = new GUIContent("Node Based Editor");
 
-        string assetDataPath = Application.dataPath;
+        _instance._sequenceName = sequenceName;
+        _instance._finalStageName = finalStageName;
 
-        _instance._stagesDataPath = Path.Combine(assetDataPath, "GameData/JSONS/DialogStage.json");
-        _instance._choicesDataPath = Path.Combine(assetDataPath, "GameData/JSONS/DialogChoice.json");
+        _instance._characterNames = characterNames;
 
-        string stagesData = File.ReadAllText(_instance._stagesDataPath);
-        string choicesData = File.ReadAllText(_instance._choicesDataPath);
-
-        _instance._dialogStages = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(stagesData);
-        _instance._dialogChoices = SimpleJson.SimpleJson.DeserializeObject<JsonArray>(choicesData);
-
+        if (string.IsNullOrEmpty(startStageName))
+        {
+            return;
+        }
+        
         JsonObject startStageJson = _instance.GetStageJson(startStageName);
 
         _instance.ParseNextStage(startStageJson, Vector2.zero, null);
@@ -72,7 +71,46 @@ public class NodeBasedEditor : EditorWindow
             return;
         }
 
-        StageNode stageNode = new StageNode(stageObj);
+        string stageName = (string) stageObj["Name"];
+
+        if (_parsedNodes.Contains(stageName))
+        {
+            Node searchNode = _nodes.Find(delegate(Node node)
+            {
+                if (node is StageNode)
+                {
+                    StageNode searchStageNode = (StageNode)node;
+
+                    if (searchStageNode.StageName.Equals(stageName))
+                    {
+                        searchStageNode.NodeRect.y = (searchStageNode.NodeRect.y + parentNode.NodeRect.y) / 2; 
+                        return true;
+                    }
+                }
+                
+                return false;
+            });
+
+            if (searchNode == null)
+            {
+                Debug.LogError("Error with double stageNode connection");
+                return;
+            }
+            
+            CreateConnection(parentNode, searchNode);
+            return;
+        }
+
+        StageNode stageNode = ScriptableObject.CreateInstance<StageNode>();
+        stageNode.Init(stageObj);
+        
+        _parsedNodes.Add(stageNode.StageName);
+
+        if (_finalStageName != null && stageNode.StageName.Equals(_finalStageName))
+        {
+            stageNode.IsFinal = true;
+            _finalStageName = null;
+        }
 
         stageNode.Title = "Stage";
         stageNode.NodeRect = new Rect(lastNodePos, _stageNodeSize);
@@ -97,21 +135,21 @@ public class NodeBasedEditor : EditorWindow
             return;
         }
 
-        string choicesString = (string)stageObj["Choices"];
+        JsonArray choicesNamesArray = stageObj.Get<JsonArray>("Choices");
 
-        if (string.IsNullOrEmpty(choicesString) == false)
+        if (choicesNamesArray == null || choicesNamesArray.Count == 0)
         {
-            string[] choicesNames = choicesString.Split('\n');
-
-            JsonObject[] choicesJsons = new JsonObject[choicesNames.Length];
-            
-            for (int i = 0; i < choicesJsons.Length; i++)
-            {
-                choicesJsons[i] = GetChoiceJson(choicesNames[i]);
-            }
-
-            ParseChoices(choicesJsons, lastNodePos, stageNode);
+            return;
         }
+        
+        JsonObject[] choicesJsons = new JsonObject[choicesNamesArray.Count];
+        
+        for (int i = 0; i < choicesJsons.Length; i++)
+        {
+            choicesJsons[i] = GetChoiceJson(choicesNamesArray.GetAt<string>(i));
+        }
+
+        ParseChoices(choicesJsons, lastNodePos, stageNode);
     }
 
     private void ParseChoices(JsonObject[] choiceObjs, Vector2 lastNodePos, Node parentNode)
@@ -129,7 +167,8 @@ public class NodeBasedEditor : EditorWindow
                 continue;
             }
 
-            ChoiceNode choiceNode = new ChoiceNode(choiceObj);
+            ChoiceNode choiceNode = ScriptableObject.CreateInstance<ChoiceNode>();
+            choiceNode.Init(choiceObj, _characterNames);
 
             choiceNode.Title = "Choice";
 
@@ -149,7 +188,7 @@ public class NodeBasedEditor : EditorWindow
             {
                 continue;
             }
-
+            
             JsonObject nextStageJson = GetStageJson(stageName);
 
             Vector2 stagePos = new Vector2(choicePosition.x + 400, choicePosition.y);
@@ -157,11 +196,11 @@ public class NodeBasedEditor : EditorWindow
         }
     }
 
-    private JsonObject GetStageJson(string name)
+    private JsonObject GetStageJson(string stageName)
     {
-        foreach (JsonObject stageJson in _instance._dialogStages)
+        foreach (JsonObject stageJson in GameDataHelper._stagesData)
         {
-            if (name.Equals(stageJson["Name"]))
+            if (stageName.Equals(stageJson["Name"]))
             {
                 return stageJson;
             }
@@ -170,11 +209,11 @@ public class NodeBasedEditor : EditorWindow
         return null;
     }
 
-    private JsonObject GetChoiceJson(string name)
+    private JsonObject GetChoiceJson(string choiceName)
     {
-        foreach (JsonObject choiceJson in _instance._dialogChoices)
+        foreach (JsonObject choiceJson in GameDataHelper._choicesData)
         {
-            if (name.Equals(choiceJson["Name"]))
+            if (choiceName.Equals(choiceJson["Name"]))
             {
                 return choiceJson;
             }
@@ -199,10 +238,14 @@ public class NodeBasedEditor : EditorWindow
         ProcessNodeEvents(Event.current);
         ProcessEvents(Event.current);
 
-        if (GUILayout.Button("Save Data"))
+        GUILayout.BeginHorizontal();
+        
+        if (GUILayout.Button("Save Data", GUILayout.Width(100), GUILayout.Height(60)))
         {
             OnClickSaveData();
         }
+        
+        GUILayout.EndHorizontal();
 
         if (GUI.changed)
         {
@@ -347,16 +390,22 @@ public class NodeBasedEditor : EditorWindow
 
     private void OnClickAddStageNode(Vector2 mousePosition)
     {
-        StageNode stageNode = new StageNode(null);
+        StageNode stageNode = ScriptableObject.CreateInstance<StageNode>();
+        stageNode.Init(null);
+        
         stageNode.NodeRect = new Rect(mousePosition.x, mousePosition.y, _stageNodeSize.x, _stageNodeSize.y);
         stageNode.Title = "Stage";
 
         _nodes.Add(stageNode);
+        
+        GameDataHelper.SetDirty();
     }
 
     private void OnClickAddChoiceNode(Vector2 mousePosition)
     {
-        ChoiceNode choiceNode = new ChoiceNode(null);
+        ChoiceNode choiceNode = ScriptableObject.CreateInstance<ChoiceNode>();
+        choiceNode.Init(null, _characterNames);
+        
         choiceNode.NodeRect = new Rect(mousePosition.x, mousePosition.y, _choiceNodeSize.x, _choiceNodeSize.y);
         choiceNode.Title = "Choice";
 
@@ -423,35 +472,32 @@ public class NodeBasedEditor : EditorWindow
         _connections.Add(connection);
     }
 
+    protected override void BeforeWriteData()
+    {
+        base.BeforeWriteData();
+        
+        OnClickSaveData();
+    }
+
     public void OnClickSaveData()
     {
-        // надо будет добавить дополнительный список удалённых нод, которые выпиливать из итогового json
-
         foreach (Node node in _nodes)
         {
             if (node is StageNode)
             {
-                JsonObject newStageData = ((StageNode)node).SerializeToJson();
-                JsonObject oldStageData = GetStageJson((string)newStageData["Name"]);
+                StageNode stageNode = (StageNode)node;
 
-                if (oldStageData != null)
-                {
-                    _dialogStages.Remove(oldStageData);
-                }
+                JsonObject newStageData = stageNode.SerializeToJson();
 
-                _dialogStages.Add(newStageData);
+                GameDataHelper.RemoveStage((string)newStageData["Name"]);
+                GameDataHelper.AddStage(newStageData);
             }
             else if (node is ChoiceNode)
             {
                 JsonObject newChoiceData = ((ChoiceNode)node).SerializeToJson();
-                JsonObject oldChoiceData = GetChoiceJson((string)newChoiceData["Name"]);
-
-                if (oldChoiceData != null)
-                {
-                    _dialogChoices.Remove(oldChoiceData);
-                }
-
-                _dialogChoices.Add(newChoiceData);
+                
+                GameDataHelper.RemoveChoice((string)newChoiceData["Name"]);
+                GameDataHelper.AddChoice(newChoiceData);
             }
         }
 
@@ -470,8 +516,9 @@ public class NodeBasedEditor : EditorWindow
                 if (connection.ChildNode is StageNode)
                 {
                     StageNode childStage = connection.ChildNode as StageNode;
+                    childStage.ParentNode = connection.ParentNode;
 
-                    foreach (JsonObject stageJson in _dialogStages)
+                    foreach (JsonObject stageJson in GameDataHelper._stagesData)
                     {
                         if (((string)stageJson["Name"]).Equals(parentStage.StageName))
                         {
@@ -484,7 +531,7 @@ public class NodeBasedEditor : EditorWindow
                 {
                     ChoiceNode childChoice = connection.ChildNode as ChoiceNode;
 
-                    foreach (JsonObject stageJson in _dialogStages)
+                    foreach (JsonObject stageJson in GameDataHelper._stagesData)
                     {
                         if (((string)stageJson["Name"]).Equals(parentStage.StageName))
                         {
@@ -505,7 +552,9 @@ public class NodeBasedEditor : EditorWindow
                 ChoiceNode parentChoice = connection.ParentNode as ChoiceNode;
                 StageNode childStage = connection.ChildNode as StageNode;
 
-                foreach (JsonObject choiceJson in _dialogChoices)
+                childStage.ParentNode = parentChoice;
+
+                foreach (JsonObject choiceJson in GameDataHelper._choicesData)
                 {
                     if (((string)choiceJson["Name"]).Equals(parentChoice.ChoiceName))
                     {
@@ -516,8 +565,46 @@ public class NodeBasedEditor : EditorWindow
             }
         }
 
-        File.WriteAllText(_stagesDataPath, _dialogStages.ToString());
-        File.WriteAllText(_choicesDataPath, _dialogChoices.ToString());
+        foreach (JsonObject sequenceObject in GameDataHelper._sequencesData)
+        {
+            if (_sequenceName.Equals((string)sequenceObject["Name"]))
+            {
+                foreach (var node in _nodes)
+                {
+                    if (node is ChoiceNode)
+                    {
+                        continue;
+                    }
+
+                    StageNode stageNode = (StageNode) node;
+
+                    if (stageNode.ParentNode == null)
+                    {
+                        sequenceObject["StartStage"] = stageNode.StageName;
+                        break;
+                    }
+                }
+                
+                sequenceObject["FinalStage"] = null;
+
+                foreach (Node node in _nodes)
+                {
+                    if (node is StageNode)
+                    {
+                        StageNode stageNode = (StageNode)node;
+
+                        if (stageNode.IsFinal)
+                        {
+                            sequenceObject["FinalStage"] = stageNode.StageName;
+                            break;
+                        }
+                    }
+                }
+                break;
+            }
+        }
+        
+        GameDataHelper.SaveData();
     }
     #endregion
 }

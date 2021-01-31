@@ -33,7 +33,7 @@ public class DialogChoiceData : IDataStorageObject
         Text = (string)data["Text"];
         StageName = (string)data["StageName"];
 
-        ApplyingImpactType = data.GetEnum(data["ImpactType"].ToString(), ImpactType.None);
+        ApplyingImpactType = (ImpactType)data.GetInt("ImpactType");
 
         if (ApplyingImpactType != ImpactType.None)
         {
@@ -41,16 +41,16 @@ public class DialogChoiceData : IDataStorageObject
             ImpactValue = data.GetInt("ImpactValue");
         }
 
-        HistoryStageFinalizer = ((string)data["HistoryStageFinalizer"]).Equals("TRUE");
-
-        RequiredAttribute = data.GetEnum(data["RequiredAttribute"].ToString(), ImpactType.None);
+        HistoryStageFinalizer = data.GetBool("HistoryStageFinalizer");
+        
+        RequiredAttribute = (ImpactType)data.GetInt("RequiredAttribute");
 
         if (RequiredAttribute != ImpactType.None)
         {
             RequiredAttributeValue = data.GetInt("RequiredAttributeValue");
         }
 
-        Removable = ((string)data["Removable"]).Equals("TRUE");
+        Removable = data.GetBool("Removable");
     }
 
     public void ValidateData()
@@ -67,5 +67,5 @@ public class DialogChoiceData : IDataStorageObject
 
 public class DialogChoicesDataStorage : BaseDataStorage<DialogChoiceData, DialogChoicesDataStorage>
 {
-    public DialogChoicesDataStorage() : base("DialogChoice") { }
+    public DialogChoicesDataStorage() : base("DialogChoices") { }
 }

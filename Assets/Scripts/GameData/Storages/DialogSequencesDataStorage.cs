@@ -54,11 +54,13 @@ public class DialogSequenceData : IDataStorageObject
             Debug.LogError($"HISTORY_STAGE_NUMBER <= 0, DIALOG_SEQUENCE: {Name}");
         }
 
-        string needToCompleteSequencesData = (string)data["NeedToCompleteSequences"];
+        JsonArray needToCompleteSequencesData = data.Get<JsonArray>("NeedToCompleteSequences");
+        NeedToCompleteSequences = new string[needToCompleteSequencesData.Count];
 
-        if (string.IsNullOrEmpty(needToCompleteSequencesData) == false)
+        for (var i = 0; i < needToCompleteSequencesData.Count; i++)
         {
-            NeedToCompleteSequences = needToCompleteSequencesData.Split('\n');
+            var sequenceName = (string)needToCompleteSequencesData[i];
+            NeedToCompleteSequences[i] = sequenceName;
         }
     }
 }

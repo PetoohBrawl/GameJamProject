@@ -9,7 +9,7 @@ public class DialogStageData : IDataStorageObject
     public string Phrase { get; private set; }
     public string DiaryRecord { get; private set; }
     // переделать без инициализации по умолчанию
-    public List<DialogChoiceData> DialogChoices { get; private set; } = new List<DialogChoiceData>();
+    public List<DialogChoiceData> DialogChoices { get; } = new List<DialogChoiceData>();
     public string NextStageName { get; private set; }
     public LocationName Location { get; private set; }
 
@@ -21,29 +21,24 @@ public class DialogStageData : IDataStorageObject
 
         DiaryRecord = (string)data["DiaryRecord"];
 
-        string choices = (string)data["Choices"];
+        JsonArray choices = data.Get<JsonArray>("Choices");
 
-        if (!string.IsNullOrEmpty(choices))
+        foreach (string choiceName in choices)
         {
-            string[] choicesNames = choices.Split('\n');
+            DialogChoiceData choiceData = DialogChoicesDataStorage.Instance.GetByName(choiceName);
 
-            foreach (string choiceName in choicesNames)
+            if (choiceData == null)
             {
-                DialogChoiceData choiceData = DialogChoicesDataStorage.Instance.GetByName(choiceName);
-
-                if (choiceData == null)
-                {
-                    Debug.LogError($"CHOICE_DATA is NULL with NAME: {choiceName}, DIALOG_STAGE: {Name}");
-                }
-
-                DialogChoices.Add(choiceData);
+                Debug.LogError($"CHOICE_DATA is NULL with NAME: {choiceName}, DIALOG_STAGE: {Name}");
             }
+
+            DialogChoices.Add(choiceData);
         }
 
-        Location = data.GetEnum((string)data["Location"], LocationName.Unknown);
+        Location = (LocationName)data.GetInt("Location");
     }
 }
 public class DialogStagesDataStorage : BaseDataStorage<DialogStageData, DialogStagesDataStorage>
 {
-    public DialogStagesDataStorage() : base("DialogStage") { }
+    public DialogStagesDataStorage() : base("DialogStages") { }
 }
