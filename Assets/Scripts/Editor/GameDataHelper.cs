@@ -242,7 +242,7 @@ public static class GameDataHelper
         
     }
 
-    [MenuItem("Tools/Req attr value fix", false)]
+    //[MenuItem("Tools/Req attr value fix", false)]
     public static void ReqValueFix()
     {
         Init();
