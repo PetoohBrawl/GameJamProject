@@ -137,7 +137,7 @@ public class ChoiceNode : Node
             { "ImpactTargetName", _applyingImpactTargetName },
             { "StageName", null },
             { "HistoryStageFinalizer", _historyStageFinalizer },
-            { "RequiredAttribute", _requiredImpact },
+            { "RequiredAttribute", (long)_requiredImpact },
             { "RequiredAttributeValue", _requiredImpactValue },
             { "Removable", _removable },
         };
