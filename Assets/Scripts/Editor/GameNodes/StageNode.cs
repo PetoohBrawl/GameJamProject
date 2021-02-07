@@ -78,7 +78,7 @@ public class StageNode : Node
         {
             { "Name", StageName },
             { "Phrase", _stagePhrase },
-            { "Choices", null },
+            { "Choices", new JsonArray() },
             { "NextStageName", null },
             { "Location", (long)_location },
             { "DiaryRecord", _diaryString },
