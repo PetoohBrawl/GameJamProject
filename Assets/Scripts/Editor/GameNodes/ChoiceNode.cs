@@ -8,7 +8,7 @@ public class ChoiceNode : Node
 {
     public string ChoiceName { get; private set; }
     private string _choiceText;
-    private ImpactType _requiredImpact;
+    private ImpactType _requiredImpact = ImpactType.None;
     private long _requiredImpactValue;
     private bool _historyStageFinalizer;
     private bool _removable;

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   GameDataAssets:
-  - {fileID: 4900000, guid: 6334d20582121b4429cf09ed1a100835, type: 3}
-  - {fileID: 4900000, guid: c9291f4fe89b80748a6fc53ddb71372c, type: 3}
-  - {fileID: 4900000, guid: fcf7b7eeaf427ec4ebcac4cb579b2a65, type: 3}
-  - {fileID: 4900000, guid: 88b840ead3ef95f4b944c908dc49f27d, type: 3}
-  MaxHistoryStage: 2
+  - {fileID: 4900000, guid: ad7eba99025a44ce6b54dca4a625adeb, type: 3}
+  - {fileID: 4900000, guid: dffb0d7ae7d2a455eb08f5c2b884ac5c, type: 3}
+  - {fileID: 4900000, guid: 9047fd09b90ff4c049f79254645d2492, type: 3}
+  - {fileID: 4900000, guid: eb1cee1393c294ea5b92bf02bb629635, type: 3}
+  StartLocation: 0

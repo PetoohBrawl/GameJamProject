@@ -122,17 +122,12 @@ public class PlayerProgress
 
     public List<CharacterInfo> GetCharactersInLocation(LocationName locationName)
     {
-        List<CharacterInfo> characterInfos = null;
+        List<CharacterInfo> characterInfos = new List<CharacterInfo>();
 
         foreach (CharacterInfo characterInfo in _characters)
         {
             if (characterInfo.Location.Equals(locationName))
             {
-                if (characterInfos == null)
-                {
-                    characterInfos = new List<CharacterInfo>();
-                }
-
                 characterInfos.Add(characterInfo);
             }
         }
