@@ -11,28 +11,18 @@ public abstract class Node : ScriptableObject
     private bool _isDragged;
     private bool _isSelected;
 
-    protected GUISkin _skin;
-
     public static event Action<Node> OnRemoveNode;
     public static event Action<Node> OnConnectionCreateBegin;
     public static event Action<Node> OnConnectionCreateEnd;
 
     public abstract JsonObject SerializeToJson();
 
-    private void OnEnable()
-    {
-        _skin = AssetDatabase.LoadAssetAtPath<GUISkin>("Assets/Editor/DialogEditorSkin.guiskin");
-    }
-
     public void Drag(Vector2 delta)
     {
         NodeRect.position += delta;
     }
 
-    public virtual void Draw()
-    {
-        
-    }
+    public abstract void Draw();
 
     public bool ProcessEvents(Event e)
     {
@@ -84,7 +74,7 @@ public abstract class Node : ScriptableObject
     {
         GenericMenu genericMenu = new GenericMenu();
         genericMenu.AddItem(new GUIContent("Remove node"), false, OnClickRemoveNode);
-        genericMenu.AddItem(new GUIContent("Add Connection"), false, () => OnClickAddConnection());
+        genericMenu.AddItem(new GUIContent("Add Connection"), false, OnClickAddConnection);
         genericMenu.ShowAsContext();
     }
 

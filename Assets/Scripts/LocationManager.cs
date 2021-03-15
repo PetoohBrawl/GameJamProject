@@ -17,14 +17,14 @@ public class LocationManager : MonoBehaviour
 {
     public static LocationManager Instance { get; private set; }
 
-    public LocationName CurrentLocation { get; private set; } = LocationName.Unknown;
+    private LocationName CurrentLocation { get; set; } = LocationName.Unknown;
 
     [SerializeField] private RectTransform _charactersParent;
     [SerializeField] private Image _backgroundImage;
     [SerializeField] private Image _uiShadow;
 
-    private Color _dark = new Color(0, 0, 0, 1);
-    private Color _transparent = new Color(0, 0, 0, 0);
+    private readonly Color _dark = new Color(0, 0, 0, 1);
+    private readonly Color _transparent = new Color(0, 0, 0, 0);
 
     private void Awake()
     {

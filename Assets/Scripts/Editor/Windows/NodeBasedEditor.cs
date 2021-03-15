@@ -22,7 +22,7 @@ public class NodeBasedEditor : BaseCustomEditor
     private string _sequenceName;
     private string _finalStageName;
 
-    private List<string> _parsedNodes = new List<string>();
+    private readonly List<string> _parsedNodes = new List<string>();
 
     private List<string> _characterNames;
 
@@ -77,10 +77,8 @@ public class NodeBasedEditor : BaseCustomEditor
         {
             Node searchNode = _nodes.Find(delegate(Node node)
             {
-                if (node is StageNode)
+                if (node is StageNode searchStageNode)
                 {
-                    StageNode searchStageNode = (StageNode)node;
-
                     if (searchStageNode.StageName.Equals(stageName))
                     {
                         searchStageNode.NodeRect.y = (searchStageNode.NodeRect.y + parentNode.NodeRect.y) / 2; 
@@ -509,14 +507,11 @@ public class NodeBasedEditor : BaseCustomEditor
                 continue;
             }
 
-            if (connection.ParentNode is StageNode)
+            if (connection.ParentNode is StageNode parentStage)
             {
-                StageNode parentStage = connection.ParentNode as StageNode;
-
-                if (connection.ChildNode is StageNode)
+                if (connection.ChildNode is StageNode childStage)
                 {
-                    StageNode childStage = connection.ChildNode as StageNode;
-                    childStage.ParentNode = connection.ParentNode;
+                    childStage.ParentNode = parentStage;
 
                     foreach (JsonObject stageJson in GameDataHelper._stagesData)
                     {
@@ -527,10 +522,8 @@ public class NodeBasedEditor : BaseCustomEditor
                         }
                     }
                 }
-                else if (connection.ChildNode is ChoiceNode)
+                else if (connection.ChildNode is ChoiceNode childChoice)
                 {
-                    ChoiceNode childChoice = connection.ChildNode as ChoiceNode;
-
                     foreach (JsonObject stageJson in GameDataHelper._stagesData)
                     {
                         if (((string)stageJson["Name"]).Equals(parentStage.StageName))
@@ -547,9 +540,8 @@ public class NodeBasedEditor : BaseCustomEditor
                     }
                 }
             }
-            else if (connection.ParentNode is ChoiceNode)
+            else if (connection.ParentNode is ChoiceNode parentChoice)
             {
-                ChoiceNode parentChoice = connection.ParentNode as ChoiceNode;
                 StageNode childStage = connection.ChildNode as StageNode;
 
                 childStage.ParentNode = parentChoice;
@@ -567,41 +559,43 @@ public class NodeBasedEditor : BaseCustomEditor
 
         foreach (JsonObject sequenceObject in GameDataHelper._sequencesData)
         {
-            if (_sequenceName.Equals((string)sequenceObject["Name"]))
+            if (!_sequenceName.Equals((string) sequenceObject["Name"]))
             {
-                foreach (var node in _nodes)
+                continue;
+            }
+            
+            foreach (var node in _nodes)
+            {
+                if (node is ChoiceNode)
                 {
-                    if (node is ChoiceNode)
-                    {
-                        continue;
-                    }
+                    continue;
+                }
 
-                    StageNode stageNode = (StageNode) node;
+                StageNode stageNode = (StageNode)node;
 
-                    if (stageNode.ParentNode == null)
+                if (stageNode.ParentNode != null)
+                {
+                    continue;
+                }
+                
+                sequenceObject["StartStage"] = stageNode.StageName;
+                break;
+            }
+                
+            sequenceObject["FinalStage"] = null;
+
+            foreach (Node node in _nodes)
+            {
+                if (node is StageNode stageNode)
+                {
+                    if (stageNode.IsFinal)
                     {
-                        sequenceObject["StartStage"] = stageNode.StageName;
+                        sequenceObject["FinalStage"] = stageNode.StageName;
                         break;
                     }
                 }
-                
-                sequenceObject["FinalStage"] = null;
-
-                foreach (Node node in _nodes)
-                {
-                    if (node is StageNode)
-                    {
-                        StageNode stageNode = (StageNode)node;
-
-                        if (stageNode.IsFinal)
-                        {
-                            sequenceObject["FinalStage"] = stageNode.StageName;
-                            break;
-                        }
-                    }
-                }
-                break;
             }
+            break;
         }
         
         GameDataHelper.SaveData();

@@ -11,7 +11,7 @@ public class DialogWindow : MonoBehaviour
 
     private DialogSequenceInfo _currentSequenceInfo;
     private DialogStageInfo _currentStage;
-    private List<DialogStageInfo> _currentStages = new List<DialogStageInfo>();
+    private readonly List<DialogStageInfo> _currentStages = new List<DialogStageInfo>();
 
     private void OnEnable()
     {
@@ -30,7 +30,7 @@ public class DialogWindow : MonoBehaviour
         _currentSequenceInfo = dialogSequenceInfo;
         _currentStages.Clear();
 
-        DialogStageInfo startStage = null;
+        DialogStageInfo startStage;
 
         if (dialogSequenceInfo.IsCompleted == false)
         {
@@ -62,10 +62,7 @@ public class DialogWindow : MonoBehaviour
 
         if (nextStageData != null)
         {
-            nextStageInfo = _currentStages.Find((stageInfo) =>
-            {
-                return stageInfo.Data.Equals(nextStageData);
-            });
+            nextStageInfo = _currentStages.Find((stageInfo) => stageInfo.Data.Equals(nextStageData));
 
             if (nextStageInfo == null)
             {

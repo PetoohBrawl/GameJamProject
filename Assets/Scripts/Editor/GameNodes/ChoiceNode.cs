@@ -47,8 +47,6 @@ public class ChoiceNode : Node
 
     public override void Draw()
     {
-        base.Draw();
-
         GUILayout.BeginVertical();
 
         GUILayout.BeginHorizontal();

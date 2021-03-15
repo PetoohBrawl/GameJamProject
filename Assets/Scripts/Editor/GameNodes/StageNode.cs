@@ -30,8 +30,6 @@ public class StageNode : Node
 
     public override void Draw()
     {
-        base.Draw();
-
         GUILayout.BeginVertical();
 
         GUILayout.BeginHorizontal();
