@@ -7,7 +7,7 @@ public class GameLoader
 {
     public LocationName StartLocation { get; private set; }
 
-    private IDataStorage[] _storages = new IDataStorage[]
+    private readonly IDataStorage[] _storages = new IDataStorage[]
     {
         DialogChoicesDataStorage.Instance,
         DialogStagesDataStorage.Instance,

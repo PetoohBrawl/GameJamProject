@@ -20,19 +20,12 @@ public class PlayerProgress
 
     public StringBuilder HeroDiary { get; private set; } = new StringBuilder();
 
-    private readonly Dictionary<ImpactType, int> _heroAttributes = new Dictionary<ImpactType, int>();
     private readonly List<string> _completedDialogSequenceNames = new List<string>();
     
     private CharacterInfo[] _characters;
 
     public void Init()
     {
-        // с 1, так как 0 атрибут - репутация
-        for (int i = 1; i < (int)ImpactType.Count; i++)
-        {
-            _heroAttributes.Add((ImpactType)i, 0);
-        }
-
         List<CharacterData> characterDatas = CharactersDataStorage.Instance.GetData();
         int charactersCount = characterDatas.Count;
 

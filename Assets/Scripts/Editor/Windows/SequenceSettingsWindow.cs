@@ -14,8 +14,8 @@ public enum ReputationDirection
 [Serializable]
 public class RequiredSequence
 {
-    public string SequenceName;
-    public int Index;
+    public string SequenceName { get; set; }
+    public int Index { get; set; }
 
     public RequiredSequence(string sequenceName, int index)
     {
@@ -38,9 +38,9 @@ public class SequenceSettingsWindow : BaseCustomEditor
     private string _reputationCharacterName;
     [SerializeField] private List<RequiredSequence> _requiredSequences = new List<RequiredSequence>();
     
-    private GenericMenu _sequencesMenu = new GenericMenu();
+    private readonly GenericMenu _sequencesMenu = new GenericMenu();
     private int _requiredSequenceItemIndex = -1;
-    private GenericMenu _reputationCharactersMenu = new GenericMenu();
+    private readonly GenericMenu _reputationCharactersMenu = new GenericMenu();
     
     public static void Open(string sequenceName, List<string> characterNames)
     {
@@ -207,11 +207,12 @@ public class SequenceSettingsWindow : BaseCustomEditor
         GUILayout.EndVertical();
     }
 
-    public void OnRequiredSequenceChange(object newSequence)
+    private void OnRequiredSequenceChange(object newSequence)
     {
         _requiredSequences[_requiredSequenceItemIndex].SequenceName = (string)newSequence;
     }
-    public void OnReputationTargetChange(object reputationTarget)
+
+    private void OnReputationTargetChange(object reputationTarget)
     {
         _reputationCharacterName = (string)reputationTarget;
         _currentSequence["ReputationTarget"] = _reputationCharacterName;

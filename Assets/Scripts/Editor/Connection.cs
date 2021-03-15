@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Connection
 {
-    public Node ParentNode;
+    public readonly Node ParentNode;
     public Node ChildNode;
 
     public static event Action<Connection> OnClickRemoveConnection;

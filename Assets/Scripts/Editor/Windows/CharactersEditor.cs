@@ -8,7 +8,7 @@ public class CharactersEditor : BaseCustomEditor
     private static CharactersEditor _instance;
 
     private int _currentSelectedCharacter;
-    private List<string> _characterNames = new List<string>();
+    private readonly List<string> _characterNames = new List<string>();
     private string _newCharacterName;
     private string _newSequenceName;
 
